@@ -2,6 +2,10 @@
 An open source nodejs server implementation for slither.io
 
 
+### Requirements
+1. make sure you have `nodejs` installed.
+2. install nodejs ws: `npm install ws`
+
 ### Running the server
 
 1. start the server with: `node server.js`
@@ -11,3 +15,4 @@ An open source nodejs server implementation for slither.io
 
 
 Currently, the server is in a very early stage. Just a few packets are implemented. A real gameplay is actually not done.
+Thank's to all guys helping to create some funny stuff!
