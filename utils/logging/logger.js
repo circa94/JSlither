@@ -1,3 +1,11 @@
+/*  
+ * Class:         Logger
+ * Description:   Base class for logging
+ * Created:       13.04.2016
+ * Last change:   13.04.2016
+ * Collaborators: circa94, Kogs
+*/
+
 'use strict';
 
 const isDebug = true;
@@ -21,7 +29,6 @@ module.exports = {
         return isDebug;
     },
 
-
     printArrayInfo: function(incoming, array) {
         this.printArray(array, this.info);
     },
@@ -41,8 +48,5 @@ module.exports = {
         }
         s += "]";
         console.log(s);
-
     },
-
-
 }
