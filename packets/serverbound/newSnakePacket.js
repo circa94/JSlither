@@ -17,8 +17,8 @@ function NewSnakePacket(id, username) {
  this.unknown2 = 0;
  this.packetType = consts.packetTypes.s;
  this.snakeId = id;
- this.D = 4.9972149810042685 / Math.PI * consts.INT24MAX; //some random float value 9.48109
- this.x = 4.9972149810042685  / Math.PI * consts.INT24MAX; //always same as D
+ this.D = 3.1415926535 / Math.PI * consts.INT24MAX; 
+ this.x = 3.1415926535 / Math.PI * consts.INT24MAX; //always same as D
  this.speed =  5.76 * 1E3;
  this.H = 0.028860630325116536 * consts.INT24MAX; //always very close to 0. idk what it is
  this.skin = 20;
@@ -32,6 +32,61 @@ function NewSnakePacket(id, username) {
    { x:3,y:4}
    ];
 }
+
+
+//normal game
+//b = 59096, q = 32999, f = 19454.6, h = 20, u = 3.786877477221752
+// 0:Object 
+// da:0
+// ebx:0
+// eby:0
+// efs:Array[0]
+// eiu:0
+// ems:
+// Array[0]
+// exs:
+// Array[0]
+// eys:
+// Array[0]
+// fx:0
+// fy:0
+// xx:33032.6
+// yy:19480
+
+//da:0
+//ebx:-34
+//eby:-25.5
+//efs:Array[0]
+//eiu:0
+//ems:Array[0]
+//exs:Array[0]
+//eys:Array[0]
+//fx:0
+//fy:0
+//xx:32998.6
+//yy:19454.5
+
+
+//this server
+//b = 11403, q = 21001.4, f = 10016.2, h = 20, u = 3.900131405384058
+//xx:21031.8
+//yy:10045
+
+//da:0
+//ebx:-30.5
+//eby:-29
+//efs:Array[0]
+//eiu:0
+//ems:Array[0]
+//exs:Array[0]
+//eys:Array[0]
+//fx:0
+//fy:0
+//xx:21001.3
+//yy:10016
+
+
+
 
 NewSnakePacket.prototype.toBuffer = function() {
   var nameLength = this.name.length;
@@ -54,8 +109,8 @@ NewSnakePacket.prototype.toBuffer = function() {
 
   msgUtil.writeString(b, arr, this.name); //b=22
   var index = b + nameLength; //index = 22 + 7 -1 = 28
-  msgUtil.writeInt16(index, arr, this.xPosHead); //hier sind wir in byte 28
-  msgUtil.writeInt16(index + 3, arr, this.yPosHead); //hier in 31
+  msgUtil.writeInt24(index, arr, this.xPosHead); //hier sind wir in byte 28
+  msgUtil.writeInt24(index + 3, arr, this.yPosHead); //hier in 31
   index += 6; //index = 37
   //das geht 2 mal durch
   for (var i = 0; i < this.parts.length; i++) {

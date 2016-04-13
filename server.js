@@ -6,6 +6,8 @@
  * Collaborators: circa94, Kogs
 */
 
+//sos = [{ ip: "jslither-circa94.c9users.io", po: 8080, ac: 34, ptm: 121 } ]
+
 var WebsocketServer = require("ws").Server;
 var msgUtil = require('./utils/message_util');
 var log = require('./utils/logging/logger');
@@ -42,7 +44,9 @@ function SlitherServer() {
     //The server recieves a new message from the client
     ws.on('message', function(message) {
       var data = new Uint8Array(message);
-      log.printArrayError(true, data);
+      
+      log.printArrayDebug(true, data);
+      
       if (data.byteLength == 1) {
         var value = msgUtil.readInt8(0, data);
 
@@ -74,12 +78,13 @@ function SlitherServer() {
         if (firstByte == 115 && secondByte == 5) { //start a new game. set username
           var username = msgUtil.readString(3, data, data.byteLength);
           ws.username = username;
-          log.debug("Client sends username " + ws.clientId + " " + username);
+          log.info("Client sends username " + ws.clientId + " " + username);
           
           //
           self.sendToAll(new NewSnakePacket(ws.clientId, username));
           self.sendToClient(new GlobalHighscorePacket(),ws.clientId);
           self.sendToClient(new GPacket(ws.clientId,28907,21136), ws.clientId);
+          
         }
         else if (firstByte == 109) {
           log.info("setAcceleration " + secondByte);
@@ -109,13 +114,13 @@ function SlitherServer() {
       log.printArrayDebug(false, buffer);
     }
     this.clients.forEach(function(client) {
-      client.send(buffer.toString());
+      client.send(buffer);
+      log.printArrayDebug(false, buffer);
     });
   };
 
   //Sends a message to a single client
   this.sendToClient = function(message, id) {
-      console.log(message);
     var buffer = message.toBuffer();
     if (log.isDebugEnalbed()) {
       log.debug("Send to Client with id:" + id);

@@ -17,7 +17,7 @@ module.exports = {
         number = Math.floor(number);
         if(number > consts.INT24MAX){
             log.error("Int24 out of bounds. "+ number +" but max is " +  consts.INT24MAX);
-            number = consts.INT24MAX;
+            throw new Error("Int24 out of bound");
         }
         var byte1 = (number >> 16) & 0xFF;
         var byte2 = (number >> 8) & 0xFF;
@@ -32,7 +32,7 @@ module.exports = {
         number = Math.floor(number);
         if(number > consts.INT16MAX){
             log.error("Int16 out of bounds. " +number +" but max is " +  consts.INT16MAX);
-            number = consts.INT16MAX;
+            throw new Error("Int16 out of bound");
         }
         var byte1 = (number >> 8) & 0xFF;
         var byte2 = number & 0xFF;
@@ -45,7 +45,7 @@ module.exports = {
         number = Math.floor(number);
         if(number > consts.INT8MAX){
             log.error("Int8 out of bounds. "+ number +" but max is " +  consts.INT8MAX);
-            number = consts.INT8MAX;
+            throw new Error("Int8 out of bound");
         }
         var byte1 = number & 0xFF;
         data[offset] = byte1;

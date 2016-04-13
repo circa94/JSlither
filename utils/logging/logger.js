@@ -12,8 +12,6 @@ const isDebug = true;
 
 module.exports = {
 
-    isDebug: true,
-
     info: function(msg) {
         console.log(new Date() + " info: " + msg);
     },
@@ -30,23 +28,23 @@ module.exports = {
     },
 
     printArrayInfo: function(incoming, array) {
-        this.printArray(array, this.info);
+        this.printArray(array, this.info,this.info);
     },
     printArrayError: function(incoming, array) {
-        this.printArray(array, this.error);
+        this.printArray(array, this.error,this.error);
     },
     printArrayDebug: function(incoming, array) {
         if (isDebug) {
-            this.printArray(incoming, array);
+            this.printArray(incoming, array, this.debug);
         }
 
     },
-    printArray: function(incoming, array) {
+    printArray: function(incoming, array,func) {
         var s = (incoming ? "<--" : "-->") + " Data: [";
         for (var i = 0; i < array.byteLength; i++) {
             s += array[i] + (i + 1 < array.byteLength ? "," : "");
         }
         s += "]";
-        console.log(s);
+        func(s);
     },
 }
