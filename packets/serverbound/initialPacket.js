@@ -3,9 +3,9 @@
  * Description:   Class for the initial packet which is sending to the client when the client is connected. 
  *                Here are stored basic game informations.
  * Created:       13.04.2016
- * Last change:   13.04.2016
+ * Last change:   14.04.2016
  * Collaborators: circa94, Kogs
-*/
+ */
 
 'use strict';
 
@@ -17,7 +17,7 @@ function InitialPacket() {
     this.unknown1 = 0;
     this.unknown2 = 0;
     this.packetType = consts.packetTypes.a;
-    this.gameRadius = /*21600; for test changed*/ 216000;
+    this.gameRadius = consts.MAPSIZE;
     this.c = 411;
     this.sector_size = 480;
     this.sector_count_along_edge = 130;

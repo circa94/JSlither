@@ -12,11 +12,11 @@ var msgUtil = require('../../utils/message_util');
 var consts = require("../../utils/constants");
 var exports = module.exports = {};
 
-function NewSnakePacket(id, username) {
+function NewSnakePacket(client) {
  this.unknown1 = 0;
  this.unknown2 = 0;
  this.packetType = consts.packetTypes.s;
- this.snakeId = id;
+ this.snakeId = client.clientId;
  this.D = 3.1415926535 / Math.PI * consts.INT24MAX; 
  this.x = 3.1415926535 / Math.PI * consts.INT24MAX; //always same as D
  this.speed =  5.76 * 1E3;
@@ -24,7 +24,7 @@ function NewSnakePacket(id, username) {
  this.skin = 20;
  this.xPos = 28907.6 * 5;
  this.yPos = 21137.4 * 5;
- this.name = username;
+ this.name = client.username;
  this.xPosHead = 28907.3 * 5;
  this.yPosHead = 21136.8 * 5;
  this.parts = [
@@ -32,61 +32,6 @@ function NewSnakePacket(id, username) {
    { x:3,y:4}
    ];
 }
-
-
-//normal game
-//b = 59096, q = 32999, f = 19454.6, h = 20, u = 3.786877477221752
-// 0:Object 
-// da:0
-// ebx:0
-// eby:0
-// efs:Array[0]
-// eiu:0
-// ems:
-// Array[0]
-// exs:
-// Array[0]
-// eys:
-// Array[0]
-// fx:0
-// fy:0
-// xx:33032.6
-// yy:19480
-
-//da:0
-//ebx:-34
-//eby:-25.5
-//efs:Array[0]
-//eiu:0
-//ems:Array[0]
-//exs:Array[0]
-//eys:Array[0]
-//fx:0
-//fy:0
-//xx:32998.6
-//yy:19454.5
-
-
-//this server
-//b = 11403, q = 21001.4, f = 10016.2, h = 20, u = 3.900131405384058
-//xx:21031.8
-//yy:10045
-
-//da:0
-//ebx:-30.5
-//eby:-29
-//efs:Array[0]
-//eiu:0
-//ems:Array[0]
-//exs:Array[0]
-//eys:Array[0]
-//fx:0
-//fy:0
-//xx:21001.3
-//yy:10016
-
-
-
 
 NewSnakePacket.prototype.toBuffer = function() {
   var nameLength = this.name.length;
@@ -129,6 +74,6 @@ NewSnakePacket.prototype.toBuffer = function() {
   return arr;
 }
 
-exports.NewSnakePacket = function(id, username) {
-    return new NewSnakePacket(id, username);
+exports.NewSnakePacket = function(client) {
+    return new NewSnakePacket(client);
 }
