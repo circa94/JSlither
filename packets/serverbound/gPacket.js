@@ -29,6 +29,4 @@ GPacket.prototype.toBuffer = function(){
   return arr;
 }
 
-exports.GPacket = function(id,x,y) {
-    return new GPacket(id,x,y);
-}
+module.exports = GPacket;

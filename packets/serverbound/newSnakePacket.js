@@ -74,6 +74,4 @@ NewSnakePacket.prototype.toBuffer = function() {
   return arr;
 }
 
-exports.NewSnakePacket = function(client) {
-    return new NewSnakePacket(client);
-}
+module.exports = NewSnakePacket;

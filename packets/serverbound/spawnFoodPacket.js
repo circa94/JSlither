@@ -36,6 +36,4 @@ SpawnFoodPacket.prototype.toBuffer = function() {
     return arr;
 }
 
-exports.SpawnFoodPacket = function(foods) {
-    return new SpawnFoodPacket(foods);
-}
+module.exports = SpawnFoodPacket;

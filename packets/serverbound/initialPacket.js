@@ -53,6 +53,4 @@ InitialPacket.prototype.toBuffer = function() {
     return arr;
 }
 
-exports.InitialPacket = function() {
-    return new InitialPacket();
-}
+module.exports = InitialPacket;

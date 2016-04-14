@@ -10,14 +10,10 @@
 
 var WebsocketServer = require("ws").Server;
 var msgUtil = require('./utils/message_util');
+var mathUtils = require("./utils/mathUtils");
 var consts = require("./utils/constants");
 var log = require('./utils/logging/logger');
-var InitialPacket = require("./packets/serverbound/initialPacket").InitialPacket;
-var NewSnakePacket = require("./packets/serverbound/newSnakePacket").NewSnakePacket;
-var GlobalHighscorePacket = require("./packets/serverbound/globalHighscorePacket").GlobalHighscorePacket;
-var GPacket = require("./packets/serverbound/gPacket").GPacket;
-var PongPacket = require("./packets/serverbound/pongPacket").PongPacket;
-var SpawnFoodPacket = require("./packets/serverbound/spawnFoodPacket").SpawnFoodPacket;
+var Packets = require("./packets/packets");
 
 function SlitherServer() {
 
@@ -37,14 +33,14 @@ function SlitherServer() {
   //in future, this should make some kind of task, which is generating new food
   //currently all foods are sending. later we should only send the food in players range
   for (var i = 0; i < 100; i++) {
-    var xPos = getRandomInt(28500, 29000);
-    var yPos = getRandomInt(20600, 21300);
+    var xPos = mathUtils.getRandomInt(28500, 29000);
+    var yPos = mathUtils.getRandomInt(20600, 21300);
     var food = {
       id: xPos * consts.MAPSIZE * 3 + yPos,
-      color: getRandomInt(0, consts.MAXFOODCOLORS - 1),
+      color: mathUtils.getRandomInt(0, consts.MAXFOODCOLORS - 1),
       xPos: xPos,
       yPos: yPos,
-      size: getRandomInt(35,70),
+      size: mathUtils.getRandomInt(35,70),
     };
     //w = yPos * mapSize * 3 + xPos =====> id
     self.foods.push(food);
@@ -59,7 +55,7 @@ function SlitherServer() {
 
     log.info("New Client with id: " + ws.clientId + " connected.");
     log.debug("Send packet: InitialPacket");
-    self.sendToClient(new InitialPacket(), ws.clientId);
+    self.sendToClient(new Packets.InitialPacket(), ws.clientId);
 
     //The server recieves a new message from the client
     ws.on('message', function(message) {
@@ -84,7 +80,7 @@ function SlitherServer() {
         }
         else if (value == 251) {
           log.debug("Client with id: " + ws.clientId + " sends ping");
-          self.sendToClient(new PongPacket(), ws.clientId);
+          self.sendToClient(new Packets.PongPacket(), ws.clientId);
         }
       }
       else {
@@ -103,18 +99,18 @@ function SlitherServer() {
           //ws.snake.skin = getRandomInt(0, 26);
           //TODO spawn position
 
-          self.sendToAll(new NewSnakePacket(ws));
-          self.sendToClient(new GlobalHighscorePacket(), ws.clientId);
-          self.sendToClient(new GPacket(ws.clientId, 28907, 21136), ws.clientId);
+          self.sendToAll(new Packets.NewSnakePacket(ws));
+          self.sendToClient(new Packets.GlobalHighscorePacket(), ws.clientId);
+          self.sendToClient(new Packets.gPacket(ws.clientId, 28907, 21136), ws.clientId);
 
           //TODO send food here
-          self.sendToClient(new SpawnFoodPacket(self.foods), ws.clientId);
+          self.sendToClient(new Packets.SpawnFoodPacket(self.foods), ws.clientId);
 
           //todo test this..
           self.clients.forEach(function(client) {
             //later only send close snakes 
             if (client.clientId != ws.clientId) {
-              self.sendToClient(new NewSnakePacket(client), ws.clientId);
+              self.sendToClient(new Packets.NewSnakePacket(client), ws.clientId);
             }
           });
 
@@ -165,13 +161,13 @@ function SlitherServer() {
 
 
   this.loop = function() {
-    //  log.debug("loop");
+     //log.debug("loop");
     //update all snakes etc
     //check collisions
     //
 
   };
-  setInterval(this.loop, 250);
+  //setInterval(this.loop, 1);
 
 
 }
@@ -185,6 +181,4 @@ SlitherServer();
  * Returns a random integer between min (inclusive) and max (inclusive)
  * Using Math.round() will give you a non-uniform distribution!
  */
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+

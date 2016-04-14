@@ -21,6 +21,4 @@ PongPacket.prototype.toBuffer = function() {
   return arr;
 }
 
-exports.PongPacket = function() {
-    return new PongPacket();
-}
+module.exports = PongPacket;

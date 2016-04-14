@@ -37,6 +37,4 @@ GlobalHighscorePacket.prototype.toBuffer = function() {
   return arr;
 }
 
-exports.GlobalHighscorePacket = function() {
-    return new GlobalHighscorePacket();
-}
+module.exports = GlobalHighscorePacket;
