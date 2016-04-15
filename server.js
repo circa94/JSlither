@@ -161,8 +161,8 @@ function SlitherServer() {
       });*/
 
     self.clients.forEach(function(client) {
-      client.snake.xPos += 1000;
-      client.snake.yPos += 1000; //TODO x and y calculation
+      client.snake.xPos += 1;
+      client.snake.yPos -= 1; //TODO x and y calculation
       this.sendToAll(new Packets.UpdatePositionPacket(client.clientId, client.snake.xPos, client.snake.yPos));
     });
     //this.sendToAll(new Packets.UpdatePositionPacket());
@@ -181,16 +181,9 @@ function SlitherServer() {
   //setInterval(this.loop, 1);
 
 
-  setInterval(this.updatePositionTask, 2000);
+  setInterval(this.updatePositionTask, 1000); //when you decraese this value, the client gets the information faster! 
 
 }
 
 //Run the server
 SlitherServer();
-
-
-//TODO create new file for util functions
-/**
- * Returns a random integer between min (inclusive) and max (inclusive)
- * Using Math.round() will give you a non-uniform distribution!
- */

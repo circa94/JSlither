@@ -23,26 +23,27 @@ function NewSnakePacket(snake) {
 NewSnakePacket.prototype.toBuffer = function() {
   var nameLength = this.snake.username.length;
   var partsByteLength = this.snake.parts.length * 2;
-  var arr = new Uint8Array(27 + nameLength + partsByteLength * 2);
+  //                27 ->basic info           6 ->  header pos
+  var arr = new Uint8Array(25 + nameLength + 6 + partsByteLength);
   var b = 0;
-  b += msgUtil.writeInt8(b, arr, 0);
-  b += msgUtil.writeInt8(b, arr, 0);
-  b += msgUtil.writeInt8(b, arr, this.packetType);
-  b += msgUtil.writeInt16(b, arr, this.snake.id);
-  b += msgUtil.writeInt24(b, arr, this.snake.D);
-  b += msgUtil.writeInt8(b, arr, 0);
-  b += msgUtil.writeInt24(b, arr, this.snake.x);
-  b += msgUtil.writeInt16(b, arr, this.snake.speed);
-  b += msgUtil.writeInt24(b, arr, this.H);
-  b += msgUtil.writeInt8(b, arr, this.snake.skin);
-  b += msgUtil.writeInt24(b, arr, this.snake.xPos);
-  b += msgUtil.writeInt24(b, arr, this.snake.yPos);
-  b += msgUtil.writeInt8(b, arr, nameLength); //b = 21
+  b += msgUtil.writeInt8(b, arr, 0); //1
+  b += msgUtil.writeInt8(b, arr, 0); //1
+  b += msgUtil.writeInt8(b, arr, this.packetType);//1
+  b += msgUtil.writeInt16(b, arr, this.snake.id);//2
+  b += msgUtil.writeInt24(b, arr, this.snake.D);//3
+  b += msgUtil.writeInt8(b, arr, 0);//2
+  b += msgUtil.writeInt24(b, arr, this.snake.x);//3
+  b += msgUtil.writeInt16(b, arr, this.snake.speed);//2
+  b += msgUtil.writeInt24(b, arr, this.H);//3
+  b += msgUtil.writeInt8(b, arr, this.snake.skin);//1
+  b += msgUtil.writeInt24(b, arr, this.snake.xPos);//3
+  b += msgUtil.writeInt24(b, arr, this.snake.yPos);//3
+  b += msgUtil.writeInt8(b, arr, nameLength); //1
 
-  msgUtil.writeString(b, arr, this.snake.username); //b=22
+  msgUtil.writeString(b, arr, this.snake.username); //+namelength
   var index = b + nameLength; //index = 22 + 7 -1 = 28
-  msgUtil.writeInt24(index, arr, this.snake.xPosHead); //hier sind wir in byte 28
-  msgUtil.writeInt24(index + 3, arr, this.snake.yPosHead); //hier in 31
+  msgUtil.writeInt24(index, arr, this.snake.xPosHead); //hier sind wir in byte 28 //+3
+  msgUtil.writeInt24(index + 3, arr, this.snake.yPosHead); //hier in 31 //+3
   index += 6; //index = 37
   //das geht 2 mal durch
   for (var i = 0; i < this.snake.parts.length; i++) {
@@ -58,6 +59,17 @@ NewSnakePacket.prototype.toBuffer = function() {
   //am richtigen server
   //0 0       115      232 129    235 132 70     48    235 132 70     22 158    0 0 0     19     1 247 33     1 208 243        4         116 101 115 116                  1 246 105      1209 88     200 86 
   //[0, 0,    115, 168, 202,    100, 92, 158,  48,     100, 92, 158,  22, 158,  0, 0, 0,  19,    1,114,150,   2,168,130,       4,        116,101,115,116,                 1, 115, 57,    2,167,254,  61, 179]
+  
+  
+  
+  //[0, 0,   115,    0, 2,     255, 255, 254,   0,    255, 255, 254,    22, 128,    7, 99, 105,    8,    1, 176, 163,   0, 111, 1,    3,    97, 115, 100,    1, 176]
+  //______
+  
+  
+  
+  
+  
+  
   return arr;
 }
 

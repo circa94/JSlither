@@ -24,11 +24,8 @@ function Snake(id, username, skin) {
     this.D = 3.1415926535 / Math.PI * consts.INT24MAX // smth for direction
     this.x = this.D;
     this.parts = [{
-        x: 1,
-        y: 2
-    }, {
-        x: 3,
-        y: 4
+        x: 138,
+        y: 43
     }];
 }
 
