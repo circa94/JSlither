@@ -3,7 +3,7 @@
 ### Requirements
 1. make sure you have `nodejs` installed.
 2. install dependencies: `npm install`
-2. install `async` `npm install async`
+
 
 ### Running the server
 
