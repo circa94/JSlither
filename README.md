@@ -5,6 +5,7 @@ An open source nodejs server implementation for slither.io
 ### Requirements
 1. make sure you have `nodejs` installed.
 2. install nodejs ws: `npm install ws`
+3. install async: `npm install async`
 
 ### Running the server
 
