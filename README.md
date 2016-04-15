@@ -5,7 +5,7 @@ Currently, the server is in a very early stage. Just a few packets are implement
 
 !WARNING! The Server is not fully working sofar 
 
-[How To Use Guid](https://github.com/circa94/JSlither/blob/master/HowToUse.md)
+[How To Use Guide](https://github.com/circa94/JSlither/blob/master/HowToUse.md)
 
 
 If you like our work you can visit our Website www.TheHardCoders.de
