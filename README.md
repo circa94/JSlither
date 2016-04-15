@@ -3,7 +3,7 @@ An open source nodejs server implementation for slither.io
 
 Currently, the server is in a very early stage. Just a few packets are implemented. A real gameplay is actually not done.
 
-!WARNING! The Server is not fully working sofar 
+!WARNING! The Server is not fully working so far 
 
 [How To Use Guide](https://github.com/circa94/JSlither/blob/master/HowToUse.md)
 
