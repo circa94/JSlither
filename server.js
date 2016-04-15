@@ -9,11 +9,14 @@
 //sos = [{ ip: "jslither-circa94.c9users.io", po: 8080, ac: 34, ptm: 121 } ]
 
 var WebsocketServer = require("ws").Server;
+var async = require("async");
 var msgUtil = require('./utils/message_util');
 var mathUtils = require("./utils/mathUtils");
 var consts = require("./utils/constants");
 var log = require('./utils/logging/logger');
 var Packets = require("./packets/packets");
+var Entities = require("./entities/entities");
+var gameUtils = require("./utils/gameUtils");
 
 function SlitherServer() {
 
@@ -32,19 +35,9 @@ function SlitherServer() {
   //create some food for testing
   //in future, this should make some kind of task, which is generating new food
   //currently all foods are sending. later we should only send the food in players range
-  for (var i = 0; i < 100; i++) {
-    var xPos = mathUtils.getRandomInt(28500, 29000);
-    var yPos = mathUtils.getRandomInt(20600, 21300);
-    var food = {
-      id: xPos * consts.MAPSIZE * 3 + yPos,
-      color: mathUtils.getRandomInt(0, consts.MAXFOODCOLORS - 1),
-      xPos: xPos,
-      yPos: yPos,
-      size: mathUtils.getRandomInt(35,70),
-    };
-    //w = yPos * mapSize * 3 + xPos =====> id
-    self.foods.push(food);
-  }
+  // gameUtils.createRandomFood(100, self.foods, 28500, 29000, 20600, 21300, 35, 70);
+
+  log.info("UpdatePositionTask is starting")
 
   //A new client connects to the server.
   this.wss.on('connection', function(ws) {
@@ -82,6 +75,7 @@ function SlitherServer() {
           log.debug("Client with id: " + ws.clientId + " sends ping");
           self.sendToClient(new Packets.PongPacket(), ws.clientId);
         }
+        self.sendToAll(new Packets.UpdateDirectionPacket(ws.clientId));
       }
       else {
         var firstByte = msgUtil.readInt8(0, data);
@@ -93,26 +87,27 @@ function SlitherServer() {
 
         if (firstByte == 115 && secondByte == 5) { //start a new game. set username
           var username = msgUtil.readString(3, data, data.byteLength);
-          ws.username = username;
+
+          ws.snake = new Entities.Snake(ws.clientId, username, mathUtils.getRandomInt(0, 26));
+
           log.info("Client sends username " + ws.clientId + " " + username);
           //setup new snake
-          //ws.snake.skin = getRandomInt(0, 26);
-          //TODO spawn position
+          //TODO caculate new spawn position
 
-          self.sendToAll(new Packets.NewSnakePacket(ws));
+          self.sendToAll(new Packets.NewSnakePacket(ws.snake));
           self.sendToClient(new Packets.GlobalHighscorePacket(), ws.clientId);
-          self.sendToClient(new Packets.gPacket(ws.clientId, 28907, 21136), ws.clientId);
+          //self.sendToClient(new Packets.gPacket(ws.clientId, 28907, 21136), ws.clientId);
 
           //TODO send food here
           self.sendToClient(new Packets.SpawnFoodPacket(self.foods), ws.clientId);
 
           //todo test this..
-          self.clients.forEach(function(client) {
-            //later only send close snakes 
-            if (client.clientId != ws.clientId) {
-              self.sendToClient(new Packets.NewSnakePacket(client), ws.clientId);
-            }
-          });
+          //self.clients.forEach(function(client) {
+          //later only send close snakes 
+          //  if (client.clientId != ws.clientId) {
+          //    self.sendToClient(new Packets.NewSnakePacket(client), ws.clientId);
+          //  }
+          //});
 
         }
         else if (firstByte == 109) {
@@ -158,10 +153,26 @@ function SlitherServer() {
     this.clients[id].send(buffer);
   };
 
+  this.updatePositionTask = function() {
+    log.debug("task");
+    //todo test if this brings more speed or is better
+    /*  async.forEach(self.clients,function(client){
+        
+      });*/
+
+    self.clients.forEach(function(client) {
+      client.snake.xPos += 1000;
+      client.snake.yPos += 1000; //TODO x and y calculation
+      this.sendToAll(new Packets.UpdatePositionPacket(client.clientId, client.snake.xPos, client.snake.yPos));
+    });
+    //this.sendToAll(new Packets.UpdatePositionPacket());
+
+  }
+
 
 
   this.loop = function() {
-     //log.debug("loop");
+    //log.debug("loop");
     //update all snakes etc
     //check collisions
     //
@@ -169,6 +180,8 @@ function SlitherServer() {
   };
   //setInterval(this.loop, 1);
 
+
+  setInterval(this.updatePositionTask, 2000);
 
 }
 
@@ -181,4 +194,3 @@ SlitherServer();
  * Returns a random integer between min (inclusive) and max (inclusive)
  * Using Math.round() will give you a non-uniform distribution!
  */
-

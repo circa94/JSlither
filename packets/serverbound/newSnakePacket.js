@@ -12,55 +12,42 @@ var msgUtil = require('../../utils/message_util');
 var consts = require("../../utils/constants");
 var exports = module.exports = {};
 
-function NewSnakePacket(client) {
+function NewSnakePacket(snake) {
  this.unknown1 = 0;
  this.unknown2 = 0;
  this.packetType = consts.packetTypes.s;
- this.snakeId = client.clientId;
- this.D = 3.1415926535 / Math.PI * consts.INT24MAX; 
- this.x = 3.1415926535 / Math.PI * consts.INT24MAX; //always same as D
- this.speed =  5.76 * 1E3;
+ this.snake = snake;
  this.H = 0.028860630325116536 * consts.INT24MAX; //always very close to 0. idk what it is
- this.skin = 20;
- this.xPos = 28907.6 * 5;
- this.yPos = 21137.4 * 5;
- this.name = client.username;
- this.xPosHead = 28907.3 * 5;
- this.yPosHead = 21136.8 * 5;
- this.parts = [
-   { x:1,y:2},
-   { x:3,y:4}
-   ];
 }
 
 NewSnakePacket.prototype.toBuffer = function() {
-  var nameLength = this.name.length;
-  var partsByteLength = this.parts.length * 2;
+  var nameLength = this.snake.username.length;
+  var partsByteLength = this.snake.parts.length * 2;
   var arr = new Uint8Array(27 + nameLength + partsByteLength * 2);
   var b = 0;
   b += msgUtil.writeInt8(b, arr, 0);
   b += msgUtil.writeInt8(b, arr, 0);
   b += msgUtil.writeInt8(b, arr, this.packetType);
-  b += msgUtil.writeInt16(b, arr, this.snakeId);
-  b += msgUtil.writeInt24(b, arr, this.D);
+  b += msgUtil.writeInt16(b, arr, this.snake.id);
+  b += msgUtil.writeInt24(b, arr, this.snake.D);
   b += msgUtil.writeInt8(b, arr, 0);
-  b += msgUtil.writeInt24(b, arr, this.x);
-  b += msgUtil.writeInt16(b, arr, this.speed);
+  b += msgUtil.writeInt24(b, arr, this.snake.x);
+  b += msgUtil.writeInt16(b, arr, this.snake.speed);
   b += msgUtil.writeInt24(b, arr, this.H);
-  b += msgUtil.writeInt8(b, arr, this.skin);
-  b += msgUtil.writeInt24(b, arr, this.xPos);
-  b += msgUtil.writeInt24(b, arr, this.yPos);
+  b += msgUtil.writeInt8(b, arr, this.snake.skin);
+  b += msgUtil.writeInt24(b, arr, this.snake.xPos);
+  b += msgUtil.writeInt24(b, arr, this.snake.yPos);
   b += msgUtil.writeInt8(b, arr, nameLength); //b = 21
 
-  msgUtil.writeString(b, arr, this.name); //b=22
+  msgUtil.writeString(b, arr, this.snake.username); //b=22
   var index = b + nameLength; //index = 22 + 7 -1 = 28
-  msgUtil.writeInt24(index, arr, this.xPosHead); //hier sind wir in byte 28
-  msgUtil.writeInt24(index + 3, arr, this.yPosHead); //hier in 31
+  msgUtil.writeInt24(index, arr, this.snake.xPosHead); //hier sind wir in byte 28
+  msgUtil.writeInt24(index + 3, arr, this.snake.yPosHead); //hier in 31
   index += 6; //index = 37
   //das geht 2 mal durch
-  for (var i = 0; i < this.parts.length; i++) {
-    msgUtil.writeInt8(index, arr, this.parts[i].x); //das wird auf 37 geschrieben //auf 39
-    msgUtil.writeInt8(index + 1, arr, this.parts[i].y); // das auf 38 //auf 40
+  for (var i = 0; i < this.snake.parts.length; i++) {
+    msgUtil.writeInt8(index, arr, this.snake.parts[i].x); //das wird auf 37 geschrieben //auf 39
+    msgUtil.writeInt8(index + 1, arr, this.snake.parts[i].y); // das auf 38 //auf 40
     index += 2;//index = 39
   }
   

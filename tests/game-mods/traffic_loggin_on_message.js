@@ -55,7 +55,7 @@
                   , c = b.length - 2
                   , q = b.length - 3;
                   
-                console.log(new Date().getTime() + " from server " + f + " " +b);
+               
                   
                 if ("a" == f)
                     connecting = !1,
@@ -96,11 +96,19 @@
                     loch.style.display = "inline",
                     startShowGame();
                 else if ("e" == f || "E" == f || "3" == f || "4" == f || "5" == f) {
+                    
+                    
                     var w = b[e] << 8 | b[e + 1]
                       , e = e + 2
                       , D = h = -1
                       , x = -1
                       , A = -1;
+                      
+                      if(f==="e" && w === snake.id){
+                        console.log(new Date().getTime() + " from server " + f + " " +b);
+                    }
+  
+                      
                     if (6 <= protocol_version)
                         6 == 
                         c ? (h = "e" == f ? 1 : 2,
@@ -203,10 +211,16 @@
                         snl(t)
                     }
                 } else if ("g" == f || "n" == f || "G" == f || "N" == f) {
+                 
+                            console.log(new Date() + " from server " + f + " " +b);
+                     
                     if (playing && (H = "n" == f || "N" == f,
                     w = b[e] << 8 | b[e + 1],
                     e += 2,
                     t = os["s" + w])) {
+                        
+                        
+                        
                         if (H)
                             t.sct++;
                         else
