@@ -1,0 +1,30 @@
+{
+  "name": "JSlither",
+  "version": "1.0.0",
+  "description": "An open source nodejs server implementation for slither.io",
+  "main": "server.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/circa94/JSlither.git"
+  },
+  "keywords": [
+    "slither"
+  ],
+  "author": "circa94",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/circa94/JSlither/issues"
+  },
+  "homepage": "https://github.com/circa94/JSlither",
+  "dependencies": {
+    "async": "^2.0.0-rc.3",
+    "ws": "^1.1.0"
+  }
+}
