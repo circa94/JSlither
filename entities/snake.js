@@ -27,6 +27,9 @@ function Snake(id, username, skin) {
         x: 138,
         y: 43
     }];
+    this.length = 11.7 + id;
+    this.J =306;
+    this.I = 0.7810754645511785 * consts.INT24MAX;
 }
 
 module.exports = Snake;

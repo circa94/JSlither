@@ -1,11 +1,13 @@
 /*  
- * Class:         gPacket
+ * Class:         UpdatePositionPacket
  * Description:   Class for updating snake position. Is sending every 2 seconds
  * Created:       13.04.2016
  * Last change:   13.04.2016
  * Collaborators: circa94, Kogs
 */
 
+
+// this packet is for position correction!! movement could work without this packet.
 'use strict';
 
 var msgUtil = require('../../utils/message_util');

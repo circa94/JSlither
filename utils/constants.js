@@ -21,12 +21,15 @@ module.exports = {
     MAXFOODCOLORS: MAXFOODCOLORS,
     MAPSIZE: MAPSIZE,
     packetTypes: {
-        a: 97,
-        s: 115,
-        m: 109,
-        p: 112,
-        g: 103,
-        F: 70,
-        e: 101
+        a: 97, //initialPacket
+        s: 115, //newSnakePacket
+        m: 109, //GlobalHighScorePacket
+        p: 112, //pongPacket
+        g: 103, //updatePosition
+        F: 70, //spawnFoodPacket
+        e: 101, //updateDirection
+        G: 71, //updateSnakeParts
+        h:104, //eatFoodPacket
+        l:108 //leaderboardPacket
     }
 };

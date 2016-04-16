@@ -1,6 +1,6 @@
 /*  
- * Class:         UpdatePositionPacket
- * Description:   Class for updateing snake positions
+ * Class:         UpdateDirectionPacket
+ * Description:   Class for updateing snake direction
  * Created:       14.04.2016
  * Last change:   14.04.2016
  * Collaborators: circa94

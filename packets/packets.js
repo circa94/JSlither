@@ -14,5 +14,7 @@ module.exports = {
     SpawnFoodPacket: require('./serverbound/spawnFoodPacket'),
     SetUsernamePacket: require('./clientbound/setUsernamePacket'),
     UpdateDirectionPacket : require("./serverbound/updateDirectionPacket"),
-    UpdatePositionPacket : require("./serverbound/updatePositionPacket")
+    UpdatePositionPacket : require("./serverbound/updatePositionPacket"),
+    EatFoodPacket : require("./serverbound/eatFoodPacket"),
+    LeaderboardPacket : require("./serverbound/leaderboardPacket"),
 };

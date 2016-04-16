@@ -74,6 +74,7 @@ function SlitherServer() {
         else if (value == 251) {
           log.debug("Client with id: " + ws.clientId + " sends ping");
           self.sendToClient(new Packets.PongPacket(), ws.clientId);
+          self.updateLeaderboard(ws.snake)
         }
         self.sendToAll(new Packets.UpdateDirectionPacket(ws.clientId));
       }
@@ -167,22 +168,49 @@ function SlitherServer() {
     });
     //this.sendToAll(new Packets.UpdatePositionPacket());
 
-  }
-
-
-
-  this.loop = function() {
-    //log.debug("loop");
-    //update all snakes etc
-    //check collisions
-    //
-
   };
-  //setInterval(this.loop, 1);
 
 
-  setInterval(this.updatePositionTask, 1000); //when you decraese this value, the client gets the information faster! 
 
+  this.updateLeaderboard = function(snake) {
+    //sort all players on server by lenght
+    var rankSorted = [];
+
+    this.clients.forEach(function(client) {
+      rankSorted.push({
+        snake: client.snake,
+        length: client.snake.length
+      });
+    });
+
+  rankSorted.sort(function(a, b) {
+    return a[1] - b[1];
+  });
+
+  var rank = rankSorted.indexOf(rankSorted[snake.id - 1]) + 1;
+
+  var topTen = [];
+  for (var i = 0; i < 10; i++) {
+    if (rankSorted[i] != undefined) {
+      topTen.push(rankSorted[i]);
+    }
+  }
+  this.sendToClient(new Packets.LeaderboardPacket(rank, rankSorted.length, topTen), snake.id);
+};
+
+
+
+this.loop = function() {
+  //log.debug("loop");
+  //update all snakes etc
+  //check collisions
+  //
+
+};
+//setInterval(this.loop, 1);
+
+
+setInterval(this.updatePositionTask, 1000); //when you decraese this value, the client gets the information faster! 
 }
 
 //Run the server
