@@ -17,11 +17,26 @@ var log = require('./utils/logging/logger');
 var Packets = require("./packets/packets");
 var Entities = require("./entities/entities");
 var gameUtils = require("./utils/gameUtils");
+var settings = require("./utils/settings");
+
 
 function SlitherServer() {
+                                                              
+  console.log("    __ _____ _ _ _   _              _____                     ");
+  console.log(" __|  |   __| |_| |_| |_ ___ ___   |   __|___ ___ _ _ ___ ___ ");
+  console.log("|  |  |__   | | |  _|   | -_|  _|  |__   | -_|  _| | | -_|  _|");
+  console.log("|_____|_____|_|_|_| |_|_|___|_|    |_____|___|_|  \_/|___|_|  ");
+  console.log("");
+  console.log("www.TheHardCoders.de");
+  console.log("");
+
+
+  log.setDebug(settings.readSetting("debug",false));
+  log.debug("starting in Debug mode");
 
   this.wss = new WebsocketServer({
-    port: process.env.PORT,
+    host: settings.readSetting("host","0.0.0.0"),
+    port: settings.readSetting("port",8080),
     path: '/slither'
   });
 

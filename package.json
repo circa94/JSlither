@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/circa94/JSlither/issues"
   },
-  "homepage": "https://github.com/circa94/JSlither",
+  "homepage": "http://www.theHardCoders.de",
   "dependencies": {
     "async": "^2.0.0-rc.3",
     "ws": "^1.1.0"

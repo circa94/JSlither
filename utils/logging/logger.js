@@ -8,20 +8,20 @@
 
 'use strict';
 
-const isDebug = false;
+var isDebug = false;
 
 module.exports = {
 
     info: function(msg) {
-        console.log(new Date() + " info: " + msg);
+        console.log(new Date().toISOString() + " info: " + msg);
     },
     debug: function(msg) {
         if (isDebug) {
-            console.log(new Date() + " debug: " + msg);
+            console.log(new Date().toISOString() + " debug: " + msg);
         }
     },
     error: function(msg) {
-        console.log(new Date() + " error: " + msg);
+        console.log(new Date().toISOString() + " error: " + msg);
     },
     isDebugEnalbed: function() {
         return isDebug;
@@ -47,4 +47,8 @@ module.exports = {
         s += "]";
         func(s);
     },
+    setDebug : function(debug){
+        isDebug = debug;
+    }
+
 }

@@ -12,3 +12,13 @@
 3. paste in browser console: `sos = [{ip: "your.ip.adress", po: yourPortNumber, ac: 132, ptm: 12}];`
 4. click on play
 
+
+### Config the server
+
+open and edit the conig.json file
+
+|property|Use               |Default   |
+|--------|------------------|----------|
+|port    |Port of the Server|8080      |
+|host    |Ip of the Server  |0.0.0.0   |
+|debug   |Console log level |false     |
