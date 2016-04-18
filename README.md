@@ -9,8 +9,6 @@ Currently, the server is in a very early stage. Just a few packets are implement
 
 If you like our work you can visit our Website www.TheHardCoders.de
 
-Currently, the server is in a very early stage. Just a few packets are implemented. A real gameplay is actually not done.
-
 ####Team
 
 Circa94 (Project Lead/Dev)
