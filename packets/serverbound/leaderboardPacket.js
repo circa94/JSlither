@@ -41,7 +41,7 @@ LeaderboardPacket.prototype.toBuffer = function() {
     for (var i = 0; i < this.topTen.length; i++) {
         b += msgUtil.writeInt16(b, arr, this.topTen[i].snake.J);
         b += msgUtil.writeInt24(b, arr, this.topTen[i].snake.I);
-        b += msgUtil.writeInt8(b, arr, mathUtils.getRandomInt(0,8));
+        b += msgUtil.writeInt8(b, arr, this.topTen[i].snake.fontColor);
         b += msgUtil.writeInt8(b, arr, this.topTen[i].snake.username.length);
         b += msgUtil.writeString(b, arr, this.topTen[i].snake.username);
     }

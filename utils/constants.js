@@ -30,6 +30,7 @@ module.exports = {
         e: 101, //updateDirection
         G: 71, //updateSnakeParts
         h:104, //eatFoodPacket
-        l:108 //leaderboardPacket
+        l:108,//leaderboardPacket
+        three : 52 //updateRemotePacket
     }
 };

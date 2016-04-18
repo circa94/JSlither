@@ -15,8 +15,8 @@ var exports = module.exports = {};
 function GlobalHighscorePacket() {
   //type  = "m"
   this.packetType = consts.packetTypes.m;
-  this.I = 462;//VALUE
-  this.H = 0.580671702663404 *  consts.INT24MAX; //VALUE??
+  this.J = 462;//VALUE
+  this.I = 0.580671702663404 *  consts.INT24MAX; //VALUE??
   // C = Math.floor(150 * (fpsls[I] + H / fmlts[I] - 1) - 50) / 10;
   //C must be C > 0 (C is the Snake lenght)
   this.text1  = "www.TheHardCoders.de";
@@ -29,11 +29,12 @@ GlobalHighscorePacket.prototype.toBuffer = function() {
   b += msgUtil.writeInt8(b, arr, 0);
   b += msgUtil.writeInt8(b, arr, 0);
   b += msgUtil.writeInt8(b, arr, this.packetType);
+  b += msgUtil.writeInt24(b,arr,this.J);
   b += msgUtil.writeInt24(b,arr,this.I);
-  b += msgUtil.writeInt24(b,arr,this.H);
   b += msgUtil.writeInt8(b, arr, this.text1.length);
   b += msgUtil.writeString(b, arr, this.text1);
   b += msgUtil.writeString(b, arr, this.text2);
+
   return arr;
 }
 

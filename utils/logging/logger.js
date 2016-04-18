@@ -8,7 +8,7 @@
 
 'use strict';
 
-const isDebug = true;
+const isDebug = false;
 
 module.exports = {
 

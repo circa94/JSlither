@@ -12,12 +12,13 @@ var msgUtil = require('../../utils/message_util');
 var consts = require("../../utils/constants");
 var exports = module.exports = {};
 
-function UpdateDirectionPacket(id) {
+function UpdateDirectionPacket(client) {
     this.unknown1 = 0;
     this.unknown2 = 0;
     this.packetType = consts.packetTypes.e;
-    this.snakeId = id;
-    this.D = 82; // this comes in client -> 2.012582793705961
+    this.snakeId = client.clientId;
+    
+    this.D = client.snake.direction.angle / 1.411764705882353;  // this comes in client -> 2.012582793705961
     this.x = 71;// this comes in client -> 1.7426021750380884
     this.A = 104; // -> this comes in client 5.777777777777778
 
@@ -37,15 +38,3 @@ UpdateDirectionPacket.prototype.toBuffer = function() {
 }
 
 module.exports = UpdateDirectionPacket;
-
-//length is dynamic
-//snakeId
-//D = 2.012582793705961
-//x	= 1.7426021750380884
-//Y	1.7426021750380884
-
-// D = 2 * b[e] * Math.PI / 256;
-// e++;
-// x = 2 * b[e] * Math.PI / 256;
-// e++;
-// A = b[e] / 18;

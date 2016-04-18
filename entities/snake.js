@@ -8,6 +8,7 @@
 
 var gameUtils = require("../utils/gameUtils");
 var consts = require("../utils/constants");
+var mathUtils = require('../utils/mathUtils');
 
 function Snake(id, username, skin) {
     this.id = id;
@@ -28,8 +29,15 @@ function Snake(id, username, skin) {
         y: 43
     }];
     this.length = 11.7 + id;
-    this.J =306;
+    this.J = 306;
     this.I = 0.7810754645511785 * consts.INT24MAX;
+    this.direction = {
+        x: 0.1,
+        y: 0.1,
+        angle: 0
+    };
+    this.fontColor = mathUtils.getRandomInt(0,8);
+
 }
 
 module.exports = Snake;

@@ -31,7 +31,7 @@ SpawnFoodPacket.prototype.toBuffer = function() {
         b += msgUtil.writeInt8(b, arr, food.color);
         b += msgUtil.writeInt16(b, arr, food.xPos);
         b += msgUtil.writeInt16(b, arr, food.yPos);
-        b += msgUtil.writeInt8(b, arr, food.color)
+        b += msgUtil.writeInt8(b, arr, food.size);
     }
     return arr;
 }

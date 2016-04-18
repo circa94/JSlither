@@ -37,7 +37,7 @@ function SlitherServer() {
   //currently all foods are sending. later we should only send the food in players range
   // gameUtils.createRandomFood(100, self.foods, 28500, 29000, 20600, 21300, 35, 70);
 
-  log.info("UpdatePositionTask is starting")
+  log.info("UpdatePositionTask is starting");
 
   //A new client connects to the server.
   this.wss.on('connection', function(ws) {
@@ -62,6 +62,13 @@ function SlitherServer() {
         if (value <= 250) {
           //0-250 == direction where snake is going
           log.debug("Snake with id:" + ws.clientId + " goes to direction: " + value);
+          var degrees = value * 1.44;
+         //degrees -= 360;
+          
+          log.info("Degrees: " + degrees);
+          ws.snake.direction.x = Math.cos(degrees) /5;
+          ws.snake.direction.y = Math.sin(degrees) /5;
+          ws.snake.direction.angle = degrees;
         }
         else if (value == 253) {
           //snake is in speed mode
@@ -73,10 +80,10 @@ function SlitherServer() {
         }
         else if (value == 251) {
           log.debug("Client with id: " + ws.clientId + " sends ping");
-          self.sendToClient(new Packets.PongPacket(), ws.clientId);
-          self.updateLeaderboard(ws.snake)
+          self.updateClient(ws);
+
         }
-        self.sendToAll(new Packets.UpdateDirectionPacket(ws.clientId));
+       
       }
       else {
         var firstByte = msgUtil.readInt8(0, data);
@@ -90,6 +97,7 @@ function SlitherServer() {
           var username = msgUtil.readString(3, data, data.byteLength);
 
           ws.snake = new Entities.Snake(ws.clientId, username, mathUtils.getRandomInt(0, 26));
+
 
           log.info("Client sends username " + ws.clientId + " " + username);
           //setup new snake
@@ -140,6 +148,7 @@ function SlitherServer() {
     }
     this.clients.forEach(function(client) {
       client.send(buffer);
+
       log.printArrayDebug(false, buffer);
     });
   };
@@ -151,66 +160,69 @@ function SlitherServer() {
       log.debug("Send to Client with id:" + id);
       log.printArrayDebug(false, buffer);
     }
-    this.clients[id].send(buffer);
+    var client = this.clients[id];
+    var lastPing = client.lastMessage;
+    client.lastMessage = Date.now();
+    var pingDelay = lastPing - client.lastMessage;
+    // msgUtil.writeInt16(0,buffer,pingDelay);
+    client.send(buffer);
   };
 
-  this.updatePositionTask = function() {
-    log.debug("task");
-    //todo test if this brings more speed or is better
-    /*  async.forEach(self.clients,function(client){
-        
-      });*/
 
-    self.clients.forEach(function(client) {
-      client.snake.xPos += 1;
-      client.snake.yPos -= 1; //TODO x and y calculation
-      this.sendToAll(new Packets.UpdatePositionPacket(client.clientId, client.snake.xPos, client.snake.yPos));
-    });
-    //this.sendToAll(new Packets.UpdatePositionPacket());
 
-  };
 
+  this.updateClient = function(client) {
+    log.debug("UpdateClient");
+
+
+    if (client.snake != null) {
+      self.updateLeaderboard(client.snake)
+
+      if (client.snake.direction != null) {
+        client.snake.xPos += client.snake.direction.x;
+        client.snake.yPos += client.snake.direction.y;
+      }
+
+      //send other snake positions
+      self.clients.forEach(function(otherClient) {
+        if(otherClient.snake != null){
+          this.sendToClient(new Packets.UpdatePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);
+          //this.sendToClient(new Packets.UpdateRemotePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);
+          this.sendToClient(new Packets.UpdateDirectionPacket(otherClient), client.clientId);
+        }
+      });
+    }
+
+    self.sendToClient(new Packets.PongPacket(), client.clientId);
+  }
 
 
   this.updateLeaderboard = function(snake) {
-    //sort all players on server by lenght
     var rankSorted = [];
-
     this.clients.forEach(function(client) {
-      rankSorted.push({
-        snake: client.snake,
-        length: client.snake.length
-      });
+      if(client.snake != null){
+        rankSorted.push({
+          snake: client.snake,
+          length: client.snake.length
+        });
+      }
+    });
+    
+    rankSorted.sort(function(a, b) {
+      return a[1] - b[1];
     });
 
-  rankSorted.sort(function(a, b) {
-    return a[1] - b[1];
-  });
+    var rank = rankSorted.indexOf(rankSorted[snake.id - 1]) + 1;
 
-  var rank = rankSorted.indexOf(rankSorted[snake.id - 1]) + 1;
-
-  var topTen = [];
-  for (var i = 0; i < 10; i++) {
-    if (rankSorted[i] != undefined) {
-      topTen.push(rankSorted[i]);
+    var topTen = [];
+    for (var i = 0; i < 10; i++) {
+      if (rankSorted[i] != undefined) {
+        topTen.push(rankSorted[i]);
+      }
     }
-  }
-  this.sendToClient(new Packets.LeaderboardPacket(rank, rankSorted.length, topTen), snake.id);
-};
+    this.sendToClient(new Packets.LeaderboardPacket(rank, rankSorted.length, topTen), snake.id);
+  };
 
-
-
-this.loop = function() {
-  //log.debug("loop");
-  //update all snakes etc
-  //check collisions
-  //
-
-};
-//setInterval(this.loop, 1);
-
-
-setInterval(this.updatePositionTask, 1000); //when you decraese this value, the client gets the information faster! 
 }
 
 //Run the server

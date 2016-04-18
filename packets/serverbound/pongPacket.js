@@ -17,7 +17,7 @@ function PongPacket() {
 }
 PongPacket.prototype.toBuffer = function() {
   var arr = new Uint8Array(3);
-  msgUtil.writeInt8(3, arr, this.packetType);
+  msgUtil.writeInt8(2, arr, this.packetType);
   return arr;
 }
 
