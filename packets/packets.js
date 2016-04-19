@@ -15,6 +15,7 @@ module.exports = {
     SetUsernamePacket: require('./clientbound/setUsernamePacket'),
     UpdateDirectionPacket : require("./serverbound/updateDirectionPacket"),
     UpdatePositionPacket : require("./serverbound/updatePositionPacket"),
+    MovePacket : require("./serverbound/movePacket"),
     EatFoodPacket : require("./serverbound/eatFoodPacket"),
     LeaderboardPacket : require("./serverbound/leaderboardPacket"),
 };

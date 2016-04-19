@@ -18,17 +18,19 @@ if (0 <= ua.indexOf("safari")) {
   }
 }
 var no_raf = false;
-var raf = function(b) {
-};
+var raf = function(b) {};
 if (window.requestAnimationFrame) {
   raf = window.requestAnimationFrame;
-} else {
+}
+else {
   if (window.mozRequestAnimationFrame) {
     raf = window.mozRequestAnimationFrame;
-  } else {
+  }
+  else {
     if (window.webkitRequestAnimationFrame) {
       raf = window.webkitRequestAnimationFrame;
-    } else {
+    }
+    else {
       no_raf = true;
     }
   }
@@ -55,9 +57,11 @@ var agpu = "translateZ(0)";
 var ang;
 var sang;
 var vang;
+
 function trf(b, h) {
   b.style.webkitTransform = b.style.OTransform = b.style.msTransform = b.style.MozTransform = b.style.transform = h;
 }
+
 function trfo(b, h) {
   b.style.webkitTransformOrigin = b.style.OTransformOrigin = b.style.msTransformOrigin = b.style.MozTransformOrigin = b.style.transformOrigin = h;
 }
@@ -68,14 +72,17 @@ var startAnimation = function() {
   if (no_raf) {
     if (is_mobile) {
       setInterval("oef()", 33);
-    } else {
+    }
+    else {
       if (is_safari) {
         setInterval("oef()", 33);
-      } else {
+      }
+      else {
         setInterval("oef()", 20);
       }
     }
-  } else {
+  }
+  else {
     raf(oef);
   }
 };
@@ -89,7 +96,7 @@ var ldi = function(b$$0) {
   h.sc = 1;
   c.onload = function() {
     var b = ois.length - 1;
-    for (;0 <= b;b--) {
+    for (; 0 <= b; b--) {
       if (ois[b].ii == this) {
         b = ois[b];
         b.ww = this.width;
@@ -110,13 +117,15 @@ var ldi = function(b$$0) {
   ois.push(h);
   return h;
 };
+
 function addCss(b) {
   var h = document.createElement("style");
   document.getElementsByTagName("head")[0].appendChild(h);
   h.type = "text/css";
   if (h.styleSheet) {
     h.styleSheet.cssText = b;
-  } else {
+  }
+  else {
     h.appendChild(document.createTextNode(b));
   }
 }
@@ -144,10 +153,11 @@ map = ctx.getImageData(0, 0, rw, rh);
 imgd = map.data;
 l = imgd.length;
 p = 0;
-for (;p < l;p += 4) {
+for (; p < l; p += 4) {
   if (0.5 > Math.random()) {
     imgd[p] = imgd[p + 1] = imgd[p + 2] = 0;
-  } else {
+  }
+  else {
     imgd[p] = 44;
     imgd[p + 1] = 56;
     imgd[p + 2] = 68;
@@ -168,11 +178,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = (grh - 1 - yy) / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.min(255, Math.floor(54.4 + 32 * j));
     imgd[p + 1] = Math.min(255, Math.floor(108.8 + 64 * j));
     imgd[p + 2] = Math.min(255, Math.floor(81.6 + 48 * j));
@@ -190,11 +200,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = (grh - 1 - yy) / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.min(255, Math.floor(72 + 0.95 * 48 * j));
     imgd[p + 1] = Math.min(255, Math.floor(171 + 93.1 * j));
     imgd[p + 2] = Math.min(255, Math.floor(132 + 0.95 * 87 * j));
@@ -212,11 +222,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = yy / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.floor(0.1 * 48 + 36 * j);
     imgd[p + 1] = Math.floor(7 + 52.5 * j);
     imgd[p + 2] = Math.floor(6.4 + 48 * j);
@@ -240,11 +250,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = (grh - 1 - yy) / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.min(255, Math.floor(0.85 * 52 + 26 * j));
     imgd[p + 1] = Math.min(255, Math.floor(81.6 + 48 * j));
     imgd[p + 2] = Math.min(255, Math.floor(0.85 * 144 + 72 * j));
@@ -262,11 +272,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = (grh - 1 - yy) / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.min(255, Math.floor(72 + 0.95 * 48 * j));
     imgd[p + 1] = Math.min(255, Math.floor(132 + 0.95 * 87 * j));
     imgd[p + 2] = Math.min(255, Math.floor(171 + 93.1 * j));
@@ -284,11 +294,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = yy / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.floor(0.1 * 48 + 36 * j);
     imgd[p + 1] = Math.floor(5.4 + 40.5 * j);
     imgd[p + 2] = Math.floor(7 + 52.5 * j);
@@ -308,6 +318,7 @@ if (32 < sadg.length) {
 var mos = [];
 var m_iv = -1;
 var swmup = false;
+
 function mkBtn(b$$0, h, c$$0, f) {
   var w = document.createElement("div");
   if (!b$$0.tagName) {
@@ -318,7 +329,7 @@ function mkBtn(b$$0, h, c$$0, f) {
     w.style.height = f + "px";
   }
   var u = {
-    lic : 0
+    lic: 0
   };
   u.elem = b$$0;
   u.md = false;
@@ -359,7 +370,8 @@ function mkBtn(b$$0, h, c$$0, f) {
       this.downi.style.opacity = this.mdf;
       this.elem.style.opacity = 1;
       this.elem.style.cursor = "pointer";
-    } else {
+    }
+    else {
       this.disabled = true;
       this.upi.style.opacity = 0;
       this.downi.style.opacity = 0;
@@ -369,7 +381,7 @@ function mkBtn(b$$0, h, c$$0, f) {
   };
   if (h) {
     e$$0 = 1;
-    for (;3 >= e$$0;e$$0++) {
+    for (; 3 >= e$$0; e$$0++) {
       var z = document.createElement("img");
       z.draggable = false;
       z.style.position = "absolute";
@@ -384,7 +396,7 @@ function mkBtn(b$$0, h, c$$0, f) {
         u.normi = z;
         z.onload = function() {
           var b = mos.length - 1;
-          for (;0 <= b;b--) {
+          for (; 0 <= b; b--) {
             var e = mos[b];
             if (e.normi == this) {
               e.alic();
@@ -393,13 +405,14 @@ function mkBtn(b$$0, h, c$$0, f) {
           }
         };
         z.src = h + ".png";
-      } else {
+      }
+      else {
         if (2 == e$$0) {
           u.upi = z;
           z.style.opacity = 0;
           z.onload = function() {
             var b = mos.length - 1;
-            for (;0 <= b;b--) {
+            for (; 0 <= b; b--) {
               var e = mos[b];
               if (e.upi == this) {
                 e.alic();
@@ -408,13 +421,14 @@ function mkBtn(b$$0, h, c$$0, f) {
             }
           };
           z.src = h + "up.png";
-        } else {
+        }
+        else {
           if (3 == e$$0) {
             u.downi = z;
             z.style.opacity = 0;
             z.onload = function() {
               var b = mos.length - 1;
-              for (;0 <= b;b--) {
+              for (; 0 <= b; b--) {
                 var e = mos[b];
                 if (e.downi == this) {
                   e.alic();
@@ -427,12 +441,13 @@ function mkBtn(b$$0, h, c$$0, f) {
         }
       }
     }
-  } else {
+  }
+  else {
     w.style.opacity = 1;
   }
   b$$0.onmouseenter = function() {
     var b = mos.length - 1;
-    for (;0 <= b;b--) {
+    for (; 0 <= b; b--) {
       var e = mos[b];
       if (e.elem == this) {
         if (!e.disabled && !e.mo) {
@@ -450,7 +465,7 @@ function mkBtn(b$$0, h, c$$0, f) {
   };
   b$$0.onmouseleave = function() {
     var b = mos.length - 1;
-    for (;0 <= b;b--) {
+    for (; 0 <= b; b--) {
       var e = mos[b];
       if (e.elem == this) {
         if (e.mo) {
@@ -468,7 +483,7 @@ function mkBtn(b$$0, h, c$$0, f) {
   };
   b$$0.onmousedown = function(b) {
     var e = mos.length - 1;
-    for (;0 <= e;e--) {
+    for (; 0 <= e; e--) {
       var c = mos[e];
       if (c.elem == this) {
         if (!c.disabled && !c.md) {
@@ -487,7 +502,7 @@ function mkBtn(b$$0, h, c$$0, f) {
   };
   b$$0.onmouseup = b$$0.ondragend = function(b) {
     var e = mos.length - 1;
-    for (;0 <= e;e--) {
+    for (; 0 <= e; e--) {
       var c = mos[e];
       if (c.elem == this) {
         if (c.md) {
@@ -508,7 +523,7 @@ function mkBtn(b$$0, h, c$$0, f) {
     swmup = true;
     window.onmouseup = window.ondragover = window.ondragend = function() {
       var b = mos.length - 1;
-      for (;0 <= b;b--) {
+      for (; 0 <= b; b--) {
         var e = mos[b];
         if (e.md) {
           e.md = false;
@@ -521,11 +536,12 @@ function mkBtn(b$$0, h, c$$0, f) {
   }
   return u;
 }
+
 function hmos() {
   var b;
   var h = false;
   var c = mos.length - 1;
-  for (;0 <= c;c--) {
+  for (; 0 <= c; c--) {
     var f = mos[c];
     b = false;
     if (f.mo) {
@@ -537,7 +553,8 @@ function hmos() {
         }
         b = true;
       }
-    } else {
+    }
+    else {
       if (0 != f.mof) {
         h = true;
         f.mof -= 0.2;
@@ -560,7 +577,8 @@ function hmos() {
         }
         b = true;
       }
-    } else {
+    }
+    else {
       if (0 != f.mdf) {
         h = true;
         f.mdf -= 0.2;
@@ -579,6 +597,7 @@ function hmos() {
     m_iv = -1;
   }
 }
+
 function makeTextBtn(b$$0, h, c$$0, f, w) {
   if (!h) {
     h = 56;
@@ -690,6 +709,7 @@ var lb_fr = 0;
 var login_fr = 0;
 var llgmtm = Date.now();
 var login_iv = -1;
+
 function loginFade() {
   var b = Date.now();
   var h = (b - llgmtm) / 25;
@@ -735,7 +755,8 @@ function loginFade() {
         showlogo_iv = -1;
       }
     }
-  } else {
+  }
+  else {
     lgcsc = 1 + 0.1 * Math.pow(login_fr, 2);
     b = Math.round(lgbsc * lgcsc * 1E5) / 1E5;
     trf(login, "scale(" + b + "," + b + ")");
@@ -772,7 +793,8 @@ var lcldtm = Date.now();
 var sstr = "Save";
 if ("FR" == country) {
   sstr = "Bien";
-} else {
+}
+else {
   if ("BR" == country) {
     sstr = "OK";
   }
@@ -790,8 +812,8 @@ o.elem.onclick = function() {
   if (playing) {
     try {
       localStorage.snakercv = snake.rcv;
-    } catch (b) {
     }
+    catch (b) {}
     playing = connected = false;
     dead_mtm = Date.now() - 5E3;
   }
@@ -807,11 +829,13 @@ var victory_holder = document.getElementById("victory_holder");
 var pstr = "Play";
 if ("DE" == country) {
   pstr = "Spielen";
-} else {
+}
+else {
   if ("FR" == country) {
     pstr = "Jouer";
     nick.placeholder = "Surnom";
-  } else {
+  }
+  else {
     if ("BR" == country) {
       pstr = "Joga";
       nick.placeholder = "Apelido";
@@ -830,13 +854,15 @@ playh.appendChild(pbdiv);
 var tips = document.getElementById("tips");
 var tipss = ["Eat to grow longer!", "Don't run into other snakes!", "When longer, hold the mouse for a speed boost!"];
 if ("DE" == country) {
-  tipss = ["Esse um zu wachsen!", "Klicke f\u00fcr mehr Geschwindigkeit!", "Bewege dich nicht in andere Schlangen!"];
-} else {
+  tipss = ["Esse um zu wachsen!", "Klicke für mehr Geschwindigkeit!", "Bewege dich nicht in andere Schlangen!"];
+}
+else {
   if ("FR" == country) {
-    tipss = ["Mangez de cro\u00eetre!", "Cliquez et vous courrez!", "Ne laissez pas votre t\u00eate toucher d'autres serpents!"];
-  } else {
+    tipss = ["Mangez de croître!", "Cliquez et vous courrez!", "Ne laissez pas votre tête toucher d'autres serpents!"];
+  }
+  else {
     if ("BR" == country) {
-      tipss = ["Coma para crescer!", "Clique para correr!", "N\u00e3o deixe que sua cabe\u00e7a para tocar outras cobras!"];
+      tipss = ["Coma para crescer!", "Clique para correr!", "Não deixe que sua cabeça para tocar outras cobras!"];
     }
   }
 }
@@ -872,14 +898,15 @@ o.elem.onclick = function() {
       h[0] = 255;
       h[1] = 118;
       var c = 0;
-      for (;c < b.length;c++) {
+      for (; c < b.length; c++) {
         h[c + 2] = b.charCodeAt(c);
       }
-    } else {
+    }
+    else {
       h = new Uint8Array(1 + b.length);
       h[0] = 118;
       c = 0;
-      for (;c < b.length;c++) {
+      for (; c < b.length; c++) {
         h[c + 1] = b.charCodeAt(c);
       }
     }
@@ -928,12 +955,14 @@ lbh.style.cursor = "default";
 var lstr = "Leaderboard";
 if ("DE" == country) {
   lstr = "Bestenliste";
-} else {
+}
+else {
   if ("FR" == country) {
     lstr = "Gagnants";
-  } else {
+  }
+  else {
     if ("BR" == country) {
-      lstr = "L\u00edderes";
+      lstr = "Líderes";
     }
   }
 }
@@ -1127,10 +1156,11 @@ ii.onload = function() {
   try {
     b.drawImage(this, 0, 0);
     bgp2 = b.createPattern(bgi2, "repeat");
-  } catch (h) {
   }
+  catch (h) {}
 };
 ii.src = "/s/bg45.jpg";
+
 function rdgbg() {
   if (ggbg) {
     if (!gbgmc) {
@@ -1141,8 +1171,8 @@ function rdgbg() {
     var b = gbgmc.getContext("2d");
     try {
       b.drawImage(gbgi, 0, 0, 512, 512, 0, 0, mww, mhh);
-    } catch (h) {
     }
+    catch (h) {}
   }
 }
 var ggbg = false;
@@ -1153,19 +1183,21 @@ gbgi.onload = function() {
   rdgbg();
 };
 gbgi.src = "/s/gbg.jpg";
+
 function newDeadpool() {
-  return{
-    os : [],
-    end_pos : 0,
-    add : function(b) {
+  return {
+    os: [],
+    end_pos: 0,
+    add: function(b) {
       if (this.end_pos == this.os.length) {
         this.os.push(b);
-      } else {
+      }
+      else {
         this.os[this.end_pos] = b;
       }
       this.end_pos++;
     },
-    get : function() {
+    get: function() {
       if (1 <= this.end_pos) {
         this.end_pos--;
         var b = this.os[this.end_pos];
@@ -1178,35 +1210,37 @@ function newDeadpool() {
 }
 var flt_a = "ler did no;gas the;gas all;gas every;panis;panus;paynis;my ass;cut your;heil hit;flick your;fingerba;arse;naked;menstr;eat my;suck my;fuk".split(";");
 var flt_w = ["ass"];
+
 function gdnm(b) {
   var h = "";
   var c = false;
   var f;
   var w = 0;
-  for (;w < b.length;w++) {
+  for (; w < b.length; w++) {
     f = b.charCodeAt(w);
     if (32 == f) {
       if (!c) {
         c = true;
         h += " ";
       }
-    } else {
+    }
+    else {
       c = false;
       h += String.fromCharCode(f);
     }
   }
   b = h.toLowerCase();
   w = flt_a.length - 1;
-  for (;0 <= w;w--) {
+  for (; 0 <= w; w--) {
     if (0 <= b.indexOf(flt_a[w])) {
       return false;
     }
   }
   b = b.split(" ");
   w = b.length - 1;
-  for (;0 <= w;w--) {
+  for (; 0 <= w; w--) {
     h = flt_w.length - 1;
-    for (;0 <= h;h--) {
+    for (; 0 <= h; h--) {
       if (b[w] == flt_w[h]) {
         return false;
       }
@@ -1262,23 +1296,23 @@ var cst = 0.43;
 var lfas = [];
 var lfc = 128;
 i = 0;
-for (;i < lfc;i++) {
+for (; i < lfc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (lfc - 1 - i) / (lfc - 1)));
   lfas.push(j);
 }
 var rfas = [];
 var rfc = 43;
 i = 0;
-for (;i < rfc;i++) {
+for (; i < rfc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (rfc - 1 - i) / (rfc - 1)));
   rfas.push(j);
 }
 var fao = {};
 var fc = 3;
-for (;100 >= fc;fc++) {
+for (; 100 >= fc; fc++) {
   var fas = [];
   i = 0;
-  for (;i < fc;i++) {
+  for (; i < fc; i++) {
     j = 0.5 * (1 - Math.cos(Math.PI * (fc - 1 - i) / (fc - 1)));
     fas.push(j);
   }
@@ -1287,14 +1321,14 @@ for (;100 >= fc;fc++) {
 var hfc = 92;
 var hfas = new Float32Array(hfc);
 i = 0;
-for (;i < hfc;i++) {
+for (; i < hfc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (hfc - 1 - i) / (hfc - 1)));
   hfas[i] = j;
 }
 var afas = [];
 var afc = 26;
 i = 0;
-for (;i < afc;i++) {
+for (; i < afc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (afc - 1 - i) / (afc - 1)));
   afas.push(j);
 }
@@ -1308,25 +1342,27 @@ var ovyy;
 var fvxs = [];
 var fvys = [];
 i = 0;
-for (;i < vfc;i++) {
+for (; i < vfc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (vfc - 1 - i) / (vfc - 1)));
   j += 0.5 * (0.5 * (1 - Math.cos(Math.PI * j)) - j);
   vfas.push(j);
   fvxs.push(0);
   fvys.push(0);
 }
+
 function pwr(b) {
   var h = new Float32Array(125);
   var c = 0;
-  for (;125 > c;c++) {
+  for (; 125 > c; c++) {
     h[c] = Math.pow(b, c);
   }
   return h;
 }
+
 function pca(b) {
   var h = new Float32Array(125);
   var c = 0;
-  for (;125 > c;c++) {
+  for (; 125 > c; c++) {
     h[c] = 1 - Math.pow(1 - b, c);
   }
   return h;
@@ -1336,33 +1372,37 @@ var p35a = pca(0.35);
 var pwr4 = pwr(0.4);
 var pwr35 = pwr(0.35);
 var pwr93 = pwr(0.93);
+
 function setMscps(b) {
   if (b != mscps) {
     mscps = b;
     fmlts = [];
     fpsls = [];
     b = 0;
-    for (;b <= mscps;b++) {
+    for (; b <= mscps; b++) {
       if (b >= mscps) {
         fmlts.push(fmlts[b - 1]);
-      } else {
+      }
+      else {
         fmlts.push(Math.pow(1 - b / mscps, 2.25));
       }
       if (0 == b) {
         fpsls.push(0);
-      } else {
+      }
+      else {
         fpsls.push(fpsls[b - 1] + 1 / fmlts[b - 1]);
       }
     }
     var h = fmlts[fmlts.length - 1];
     var c = fpsls[fpsls.length - 1];
     b = 0;
-    for (;2048 > b;b++) {
+    for (; 2048 > b; b++) {
       fmlts.push(h);
       fpsls.push(c);
     }
   }
 }
+
 function startShowGame() {
   llgmtm = Date.now();
   login_iv = setInterval("loginFade()", 25);
@@ -1372,6 +1412,7 @@ function startShowGame() {
   loch.style.opacity = 0;
   lb_fr = -1;
 }
+
 function setSkin(b, h) {
   b.rcv = h;
   b.er = 6;
@@ -1398,7 +1439,7 @@ function setSkin(b, h) {
     b.atax = new Float32Array(c);
     b.atay = new Float32Array(c);
     --c;
-    for (;0 <= c;c--) {
+    for (; 0 <= c; c--) {
       b.atx[c] = b.xx;
       b.aty[c] = b.yy;
     }
@@ -1409,7 +1450,8 @@ function setSkin(b, h) {
     b.blbh = 20;
     b.bsc = 1;
     b.blba = 1;
-  } else {
+  }
+  else {
     if (24 == h) {
       b.antenna = true;
       b.atba = 0;
@@ -1426,7 +1468,7 @@ function setSkin(b, h) {
       b.atax = new Float32Array(c);
       b.atay = new Float32Array(c);
       --c;
-      for (;0 <= c;c--) {
+      for (; 0 <= c; c--) {
         b.atx[c] = b.xx;
         b.aty[c] = b.yy;
       }
@@ -1437,7 +1479,8 @@ function setSkin(b, h) {
       b.blbh = 20;
       b.bsc = 1;
       b.blba = 0.75;
-    } else {
+    }
+    else {
       if (25 == h) {
         b.ec = "#ff5609";
         b.eca = 1;
@@ -1455,7 +1498,7 @@ function setSkin(b, h) {
         b.atax = new Float32Array(c);
         b.atay = new Float32Array(c);
         --c;
-        for (;0 <= c;c--) {
+        for (; 0 <= c; c--) {
           b.atx[c] = b.xx;
           b.aty[c] = b.yy;
         }
@@ -1472,55 +1515,72 @@ function setSkin(b, h) {
   c = null;
   if (9 == h) {
     c = [7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10];
-  } else {
+  }
+  else {
     if (10 == h) {
       c = [9, 9, 9, 9, 9, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7];
-    } else {
+    }
+    else {
       if (11 == h) {
         c = [11, 11, 11, 11, 11, 7, 7, 7, 7, 7, 12, 12, 12, 12, 12];
-      } else {
+      }
+      else {
         if (12 == h) {
           c = [7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 13, 13, 13, 13, 13];
-        } else {
+        }
+        else {
           if (13 == h) {
             c = [14, 14, 14, 14, 14, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7];
-          } else {
+          }
+          else {
             if (14 == h) {
               c = [9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7];
-            } else {
+            }
+            else {
               if (15 == h) {
                 c = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-              } else {
+              }
+              else {
                 if (16 == h) {
                   c = [15, 15, 15, 15, 15, 15, 15, 4, 4, 4, 4, 4, 4, 4];
-                } else {
+                }
+                else {
                   if (17 == h) {
                     c = [9, 9, 9, 9, 9, 9, 9, 16, 16, 16, 16, 16, 16, 16];
-                  } else {
+                  }
+                  else {
                     if (18 == h) {
                       c = [7, 7, 7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 9, 9];
-                    } else {
+                    }
+                    else {
                       if (19 == h) {
                         c = [9];
-                      } else {
+                      }
+                      else {
                         if (20 == h) {
                           c = [3, 3, 3, 3, 3, 0, 0, 0, 0, 0];
-                        } else {
+                        }
+                        else {
                           if (21 == h) {
                             c = [3, 3, 3, 3, 3, 3, 3, 18, 18, 18, 18, 18, 18, 20, 19, 20, 19, 20, 19, 20, 18, 18, 18, 18, 18, 18];
-                          } else {
+                          }
+                          else {
                             if (22 == h) {
                               c = [5, 5, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9, 9, 9, 13, 13, 13, 13, 13, 13, 13];
-                            } else {
+                            }
+                            else {
                               if (23 == h) {
                                 c = [16, 16, 16, 16, 16, 16, 16, 18, 18, 18, 18, 18, 18, 18, 7, 7, 7, 7, 7, 7, 7];
-                              } else {
+                              }
+                              else {
                                 if (24 == h) {
                                   c = [23, 23, 23, 23, 23, 23, 23, 23, 23, 18, 18, 18, 18, 18, 18, 18, 18, 18];
-                                } else {
+                                }
+                                else {
                                   if (25 == h) {
                                     c = [21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 22, 22];
-                                  } else {
+                                  }
+                                  else {
                                     h %= 9;
                                   }
                                 }
@@ -1545,6 +1605,7 @@ function setSkin(b, h) {
   b.rbcs = c;
   b.cv = h;
 }
+
 function newSnake(b, h, c, f, w, u) {
   var e = {};
   e.id = b;
@@ -1615,7 +1676,8 @@ function newSnake(b, h, c, f, w, u) {
     if (u[0].dying) {
       e.sct--;
     }
-  } else {
+  }
+  else {
     e.pts = [];
     e.sct = 0;
   }
@@ -1631,13 +1693,14 @@ function newSnake(b, h, c, f, w, u) {
   snakes.splice(0, 0, e);
   return os["s" + e.id] = e;
 }
+
 function snl(b) {
   var h = b.tl;
   b.tl = b.sct + b.fam;
   h = b.tl - h;
   var c = b.flpos;
   var f = 0;
-  for (;f < lfc;f++) {
+  for (; f < lfc; f++) {
     b.fls[c] -= h * lfas[f];
     c++;
     if (c >= lfc) {
@@ -1650,6 +1713,7 @@ function snl(b) {
     wumsts = true;
   }
 }
+
 function newFood(b, h, c, f, w, u) {
   var e = {};
   e.id = b;
@@ -1720,6 +1784,7 @@ function newFood(b, h, c, f, w, u) {
   e.eaten_fr4 = 0;
   return foods[foods_c++] = e;
 }
+
 function newPrey(b, h, c, f, w, u, e, z, F) {
   var t = {};
   t.id = b;
@@ -1789,7 +1854,7 @@ map = ctx.getImageData(0, 0, sz, sz);
 imgd = map.data;
 l = imgd.length;
 p = yy = xx = 0;
-for (;p < l;p += 4) {
+for (; p < l; p += 4) {
   var v = Math.abs(Math.sqrt(Math.pow(sz / 2 - xx, 2) + Math.pow(sz / 2 - yy, 2)) - 16);
   v = 4 >= v ? 1 - v / 4 : 0;
   v = 0.8 * v;
@@ -1810,7 +1875,7 @@ map = ctx.getImageData(0, 0, sz, sz);
 imgd = map.data;
 l = imgd.length;
 p = yy = xx = 0;
-for (;p < l;p += 4) {
+for (; p < l; p += 4) {
   v = Math.sqrt(Math.pow(sz / 2 - xx, 2) + Math.pow(sz / 2 + 3 - yy, 2)) - 15;
   v *= 0.1;
   if (0 > v) {
@@ -1888,23 +1953,23 @@ var ggs = [128, 153, 208, 255, 238, 160, 144, 64, 48, 255, 153, 80, 192, 136, 11
 var bbs = [255, 255, 208, 128, 112, 96, 144, 64, 224, 255, 255, 80, 80, 96, 255, 255, 255, 255, 64, 255, 255, 160, 9, 232];
 var max_skin_cv = 24;
 i = 0;
-for (;i < rrs.length;i++) {
+for (; i < rrs.length; i++) {
   o = {
-    imgs : [],
-    fws : [],
-    fhs : [],
-    fw2s : [],
-    fh2s : [],
-    gimgs : [],
-    gfws : [],
-    gfhs : [],
-    gfw2s : [],
-    gfh2s : [],
-    oimgs : [],
-    ofws : [],
-    ofhs : [],
-    ofw2s : [],
-    ofh2s : []
+    imgs: [],
+    fws: [],
+    fhs: [],
+    fw2s: [],
+    fh2s: [],
+    gimgs: [],
+    gfws: [],
+    gfhs: [],
+    gfw2s: [],
+    gfh2s: [],
+    oimgs: [],
+    ofws: [],
+    ofhs: [],
+    ofw2s: [],
+    ofh2s: []
   };
   var rs = "00" + rrs[i].toString(16);
   var gs = "00" + ggs[i].toString(16);
@@ -1921,7 +1986,7 @@ for (;i < rrs.length;i++) {
   imgd = map.data;
   l = imgd.length;
   p = yy = xx = 0;
-  for (;p < l;p += 4) {
+  for (; p < l; p += 4) {
     v = Math.abs(Math.sqrt(Math.pow(sz / 2 - xx, 2) + Math.pow(sz / 2 - yy, 2)) - 16);
     v = 15 >= v ? 1 - v / 15 : 0;
     imgd[p] = rrs[i];
@@ -1950,9 +2015,9 @@ for (;i < rrs.length;i++) {
   yy = xx = 0;
   var kmcs = [];
   j = 0;
-  for (;7 > j;j++) {
+  for (; 7 > j; j++) {
     p = xx = yy = 0;
-    for (;p < l;p += 4) {
+    for (; p < l; p += 4) {
       v = Math.pow(Math.max(0, Math.min(1, 1 - Math.abs(yy - ksz2) / ksz2)), 0.35);
       var v2 = Math.max(0, Math.min(1, 1 - Math.sqrt(Math.pow(xx - ksz2, 2) + Math.pow(yy - ksz2, 2)) / 34));
       v = v + 0.375 * (v2 - v);
@@ -1976,18 +2041,19 @@ for (;i < rrs.length;i++) {
     ctx2.drawImage(kmc, 0, 0);
     if (10 == i) {
       k = -1;
-      for (;1 >= k;k++) {
+      for (; 1 >= k; k++) {
         var tx = ksz2 + ksz2 / 16 * Math.cos(2 * Math.PI * k / 8) * 13;
         var ty = ksz2 + ksz2 / 16 * Math.sin(2 * Math.PI * k / 8) * 13;
         ctx2.fillStyle = "#FFFFFF";
         ctx2.beginPath();
         m = 0;
-        for (;5 >= m;m++) {
+        for (; 5 >= m; m++) {
           xx = tx + ksz / 32 * Math.cos(2 * Math.PI * m / 5) * 0.05 * 24;
           yy = ty + ksz / 32 * Math.sin(2 * Math.PI * m / 5) * 0.05 * 24;
           if (0 == m) {
             ctx2.moveTo(xx, yy);
-          } else {
+          }
+          else {
             ctx2.lineTo(xx, yy);
           }
           xx = tx + ksz / 32 * Math.cos(2 * Math.PI * (m + 0.5) / 5) * 3.1;
@@ -1996,10 +2062,11 @@ for (;i < rrs.length;i++) {
         }
         ctx2.fill();
       }
-    } else {
+    }
+    else {
       if (19 == i) {
         k = -2;
-        for (;2 >= k;k++) {
+        for (; 2 >= k; k++) {
           tx = ksz2 + ksz2 / 16 * Math.cos(2 * Math.PI * k / 15) * 13;
           ty = ksz2 + ksz2 / 16 * Math.sin(2 * Math.PI * k / 15) * 13;
           ctx2.save();
@@ -2007,12 +2074,13 @@ for (;i < rrs.length;i++) {
           ctx2.fillStyle = "#FFFFFF";
           ctx2.beginPath();
           m = 0;
-          for (;5 >= m;m++) {
+          for (; 5 >= m; m++) {
             xx = tx + ksz / 32 * Math.cos(2 * Math.PI * m / 5) * 0.05 * 12;
             yy = ty + ksz / 32 * Math.sin(2 * Math.PI * m / 5) * 0.05 * 12;
             if (0 == m) {
               ctx2.moveTo(xx, yy);
-            } else {
+            }
+            else {
               ctx2.lineTo(xx, yy);
             }
             xx = tx + ksz / 32 * Math.cos(2 * Math.PI * (m + 0.5) / 5) * 1.55;
@@ -2022,10 +2090,11 @@ for (;i < rrs.length;i++) {
           ctx2.fill();
           ctx2.restore();
         }
-      } else {
+      }
+      else {
         if (20 == i) {
           k = -1.5;
-          for (;1.5 >= k;k++) {
+          for (; 1.5 >= k; k++) {
             tx = ksz2 + ksz2 / 16 * Math.cos(2 * Math.PI * k / 15) * 13;
             ty = ksz2 + ksz2 / 16 * Math.sin(2 * Math.PI * k / 15) * 13;
             ctx2.save();
@@ -2033,12 +2102,13 @@ for (;i < rrs.length;i++) {
             ctx2.fillStyle = "#FFFFFF";
             ctx2.beginPath();
             m = 0;
-            for (;5 >= m;m++) {
+            for (; 5 >= m; m++) {
               xx = tx + ksz2 / 16 * Math.cos(2 * Math.PI * m / 5) * 0.05 * 14;
               yy = ty + ksz2 / 16 * Math.sin(2 * Math.PI * m / 5) * 0.05 * 14;
               if (0 == m) {
                 ctx2.moveTo(xx, yy);
-              } else {
+              }
+              else {
                 ctx2.lineTo(xx, yy);
               }
               xx = tx + ksz2 / 16 * Math.cos(2 * Math.PI * (m + 0.5) / 5) * 1.8;
@@ -2056,7 +2126,7 @@ for (;i < rrs.length;i++) {
   o.kmcs = kmcs;
   per_color_imgs.push(o);
   j = 2.8;
-  for (;18.8 >= j;j += 1) {
+  for (; 18.8 >= j; j += 1) {
     var cc = document.createElement("canvas");
     sz = Math.ceil(2.5 * j + 28);
     cc.width = cc.height = sz;
@@ -2118,7 +2188,7 @@ for (;i < rrs.length;i++) {
   o.pr_fw2s = [];
   o.pr_fh2s = [];
   j = 3;
-  for (;24 >= j;j += 1) {
+  for (; 24 >= j; j += 1) {
     cc = document.createElement("canvas");
     sz = Math.ceil(2 * j + 38);
     cc.width = cc.height = sz;
@@ -2146,7 +2216,7 @@ if (testing) {
   ctx.textBaseline = "top";
   ctx.textAlign = "center";
   i = yy = xx = 0;
-  for (;i < rrs.length;i++) {
+  for (; i < rrs.length; i++) {
     var pci = per_color_imgs[i];
     kmc = pci.kmcs[0];
     ctx.drawImage(kmc, 0, 0, kmc.width, kmc.height, xx, yy, 16, 16);
@@ -2207,9 +2277,9 @@ var hvfr = 0;
 var dead_mtm = -1;
 var at2lt = new Float32Array(65536);
 yy = 0;
-for (;256 > yy;yy++) {
+for (; 256 > yy; yy++) {
   xx = 0;
-  for (;256 > xx;xx++) {
+  for (; 256 > xx; xx++) {
     at2lt[yy << 8 | xx] = Math.atan2(yy - 128, xx - 128);
   }
 }
@@ -2222,8 +2292,8 @@ var lkstm = 0;
 var social = document.createElement("iframe");
 try {
   social.frameBorder = 0;
-} catch (b$$35) {
 }
+catch (b$$35) {}
 social.style.position = "fixed";
 social.style.left = "6px";
 social.style.top = "6px";
@@ -2250,7 +2320,8 @@ var oef = function() {
       if (0.01 > lag_mult) {
         lag_mult = 0.01;
       }
-    } else {
+    }
+    else {
       if (1 > lag_mult) {
         lag_mult += 0.05;
         if (1 <= lag_mult) {
@@ -2283,17 +2354,18 @@ var oef = function() {
     var c;
     var f;
     var w = 1;
-    for (;2 >= w;w++) {
+    for (; 2 >= w; w++) {
       h.beginPath();
       if (1 == w) {
         h.fillStyle = "#60FF70";
         f = 0;
-      } else {
+      }
+      else {
         h.fillStyle = "#9850FF";
         f = Math.PI;
       }
       var u = 0;
-      for (;256 >= u;u++) {
+      for (; 256 >= u; u++) {
         c = 32 + 5 * Math.cos(f + lsfr / 6 + 8 * u / 256) + 8 * u / 256;
         if (256 == u) {
           c += 10;
@@ -2302,7 +2374,8 @@ var oef = function() {
         yy = 64 + Math.sin(f + lsfr / 44 + 0.8 * Math.PI * u / 256) * c;
         if (0 == u) {
           h.moveTo(xx, yy);
-        } else {
+        }
+        else {
           h.lineTo(xx, yy);
         }
       }
@@ -2311,7 +2384,7 @@ var oef = function() {
       yy = 64 + Math.sin(f + lsfr / 44 + 0.8 * Math.PI * (u + 47) / 256) * c;
       h.lineTo(xx, yy);
       u = 256;
-      for (;0 <= u;u--) {
+      for (; 0 <= u; u--) {
         c = 32 + 5 * Math.cos(f + lsfr / 6 + 8 * u / 256) - 8 * u / 256;
         if (256 == u) {
           c -= 10;
@@ -2331,7 +2404,8 @@ var oef = function() {
       if (1 <= ss_sh) {
         ss_sh = 1;
       }
-    } else {
+    }
+    else {
       ss_a -= avfr / 86;
       if (0 >= ss_a) {
         ss_sh = ss_a = 0;
@@ -2377,10 +2451,10 @@ var oef = function() {
   }
   if (choosing_skin) {
     u = snakes.length - 1;
-    for (;0 <= u;u--) {
+    for (; 0 <= u; u--) {
       e = snakes[u];
       w = e.pts.length - 1;
-      for (;0 <= w;w--) {
+      for (; 0 <= w; w--) {
         e.pts[w].yy = grd / 2 + 15 * Math.cos(w / 4 + fr / 19) * (1 - w / e.pts.length);
       }
     }
@@ -2400,7 +2474,8 @@ var oef = function() {
           qsm = 1;
         }
       }
-    } else {
+    }
+    else {
       if (0 < gla) {
         gla -= 0.0075 * vfr;
         if (0 > gla) {
@@ -2431,11 +2506,13 @@ var oef = function() {
         nick_holder.style.display = "inline-block";
         playh.style.display = "block";
         smh.style.display = "block";
-      } else {
+      }
+      else {
         victory_holder.style.opacity = 1 - hvfr;
         saveh.style.opacity = 1 - hvfr;
       }
-    } else {
+    }
+    else {
       if (2 == want_hide_victory) {
         hvfr += 0.02 * vfr;
         if (1 <= hvfr) {
@@ -2474,7 +2551,8 @@ var oef = function() {
         lbs.style.opacity = lbn.style.opacity = lbp.style.opacity = lbf.style.opacity = vcm.style.opacity = lb_fr;
       }
     }
-  } else {
+  }
+  else {
     if (1600 < b - dead_mtm) {
       if (-1 == login_iv) {
         login_iv = -2;
@@ -2482,11 +2560,12 @@ var oef = function() {
         try {
           if ("1" != localStorage.edttsg) {
             cstx.style.display = "inline";
-          } else {
+          }
+          else {
             cskh.style.display = "inline";
           }
-        } catch (z) {
         }
+        catch (z) {}
         fbh.style.display = "inline";
         twth.style.display = "inline";
         plq.style.display = "inline";
@@ -2524,7 +2603,8 @@ var oef = function() {
         u = Math.round(lgbsc * lgcsc * 1E5) / 1E5;
         if (1 == u) {
           trf(login, "");
-        } else {
+        }
+        else {
           trf(login, "scale(" + u + "," + u + ")");
         }
         login.style.opacity = 1 - login_fr;
@@ -2585,14 +2665,16 @@ var oef = function() {
           if (5 <= protocol_version) {
             u = new Uint8Array(2);
             u[0] = 252;
-          } else {
+          }
+          else {
             u = new Uint8Array(2);
             u[0] = 108;
           }
           u[1] = v;
           ws.send(u);
           snake.eang -= mamu * v * snake.scang * snake.spang;
-        } else {
+        }
+        else {
           if (0 < kd_r_frb) {
             v = kd_r_frb;
             if (127 < v) {
@@ -2603,7 +2685,8 @@ var oef = function() {
               v += 128;
               u = new Uint8Array(2);
               u[0] = 252;
-            } else {
+            }
+            else {
               u = new Uint8Array(2);
               u[0] = 114;
             }
@@ -2649,13 +2732,13 @@ var oef = function() {
       f.push("bytes/sec avg: " + Math.round(trdps / tcsecs));
       f.push("");
       u = e = 0;
-      for (;u < rdpspc.length;u++) {
+      for (; u < rdpspc.length; u++) {
         if (0 <= rdpspc[u]) {
           e += rdpspc[u];
         }
       }
       u = 0;
-      for (;u < rdpspc.length;u++) {
+      for (; u < rdpspc.length; u++) {
         if (0 <= rdpspc[u]) {
           f.push(String.fromCharCode(u) + ": " + rdpspc[u] + " (" + Math.round(rdpspc[u] / e * 1E3) / 10 + "%)");
         }
@@ -2664,7 +2747,7 @@ var oef = function() {
       maxp = pf_ep = pf_nap = pf_remove = pf_new_add = pf_add = 0;
       f.push("");
       u = 1;
-      for (;u < pfs.length;u++) {
+      for (; u < pfs.length; u++) {
         if (0 != pfs[u]) {
           f.push(u + ": " + Math.round(1E3 * pfs[u]) / 1E3);
           pfs[u] = 0;
@@ -2682,7 +2765,8 @@ var oef = function() {
               high_quality = false;
             }
           }
-        } else {
+        }
+        else {
           if (high_quality || 48 <= fps) {
             if (0 < wdfg) {
               wdfg--;
@@ -2712,7 +2796,8 @@ var oef = function() {
         if (256 < d2) {
           ang = Math.atan2(ym, xm);
           snake.eang = ang;
-        } else {
+        }
+        else {
           ang = snake.wang;
         }
         ang %= pi2;
@@ -2728,7 +2813,8 @@ var oef = function() {
             lpstm = b;
             ws.send(u.buffer);
           }
-        } else {
+        }
+        else {
           sang = Math.floor(16777215 * ang / pi2);
           if (sang != lsang) {
             lsang = sang;
@@ -2746,7 +2832,7 @@ var oef = function() {
   }
   if (!choosing_skin) {
     u = snakes.length - 1;
-    for (;0 <= u;u--) {
+    for (; 0 <= u; u--) {
       e = snakes[u];
       h = mamu * vfr * e.scang * e.spang;
       b = e.sp * vfr / 4;
@@ -2760,7 +2846,8 @@ var oef = function() {
             if (e.tsp > e.sp) {
               e.tsp = e.sp;
             }
-          } else {
+          }
+          else {
             e.tsp -= 0.3 * vfr;
             if (e.tsp < e.sp) {
               e.tsp = e.sp;
@@ -2777,7 +2864,7 @@ var oef = function() {
           }
           e.fltg -= f;
           qq = 0;
-          for (;qq < f;qq++) {
+          for (; qq < f; qq++) {
             e.fl = e.fls[e.flpos];
             e.fls[e.flpos] = 0;
             e.flpos++;
@@ -2785,7 +2872,8 @@ var oef = function() {
               e.flpos = 0;
             }
           }
-        } else {
+        }
+        else {
           if (0 == e.fltg) {
             e.fltg = -1;
             e.fl = 0;
@@ -2812,7 +2900,8 @@ var oef = function() {
           e.ang = e.wang;
           e.dir = 0;
         }
-      } else {
+      }
+      else {
         if (2 == e.dir) {
           e.ang += h;
           if (0 > e.ang || e.ang >= pi2) {
@@ -2832,7 +2921,8 @@ var oef = function() {
             e.ang = e.wang;
             e.dir = 0;
           }
-        } else {
+        }
+        else {
           e.ang = e.wang;
         }
       }
@@ -2855,7 +2945,8 @@ var oef = function() {
           }
           if (0 > f) {
             e.edir = 1;
-          } else {
+          }
+          else {
             if (0 < f) {
               e.edir = 2;
             }
@@ -2881,7 +2972,8 @@ var oef = function() {
           e.ehang = e.wehang;
           e.edir = 0;
         }
-      } else {
+      }
+      else {
         if (2 == e.edir) {
           e.ehang += 0.1 * vfr;
           if (0 > e.ehang || e.ehang >= pi2) {
@@ -2910,7 +3002,7 @@ var oef = function() {
       }
       if (0 < vfrb) {
         w = e.pts.length - 1;
-        for (;0 <= w;w--) {
+        for (; 0 <= w; w--) {
           h = e.pts[w];
           if (h.dying) {
             h.da += 0.0015 * vfrb;
@@ -2922,11 +3014,11 @@ var oef = function() {
           }
         }
         w = e.pts.length - 1;
-        for (;0 <= w;w--) {
+        for (; 0 <= w; w--) {
           if (h = e.pts[w], 0 < h.eiu) {
             fy = fx = 0;
             qq = cm1 = h.eiu - 1;
-            for (;0 <= qq;qq--) {
+            for (; 0 <= qq; qq--) {
               h.efs[qq] = 2 == h.ems[qq] ? h.efs[qq] + vfrb2 : h.efs[qq] + vfrb;
               f = h.efs[qq];
               if (f >= hfc) {
@@ -2938,7 +3030,8 @@ var oef = function() {
                 }
                 h.eiu--;
                 cm1--;
-              } else {
+              }
+              else {
                 fx += h.exs[qq] * hfas[f];
                 fy += h.eys[qq] * hfas[f];
               }
@@ -2982,7 +3075,7 @@ var oef = function() {
           }
           e.ftg -= f;
           qq = 0;
-          for (;qq < f;qq++) {
+          for (; qq < f; qq++) {
             e.fx = e.fxs[e.fpos];
             e.fy = e.fys[e.fpos];
             e.fchl = e.fchls[e.fpos];
@@ -2994,7 +3087,8 @@ var oef = function() {
               e.fpos = 0;
             }
           }
-        } else {
+        }
+        else {
           if (0 == e.ftg) {
             e.ftg = -1;
             e.fx = 0;
@@ -3009,7 +3103,7 @@ var oef = function() {
           }
           e.fatg -= f;
           qq = 0;
-          for (;qq < f;qq++) {
+          for (; qq < f; qq++) {
             e.fa = e.fas[e.fapos];
             e.fas[e.fapos] = 0;
             e.fapos++;
@@ -3017,7 +3111,8 @@ var oef = function() {
               e.fapos = 0;
             }
           }
-        } else {
+        }
+        else {
           if (0 == e.fatg) {
             e.fatg = -1;
             e.fa = 0;
@@ -3029,7 +3124,8 @@ var oef = function() {
         if (1 <= e.dead_amt) {
           snakes.splice(u, 1);
         }
-      } else {
+      }
+      else {
         if (1 != e.alive_amt) {
           e.alive_amt += 0.015 * vfr;
           if (1 <= e.alive_amt) {
@@ -3040,7 +3136,7 @@ var oef = function() {
     }
   }
   u = preys.length - 1;
-  for (;0 <= u;u--) {
+  for (; 0 <= u; u--) {
     w = preys[u];
     h = mamu2 * vfr;
     b = w.sp * vfr / 4;
@@ -3052,7 +3148,7 @@ var oef = function() {
         }
         w.ftg -= f;
         qq = 1;
-        for (;qq <= f;qq++) {
+        for (; qq <= f; qq++) {
           if (qq == f) {
             w.fx = w.fxs[w.fpos];
             w.fy = w.fys[w.fpos];
@@ -3064,7 +3160,8 @@ var oef = function() {
             w.fpos = 0;
           }
         }
-      } else {
+      }
+      else {
         if (0 == w.ftg) {
           w.fx = 0;
           w.fy = 0;
@@ -3091,7 +3188,8 @@ var oef = function() {
         w.ang = w.wang;
         w.dir = 0;
       }
-    } else {
+    }
+    else {
       if (2 == w.dir) {
         w.ang += h;
         if (0 > w.ang || w.ang >= pi2) {
@@ -3111,7 +3209,8 @@ var oef = function() {
           w.ang = w.wang;
           w.dir = 0;
         }
-      } else {
+      }
+      else {
         w.ang = w.wang;
       }
     }
@@ -3130,17 +3229,20 @@ var oef = function() {
       e = w.eaten_by;
       if (1 <= w.eaten_fr || !e) {
         preys.splice(u, 1);
-      } else {
+      }
+      else {
         w.eaten_fr4 = Math.pow(w.eaten_fr, 4);
         w.rad = 1 - Math.pow(w.eaten_fr, 3);
       }
-    } else {
+    }
+    else {
       if (1 != w.fr) {
         w.fr += vfr / 150;
         if (1 <= w.fr) {
           w.fr = 1;
           w.rad = 1;
-        } else {
+        }
+        else {
           w.rad = 0.5 * (1 - Math.cos(Math.PI * w.fr));
           w.rad += 0.66 * (0.5 * (1 - Math.cos(Math.PI * w.rad)) - w.rad);
         }
@@ -3148,7 +3250,7 @@ var oef = function() {
     }
   }
   u = cm1 = foods_c - 1;
-  for (;0 <= u;u--) {
+  for (; 0 <= u; u--) {
     b = foods[u];
     b.gfr += vfr * b.gr;
     if (b.eaten) {
@@ -3164,13 +3266,15 @@ var oef = function() {
       if (1 <= b.eaten_fr || !e) {
         if (u == cm1) {
           foods[u] = null;
-        } else {
+        }
+        else {
           foods[u] = foods[cm1];
           foods[cm1] = null;
         }
         foods_c--;
         cm1--;
-      } else {
+      }
+      else {
         e = b.eaten_by;
         f = b.eaten_fr * b.eaten_fr;
         b.eaten_fr4 = f * f;
@@ -3180,13 +3284,15 @@ var oef = function() {
         b.rx += 6 * Math.cos(b.wsp * b.gfr) * (1 - b.eaten_fr);
         b.ry += 6 * Math.sin(b.wsp * b.gfr) * (1 - b.eaten_fr);
       }
-    } else {
+    }
+    else {
       if (1 != b.fr) {
         b.fr += b.rsp * vfr / 150;
         if (1 <= b.fr) {
           b.fr = 1;
           b.rad = 1;
-        } else {
+        }
+        else {
           b.rad = 0.5 * (1 - Math.cos(Math.PI * b.fr));
           b.rad += 0.66 * (0.5 * (1 - Math.cos(Math.PI * b.rad)) - b.rad);
         }
@@ -3235,7 +3341,8 @@ var redraw = function() {
           if (gsc >= h) {
             gsc = h;
           }
-        } else {
+        }
+        else {
           gsc -= 2E-4;
           if (gsc <= h) {
             gsc = h;
@@ -3291,7 +3398,8 @@ var redraw = function() {
       b.globalAlpha = 0.3 * gla;
       b.drawImage(gbgmc, 0, 0);
       b.restore();
-    } else {
+    }
+    else {
       b.fillStyle = "#000000";
       b.fillRect(0, 0, mww, mhh);
     }
@@ -3312,7 +3420,7 @@ var redraw = function() {
     }
     if (testing) {
       h = sectors.length - 1;
-      for (;0 <= h;h--) {
+      for (; 0 <= h; h--) {
         c = sectors[h];
         b.fillStyle = "rgba(0, 255, 0, .1)";
         b.fillRect(mww2 + (c.xx * sector_size - view_xx) * gsc, mhh2 + (c.yy * sector_size - view_yy) * gsc, sector_size * gsc - 4, sector_size * gsc - 4);
@@ -3325,7 +3433,7 @@ var redraw = function() {
       }
       b.save();
       h = foods_c - 1;
-      for (;0 <= h;h--) {
+      for (; 0 <= h; h--) {
         c = foods[h];
         if (c.rx >= fpx1) {
           if (c.ry >= fpy1) {
@@ -3344,7 +3452,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   B = mww2 + gsc * (c.rx - view_xx) - c.ofw2 * c.rad;
                   q = mhh2 + gsc * (c.ry - view_yy) - c.ofh2 * c.rad;
                   if (-50 <= B) {
@@ -3377,7 +3486,7 @@ var redraw = function() {
         w = 1 - 0.25 * gla;
       }
       h = foods_c - 1;
-      for (;0 <= h;h--) {
+      for (; 0 <= h; h--) {
         c = foods[h];
         if (c.rx >= fpx1) {
           if (c.ry >= fpy1) {
@@ -3398,7 +3507,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   B = mww2 + gsc * (c.rx - view_xx) - c.fw2 * c.rad;
                   q = mhh2 + gsc * (c.ry - view_yy) - c.fh2 * c.rad;
                   if (-50 <= B) {
@@ -3419,9 +3529,10 @@ var redraw = function() {
           }
         }
       }
-    } else {
+    }
+    else {
       h = foods_c - 1;
-      for (;0 <= h;h--) {
+      for (; 0 <= h; h--) {
         c = foods[h];
         if (c.rx >= fpx1) {
           if (c.ry >= fpy1) {
@@ -3440,7 +3551,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   B = mww2 + gsc * (c.rx - view_xx) - c.fw2 * c.rad;
                   q = mhh2 + gsc * (c.ry - view_yy) - c.fh2 * c.rad;
                   if (-50 <= B) {
@@ -3464,7 +3576,7 @@ var redraw = function() {
     b.save();
     b.globalCompositeOperation = "lighter";
     h = preys.length - 1;
-    for (;0 <= h;h--) {
+    for (; 0 <= h; h--) {
       if (f = preys[h], e = f.xx + f.fx, z = f.yy + f.fy, px = mww2 + gsc * (e - view_xx), py = mhh2 + gsc * (z - view_yy), -50 <= px && (-50 <= py && (px <= mwwp50 && py <= mhhp50))) {
         if (f.eaten) {
           c = f.eaten_by;
@@ -3481,7 +3593,8 @@ var redraw = function() {
           b.drawImage(f.fi, B, q);
           b.globalAlpha = 0.75 * (0.5 + 0.5 * Math.cos(f.gfr / 13)) * f.fr;
           b.drawImage(f.fi, B, q);
-        } else {
+        }
+        else {
           B = px - f.fw2 * f.rad;
           q = py - f.fh2 * f.rad;
           b.globalAlpha = 0.75 * f.fr;
@@ -3496,7 +3609,7 @@ var redraw = function() {
     b.strokeStyle = "#90C098";
     var F;
     h = snakes.length - 1;
-    for (;0 <= h;h--) {
+    for (; 0 <= h; h--) {
       c = snakes[h];
       e = c.xx + c.fx;
       z = c.yy + c.fy + 40;
@@ -3533,11 +3646,11 @@ var redraw = function() {
       }
     }
     h = snakes.length - 1;
-    for (;0 <= h;h--) {
+    for (; 0 <= h; h--) {
       c = snakes[h];
       c.iiv = false;
       y = c.pts.length - 1;
-      for (;0 <= y;y--) {
+      for (; 0 <= y; y--) {
         if (e = c.pts[y], px = e.xx + e.fx, py = e.yy + e.fy, px >= bpx1 && (py >= bpy1 && (px <= bpx2 && py <= bpy2))) {
           c.iiv = true;
           break;
@@ -3545,7 +3658,7 @@ var redraw = function() {
       }
     }
     h = snakes.length - 1;
-    for (;0 <= h;h--) {
+    for (; 0 <= h; h--) {
       if (c = snakes[h], c.iiv) {
         f = c.xx + c.fx;
         w = c.yy + c.fy;
@@ -3562,7 +3675,7 @@ var redraw = function() {
           b.moveTo(mww2 + (px - view_xx) * gsc, mhh2 + (py - view_yy) * gsc);
           z = false;
           var y = c.pts.length - 1;
-          for (;0 <= y;y--) {
+          for (; 0 <= y; y--) {
             e = c.pts[y];
             lpx = px;
             lpy = py;
@@ -3590,12 +3703,14 @@ var redraw = function() {
               }
               if (z) {
                 D--;
-              } else {
+              }
+              else {
                 D -= c.chl + c.fchl;
               }
               if (z) {
                 b.quadraticCurveTo(mww2 + (lpx - view_xx) * gsc, mhh2 + (lpy - view_yy) * gsc, mww2 + (ax - view_xx) * gsc, mhh2 + (ay - view_yy) * gsc);
-              } else {
+              }
+              else {
                 b.lineTo(mww2 + (ax - view_xx) * gsc, mhh2 + (ay - view_yy) * gsc);
                 z = true;
               }
@@ -3621,7 +3736,8 @@ var redraw = function() {
             b.globalAlpha = 1 * c.alive_amt * (1 - c.dead_amt);
             b.strokeStyle = "#000000";
             b.lineWidth = (x + 5) * gsc;
-          } else {
+          }
+          else {
             if (c.sp > c.fsp) {
               y = c.alive_amt * (1 - c.dead_amt) * Math.max(0, Math.min(1, (c.sp - c.ssp) / (c.msp - c.ssp)));
               b.save();
@@ -3682,7 +3798,8 @@ var redraw = function() {
             pby[0] = C;
             pba[0] = Math.atan2(w - (e.yy + e.fy), f - (e.xx + e.fx)) + Math.PI;
             pbu[0] = 1;
-          } else {
+          }
+          else {
             pbu[0] = 0;
           }
           B = 1;
@@ -3700,7 +3817,8 @@ var redraw = function() {
               if (c.sep >= c.wsep) {
                 c.sep = c.wsep;
               }
-            } else {
+            }
+            else {
               if (c.sep > c.wsep) {
                 c.sep -= 0.01;
                 if (c.sep <= c.wsep) {
@@ -3715,7 +3833,7 @@ var redraw = function() {
           var E;
           var G;
           y = c.pts.length - 1;
-          for (;0 <= y;y--) {
+          for (; 0 <= y; y--) {
             if (e = c.pts[y], lpx = px, lpy = py, px = e.xx + e.fx, py = e.yy + e.fy, -0.25 < D) {
               L = H;
               J = C;
@@ -3724,7 +3842,7 @@ var redraw = function() {
               M = lpx;
               O = lpy;
               u = 0;
-              for (;1 > u;u += 0.25) {
+              for (; 1 > u; u += 0.25) {
                 E = n + u;
                 e = L + (M - L) * E;
                 z = J + (O - J) * E;
@@ -3741,10 +3859,11 @@ var redraw = function() {
                 I = Math.sqrt(Math.pow(ax - lax, 2) + Math.pow(ay - lay, 2));
                 if (K + I < N) {
                   K += I;
-                } else {
+                }
+                else {
                   K = -K;
                   E = (I - K) / N;
-                  for (;1 <= E;E--) {
+                  for (; 1 <= E; E--) {
                     K += N;
                     pax = lax + (ax - lax) * K / I;
                     pay = lay + (ay - lay) * K / I;
@@ -3755,7 +3874,8 @@ var redraw = function() {
                       e = ax - lax;
                       z = ay - lay;
                       pba[B] = -15 <= e && (-15 <= z && (15 > e && 15 > z)) ? at2lt[8 * z + 128 << 8 | 8 * e + 128] : -127 <= e && (-127 <= z && (127 > e && 127 > z)) ? at2lt[z + 128 << 8 | e + 128] : Math.atan2(z, e);
-                    } else {
+                    }
+                    else {
                       pbu[B] = 0;
                     }
                     B++;
@@ -3776,7 +3896,8 @@ var redraw = function() {
             pbx[B] = ax;
             pby[B] = ay;
             pba[B] = Math.atan2(ay - lay, ax - lax);
-          } else {
+          }
+          else {
             pbu[B] = 0;
           }
           B++;
@@ -3799,7 +3920,7 @@ var redraw = function() {
               C = c.rbcs;
               N = C.length;
               y = B - 1;
-              for (;0 <= y;y--) {
+              for (; 0 <= y; y--) {
                 if (1 == pbu[y]) {
                   px = pbx[y];
                   py = pby[y];
@@ -3812,9 +3933,10 @@ var redraw = function() {
                   b.restore();
                 }
               }
-            } else {
+            }
+            else {
               y = B - 1;
-              for (;0 <= y;y--) {
+              for (; 0 <= y; y--) {
                 if (1 == pbu[y]) {
                   px = pbx[y];
                   py = pby[y];
@@ -3837,7 +3959,7 @@ var redraw = function() {
             }
             b.globalAlpha = e;
             y = B - 1;
-            for (;0 <= y;y--) {
+            for (; 0 <= y; y--) {
               if (1 == pbu[y]) {
                 px = pbx[y];
                 py = pby[y];
@@ -3858,7 +3980,7 @@ var redraw = function() {
             C = c.rbcs;
             N = C.length;
             y = B - 1;
-            for (;0 <= y;y--) {
+            for (; 0 <= y; y--) {
               if (1 == pbu[y]) {
                 px = pbx[y];
                 py = pby[y];
@@ -3891,7 +4013,7 @@ var redraw = function() {
               b.save();
               b.globalCompositeOperation = "lighter";
               y = B - 1;
-              for (;0 <= y;y--) {
+              for (; 0 <= y; y--) {
                 if (1 == pbu[y]) {
                   px = pbx[y];
                   py = pby[y];
@@ -3909,9 +4031,10 @@ var redraw = function() {
               }
               b.restore();
             }
-          } else {
+          }
+          else {
             y = B - 1;
-            for (;0 <= y;y--) {
+            for (; 0 <= y; y--) {
               if (1 == pbu[y]) {
                 px = pbx[y];
                 py = pby[y];
@@ -3943,7 +4066,7 @@ var redraw = function() {
               b.save();
               b.globalCompositeOperation = "lighter";
               y = B - 1;
-              for (;0 <= y;y--) {
+              for (; 0 <= y; y--) {
                 if (1 == pbu[y]) {
                   px = pbx[y];
                   py = pby[y];
@@ -3969,13 +4092,13 @@ var redraw = function() {
             fj = c.atx.length - 1;
             if (choosing_skin) {
               y = 1;
-              for (;y <= fj;y++) {
+              for (; y <= fj; y++) {
                 c.atvx[y] -= 0.3;
                 c.atvy[y] += 0.14 * Math.cos(fr / 23 - 7 * y / fj);
               }
             }
             y = 1;
-            for (;y <= fj;y++) {
+            for (; y <= fj; y++) {
               xx = c.atx[y - 1];
               yy = c.aty[y - 1];
               xx += 2 * Math.random() - 1;
@@ -4011,7 +4134,7 @@ var redraw = function() {
             z = (c.aty[fj] - view_yy) * gsc;
             b.moveTo(e, z);
             y = fj - 1;
-            for (;1 <= y;y--) {
+            for (; 1 <= y; y--) {
               xx = (c.atx[y] - view_xx) * gsc;
               yy = (c.aty[y] - view_yy) * gsc;
               if (1 <= Math.abs(xx - e) + Math.abs(yy - z)) {
@@ -4037,7 +4160,7 @@ var redraw = function() {
             z = (c.aty[fj] - view_yy) * gsc;
             b.moveTo(e, z);
             y = fj - 1;
-            for (;0 <= y;y--) {
+            for (; 0 <= y; y--) {
               xx = (c.atx[y] - view_xx) * gsc;
               yy = (c.aty[y] - view_yy) * gsc;
               if (1 <= Math.abs(xx - e) + Math.abs(yy - z)) {
@@ -4063,7 +4186,8 @@ var redraw = function() {
               }
               if (vang < -Math.PI) {
                 vang += pi2;
-              } else {
+              }
+              else {
                 if (vang > Math.PI) {
                   vang -= pi2;
                 }
@@ -4072,7 +4196,8 @@ var redraw = function() {
               b.rotate(c.atba);
               b.drawImage(c.bulb, c.blbx * c.bsc * E, c.blby * c.bsc * E, c.blbw * c.bsc * E, c.blbh * c.bsc * E);
               b.restore();
-            } else {
+            }
+            else {
               b.drawImage(c.bulb, (c.atx[fj] - view_xx + c.blbx * c.bsc * c.sc) * gsc, (c.aty[fj] - view_yy + c.blby * c.bsc * c.sc) * gsc, c.blbw * c.bsc * E, c.blbh * c.bsc * E);
             }
             if (c.apbs) {
@@ -4089,7 +4214,7 @@ var redraw = function() {
             q = (0.15 + 0.15 * Math.abs(Math.sin(5 * Math.PI * c.dead_amt))) * Math.sin(Math.PI * c.dead_amt);
             x *= gsc;
             y = B - 1;
-            for (;0 <= y;y--) {
+            for (; 0 <= y; y--) {
               if (1 == pbu[y]) {
                 px = pbx[y];
                 py = pby[y];
@@ -4145,7 +4270,7 @@ var redraw = function() {
       b.save();
       b.globalCompositeOperation = "lighter";
       h = foods_c - 1;
-      for (;0 <= h;h--) {
+      for (; 0 <= h; h--) {
         c = foods[h];
         if (c.rx >= fpx1) {
           if (c.ry >= fpy1) {
@@ -4181,7 +4306,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   if (-150 <= B) {
                     if (-150 <= q) {
                       if (B <= mwwp150) {
@@ -4224,7 +4350,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   if (-150 <= B) {
                     if (-150 <= q) {
                       if (B <= mwwp150) {
@@ -4250,7 +4377,7 @@ var redraw = function() {
     b.save();
     b.globalCompositeOperation = "lighter";
     h = preys.length - 1;
-    for (;0 <= h;h--) {
+    for (; 0 <= h; h--) {
       f = preys[h];
       e = f.xx + f.fx;
       z = f.yy + f.fy;
@@ -4287,7 +4414,8 @@ var redraw = function() {
             }
           }
         }
-      } else {
+      }
+      else {
         if (-150 <= px) {
           if (-150 <= py) {
             if (px <= mwwp150) {
@@ -4339,7 +4467,7 @@ var redraw = function() {
       yy = grd + Math.sin(view_ang - 2E3 / grd) * grd * 0.98;
       b.moveTo(mww2 + (xx - view_xx) * gsc, mhh2 + (yy - view_yy) * gsc);
       y = -2E3;
-      for (;2E3 >= y;y += 100) {
+      for (; 2E3 >= y; y += 100) {
         xx = grd + Math.cos(view_ang + y / grd) * grd * 0.98;
         yy = grd + Math.sin(view_ang + y / grd) * grd * 0.98;
         b.lineTo(mww2 + (xx - view_xx) * gsc, mhh2 + (yy - view_yy) * gsc);
@@ -4364,19 +4492,21 @@ var redraw = function() {
             h = "of";
             G = "Your rank";
             if ("DE" == country) {
-              c = "Deine L\u00e4nge";
+              c = "Deine Länge";
               h = "von";
               G = "Dein rang";
-            } else {
+            }
+            else {
               if ("FR" == country) {
                 c = "Votre longueur";
                 h = "de";
                 G = "Ton rang";
-              } else {
+              }
+              else {
                 if ("BR" == country) {
                   c = "Seu comprimento";
                   h = "do";
-                  G = "Seu classifica\u00e7\u00e3o";
+                  G = "Seu classificação";
                 }
               }
             }
@@ -4396,6 +4526,7 @@ var lww = 0;
 var lhh = 0;
 var csc;
 var grd = 16384;
+
 function resize() {
   ww = Math.ceil(window.innerWidth);
   hh = Math.ceil(window.innerHeight);
@@ -4449,7 +4580,8 @@ function resize() {
     if (1 == h) {
       trf(login, "");
       login.style.top = "0px";
-    } else {
+    }
+    else {
       login.style.top = -(Math.round(hh * (1 - lgbsc) * 1E5) / 1E5) + "px";
       trf(login, "scale(" + h + "," + h + ")");
     }
@@ -4479,7 +4611,7 @@ window.onresize = function() {
   resize();
 };
 i = ois.length - 1;
-for (;0 <= i;i--) {
+for (; 0 <= i; i--) {
   ois[i].ii.src = ois[i].src;
 }
 if (0 == wic) {
@@ -4493,13 +4625,15 @@ window.onmousemove = function(b) {
     }
   }
 };
+
 function setAcceleration(b) {
   if (null != snake) {
     snake.md = 1 == b;
     if (5 <= protocol_version) {
       var h = new Uint8Array(1);
       h[0] = 1 == b ? 253 : 254;
-    } else {
+    }
+    else {
       h = new Uint8Array(2);
       h[0] = 109;
       h[1] = b;
@@ -4520,7 +4654,8 @@ window.ontouchmove = function(b) {
       if ("undefined" != typeof b.clientX) {
         xm = b.clientX - ww / 2;
         ym = b.clientY - hh / 2;
-      } else {
+      }
+      else {
         xm = b.pageX - ww / 2;
         ym = b.pageY - hh / 2;
       }
@@ -4541,7 +4676,8 @@ window.ontouchstart = function(b) {
       if ("undefined" != typeof c.clientX) {
         h = c.clientX - ww / 2;
         c = c.clientY - hh / 2;
-      } else {
+      }
+      else {
         h = c.pageX - ww / 2;
         c = c.pageY - hh / 2;
       }
@@ -4575,6 +4711,7 @@ window.onmousedown = function(b) {
 window.ontouchend = function() {
   setAcceleration(0);
 };
+
 function omu(b) {
   setAcceleration(0);
 }
@@ -4599,7 +4736,7 @@ var lrd_mtm = Date.now();
 var locu_mtm = 0;
 if (testing) {
   i = 0;
-  for (;256 > i;i++) {
+  for (; 256 > i; i++) {
     rdpspc[i] = -1;
   }
 }
@@ -4614,7 +4751,7 @@ var pf_ep = 0;
 var rpft = 0;
 var pf;
 i = 0;
-for (;100 > i;i++) {
+for (; 100 > i; i++) {
   pfs.push(0);
 }
 var pf_add = 0;
@@ -4622,7 +4759,7 @@ var pf_new_add = 0;
 var pf_remove = 0;
 var tpfa = new Float32Array(4E4);
 i = 0;
-for (;i < tpfa.length;i++) {
+for (; i < tpfa.length; i++) {
   tpfa[i] = 32 * Math.random();
 }
 var pfd;
@@ -4643,6 +4780,7 @@ if (testing) {
   pfd.textContent = "ayy lmao";
   document.body.appendChild(pfd);
 }
+
 function resetGame() {
   if (ws) {
     ws.close();
@@ -4661,7 +4799,7 @@ function resetGame() {
   biggest_snake_count = snake_count = 0;
   lagging = wfpr = playing = connected = false;
   j = vfc - 1;
-  for (;0 <= j;j--) {
+  for (; 0 <= j; j--) {
     fvxs[j] = 0;
     fvys[j] = 0;
   }
@@ -4676,13 +4814,15 @@ var start_connect_mtm;
 var play_btn_click_mtm = -1;
 var waiting_for_sos = false;
 var sos_ready_after_mtm = -1;
+
 function connect() {
   if (0 == sos.length) {
     if (!waiting_for_sos) {
       waiting_for_sos = true;
       sos_ready_after_mtm = -1;
     }
-  } else {
+  }
+  else {
     waiting_for_sos = false;
     sos_ready_after_mtm = -1;
     resetGame();
@@ -4690,16 +4830,16 @@ function connect() {
     start_connect_mtm = Date.now();
     if (!forcing) {
       var b$$0 = 0;
-      for (;b$$0 < sos.length;b$$0++) {
+      for (; b$$0 < sos.length; b$$0++) {
         sos[b$$0].ptm = 9999999;
       }
       b$$0 = clus.length - 1;
-      for (;0 <= b$$0;b$$0--) {
+      for (; 0 <= b$$0; b$$0--) {
         var h$$0 = clus[b$$0];
         if (h$$0 && 0 < h$$0.ptms.length) {
           var c$$0 = 0;
           var f$$0 = h$$0.ptms.length - 1;
-          for (;0 <= f$$0;f$$0--) {
+          for (; 0 <= f$$0; f$$0--) {
             c$$0 += h$$0.ptms[f$$0];
           }
           c$$0 /= h$$0.ptms.length;
@@ -4707,7 +4847,7 @@ function connect() {
             console.log("cluster " + b$$0 + " ping time: " + c$$0);
           }
           f$$0 = sos.length - 1;
-          for (;0 <= f$$0;f$$0--) {
+          for (; 0 <= f$$0; f$$0--) {
             if (sos[f$$0].clu == b$$0) {
               sos[f$$0].ptm = c$$0;
             }
@@ -4716,11 +4856,11 @@ function connect() {
       }
       if ("undefined" != typeof rmsos) {
         b$$0 = 0;
-        for (;b$$0 < rmsos.length;b$$0++) {
+        for (; b$$0 < rmsos.length; b$$0++) {
           h$$0 = "." + rmsos[b$$0].a[0] + "." + rmsos[b$$0].a[1] + "." + rmsos[b$$0].a[2];
           c$$0 = rmsos[b$$0].a[3];
           f$$0 = sos.length - 1;
-          for (;0 <= f$$0;f$$0--) {
+          for (; 0 <= f$$0; f$$0--) {
             if (0 <= sos[f$$0].ip.indexOf(h$$0)) {
               if (sos[f$$0].po == c$$0) {
                 sos.splice(f$$0, 1);
@@ -4734,7 +4874,7 @@ function connect() {
       });
       bso = sos[Math.floor(Math.random() * sos.length)];
       b$$0 = sos.length - 1;
-      for (;0 <= b$$0;b$$0--) {
+      for (; 0 <= b$$0; b$$0--) {
         if (!sos[b$$0].tainted) {
           if (sos[b$$0].ptm <= bso.ptm) {
             if (30 < sos[b$$0].ac) {
@@ -4804,140 +4944,127 @@ function connect() {
           vcm.style.display = "inline";
           loch.style.display = "inline";
           startShowGame();
-        } else {
+        }
+        else {
           if ("e" == f || ("E" == f || ("3" == f || ("4" == f || "5" == f)))) {
             var x = b[c] << 8 | b[c + 1];
+
             c = c + 2;
+
             var D = h = -1;
             var y = -1;
             var B = -1;
-            if (6 <= protocol_version) {
-              if (6 == e) {
-                h = "e" == f ? 1 : 2;
+
+            //if (6 <= protocol_version)
+            //removed older protocol version
+
+
+            //e is data lenght without first 3 byte
+            if (e == 6) {
+
+
+              h = "e" == f ? 1 : 2;
+
+
+              D = 2 * b[c] * Math.PI / 256;
+              c++;
+              y = 2 * b[c] * Math.PI / 256;
+              c++;
+              B = b[c] / 18;
+
+
+            }
+            else if (e == 5) {
+
+              if ("e" == f) {
                 D = 2 * b[c] * Math.PI / 256;
                 c++;
+                B = b[c] / 18;
+              }
+              else if ("E" == f) {
+                h = 1;
                 y = 2 * b[c] * Math.PI / 256;
                 c++;
                 B = b[c] / 18;
-              } else {
-                if (5 == e) {
-                  if ("e" == f) {
-                    D = 2 * b[c] * Math.PI / 256;
-                    c++;
-                    B = b[c] / 18;
-                  } else {
-                    if ("E" == f) {
-                      h = 1;
-                      y = 2 * b[c] * Math.PI / 256;
-                      c++;
-                      B = b[c] / 18;
-                    } else {
-                      if ("4" == f) {
-                        h = 2;
-                        y = 2 * b[c] * Math.PI / 256;
-                        c++;
-                        B = b[c] / 18;
-                      } else {
-                        if ("3" == f) {
-                          h = 1;
-                          D = 2 * b[c] * Math.PI / 256;
-                          c++;
-                          y = 2 * b[c] * Math.PI / 256;
-                        } else {
-                          if ("5" == f) {
-                            h = 2;
-                            D = 2 * b[c] * Math.PI / 256;
-                            c++;
-                            y = 2 * b[c] * Math.PI / 256;
-                          }
-                        }
-                      }
-                    }
-                  }
-                } else {
-                  if (4 == e) {
-                    if ("e" == f) {
-                      D = 2 * b[c] * Math.PI / 256;
-                    } else {
-                      if ("E" == f) {
-                        h = 1;
-                        y = 2 * b[c] * Math.PI / 256;
-                      } else {
-                        if ("4" == f) {
-                          h = 2;
-                          y = 2 * b[c] * Math.PI / 256;
-                        } else {
-                          if ("3" == f) {
-                            B = b[c] / 18;
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
               }
-            } else {
-              if (3 <= protocol_version) {
-                if ("3" != f) {
-                  if (8 == e || (7 == e || (6 == e && "3" != f || 5 == e && "3" != f))) {
-                    h = "e" == f ? 1 : 2;
-                  }
-                }
-                if (8 == e || (7 == e || (5 == e && "3" == f || 6 == e && "3" == f))) {
-                  D = 2 * (b[c] << 8 | b[c + 1]) * Math.PI / 65535;
-                  c += 2;
-                }
-                if (8 == e || (7 == e || (5 == e && "3" != f || 6 == e && "3" != f))) {
-                  y = 2 * (b[c] << 8 | b[c + 1]) * Math.PI / 65535;
-                  c += 2;
-                }
-                if (8 == e || (6 == e || 4 == e)) {
-                  B = b[c] / 18;
-                }
-              } else {
-                if (11 == t || (8 == t || (9 == t || 6 == t))) {
-                  h = b[c] - 48;
-                  c++;
-                }
-                if (11 == t || (7 == t || (9 == t || 5 == t))) {
-                  D = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
-                  c += 3;
-                }
-                if (11 == t || (8 == t || (9 == t || 6 == t))) {
-                  y = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
-                  c += 3;
-                }
-                if (11 == t || (7 == t || (8 == t || 4 == t))) {
-                  B = (b[c] << 8 | b[c + 1]) / 1E3;
-                }
+              else if ("4" == f) {
+                h = 2;
+                y = 2 * b[c] * Math.PI / 256;
+                c++;
+                B = b[c] / 18;
               }
+              else if ("3" == f) {
+                h = 1;
+                D = 2 * b[c] * Math.PI / 256;
+                c++;
+                y = 2 * b[c] * Math.PI / 256;
+              }
+              else if ("5" == f) {
+                h = 2;
+                D = 2 * b[c] * Math.PI / 256;
+                c++;
+                y = 2 * b[c] * Math.PI / 256;
+              }
+
+
+
             }
+            else if (4 == e) {
+
+              if ("e" == f) {
+                D = 2 * b[c] * Math.PI / 256;
+              }
+              else if ("E" == f) {
+                h = 1;
+                y = 2 * b[c] * Math.PI / 256;
+              }
+              else if ("4" == f) {
+                h = 2;
+                y = 2 * b[c] * Math.PI / 256;
+              }
+              else if ("3" == f) {
+                B = b[c] / 18;
+              }
+
+            }
+
+
+
             var q = os["s" + x];
             if (q) {
+
+
               if (-1 != h) {
                 q.dir = h;
               }
               anguc++;
               if (-1 != D) {
+
+                //angnuc is never used
+
                 if (q.ang == D) {
                   angnuc++;
                 }
+
                 b = (D - q.ang) % pi2;
+
                 if (0 > b) {
                   b += pi2;
                 }
                 if (b > Math.PI) {
                   b -= pi2;
                 }
+
                 x = q.fapos;
                 t = 0;
-                for (;t < afc;t++) {
+                for (; t < afc; t++) {
                   q.fas[x] -= b * afas[t];
                   x++;
                   if (x >= afc) {
                     x = 0;
                   }
                 }
+
                 q.fatg = afc;
                 q.ang = D;
               }
@@ -4957,8 +5084,16 @@ function connect() {
                   q.spang = 1;
                 }
               }
+
+
+
             }
-          } else {
+
+
+
+
+          }
+          else {
             if ("h" == f) {
               x = b[c] << 8 | b[c + 1];
               c = c + 2;
@@ -4967,14 +5102,15 @@ function connect() {
                 q.fam = I;
                 snl(q);
               }
-            } else {
+            }
+            else {
               if ("r" == f) {
                 if (x = b[c] << 8 | b[c + 1], c += 2, q = os["s" + x]) {
                   if (4 <= t) {
                     q.fam = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 16777215;
                   }
                   t = 0;
-                  for (;t < q.pts.length;t++) {
+                  for (; t < q.pts.length; t++) {
                     if (!q.pts[t].dying) {
                       q.pts[t].dying = true;
                       q.sct--;
@@ -4992,167 +5128,207 @@ function connect() {
                   }
                   snl(q);
                 }
-              } else {
+              }
+              else {
                 if ("g" == f || ("n" == f || ("G" == f || "N" == f))) {
-                  if (playing && (I = "n" == f || "N" == f, x = b[c] << 8 | b[c + 1], c += 2, q = os["s" + x])) {
-                    if (I) {
-                      q.sct++;
-                    } else {
-                      t = 0;
-                      for (;t < q.pts.length;t++) {
-                        if (!q.pts[t].dying) {
-                          q.pts[t].dying = true;
-                          break;
-                        }
-                      }
-                    }
-                    var A = q.pts[q.pts.length - 1];
-                    t = A;
-                    h = false;
-                    if (3 <= protocol_version) {
-                      if ("g" == f || "n" == f) {
-                        e = b[c] << 8 | b[c + 1];
-                        c += 2;
-                        C = b[c] << 8 | b[c + 1];
-                        c += 2;
-                      } else {
-                        e = t.xx + b[c] - 128;
-                        c++;
-                        C = t.yy + b[c] - 128;
-                        c++;
-                      }
-                    } else {
-                      e = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 5;
-                      c += 3;
-                      C = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 5;
-                      c += 3;
-                    }
-                    if (I) {
-                      q.fam = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 16777215;
-                    }
-                    if (!(A = points_dp.get())) {
-                      A = {
-                        exs : [],
-                        eys : [],
-                        efs : [],
-                        ems : []
-                      };
-                    }
-                    A.eiu = 0;
-                    A.xx = e;
-                    A.yy = C;
-                    A.fx = 0;
-                    A.fy = 0;
-                    A.da = 0;
-                    A.ebx = A.xx - t.xx;
-                    A.eby = A.yy - t.yy;
-                    q.pts.push(A);
-                    h = true;
-                    if (q.iiv) {
-                      b = q.xx + q.fx - A.xx;
-                      c = q.yy + q.fy - A.yy;
-                      A.fx += b;
-                      A.fy += c;
-                      A.exs[A.eiu] = b;
-                      A.eys[A.eiu] = c;
-                      A.efs[A.eiu] = 0;
-                      A.ems[A.eiu] = 1;
-                      A.eiu++;
-                    }
-                    x = q.pts.length - 3;
-                    if (1 <= x) {
-                      D = q.pts[x];
-                      f = n = 0;
-                      t = x - 1;
-                      for (;0 <= t;t--) {
-                        x = q.pts[t];
-                        n++;
-                        b = x.xx;
-                        c = x.yy;
-                        if (4 >= n) {
-                          f = cst * n / 4;
-                        }
-                        x.xx += (D.xx - x.xx) * f;
-                        x.yy += (D.yy - x.yy) * f;
-                        if (q.iiv) {
-                          b -= x.xx;
-                          c -= x.yy;
-                          x.fx += b;
-                          x.fy += c;
-                          x.exs[x.eiu] = b;
-                          x.eys[x.eiu] = c;
-                          x.efs[x.eiu] = 0;
-                          x.ems[x.eiu] = 2;
-                          x.eiu++;
-                        }
-                        D = x;
-                      }
-                    }
-                    q.sc = Math.min(6, 1 + (q.sct - 2) / 106);
-                    q.scang = 0.13 + 0.87 * Math.pow((7 - q.sc) / 6, 2);
-                    q.ssp = nsp1 + nsp2 * q.sc;
-                    q.fsp = q.ssp + 0.1;
-                    q.wsep = 6 * q.sc;
-                    b = nsep / gsc;
-                    if (q.wsep < b) {
-                      q.wsep = b;
-                    }
-                    if (I) {
-                      snl(q);
-                    }
-                    q.lnp = A;
-                    if (q == snake) {
-                      ovxx = snake.xx + snake.fx;
-                      ovyy = snake.yy + snake.fy;
-                    }
-                    A = etm / 8 * q.sp / 4;
-                    A *= lag_mult;
-                    t = q.chl - 1;
-                    q.chl = A / q.msl;
-                    f = q.xx;
-                    x = q.yy;
-                    q.xx = e + Math.cos(q.ang) * A;
-                    q.yy = C + Math.sin(q.ang) * A;
-                    b = q.xx - f;
-                    c = q.yy - x;
-                    e = q.chl - t;
-                    x = q.fpos;
+
+                  x = b[c] << 8 | b[c + 1];
+                  q = os["s" + x];
+                  I = "n" == f || "N" == f;
+
+                  c += 2;
+
+
+                  //   if (playing) {
+
+
+                  // if is "n" or "N"
+                  if (I) {
+
+                    q.sct++;
+
+                  }
+                  else {
+
                     t = 0;
-                    for (;t < rfc;t++) {
-                      q.fxs[x] -= b * rfas[t];
-                      q.fys[x] -= c * rfas[t];
-                      q.fchls[x] -= e * rfas[t];
+
+                    //sets the first part to dying that is not dying =true
+                    for (; t < q.pts.length; t++) {
+                      if (!q.pts[t].dying) {
+                        q.pts[t].dying = true;
+                        break;
+                      }
+                    }
+                  }
+
+
+
+
+                  var A = q.pts[q.pts.length - 1];
+                  t = A;
+                  h = false;
+
+                  if ("g" == f || "n" == f) {
+                    e = b[c] << 8 | b[c + 1];
+                    c += 2;
+                    C = b[c] << 8 | b[c + 1];
+                    c += 2;
+                  } else {
+                    e = t.xx + b[c] - 128;
+                    c++;
+                    C = t.yy + b[c] - 128;
+                    c++;
+                  }
+
+                  if (I) {
+                    q.fam = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 16777215;
+                  }
+                  
+                  
+                  if (!(A = points_dp.get())) {
+                    A = {
+                      exs: [],
+                      eys: [],
+                      efs: [],
+                      ems: []
+                    };
+                  }
+                  
+                  A.eiu = 0;
+                  A.xx = e;
+                  A.yy = C;
+                  A.fx = 0;
+                  A.fy = 0;
+                  A.da = 0;
+                  A.ebx = A.xx - t.xx;
+                  A.eby = A.yy - t.yy;
+                  q.pts.push(A);
+                  h = true;
+                  if (q.iiv) {
+                    b = q.xx + q.fx - A.xx;
+                    c = q.yy + q.fy - A.yy;
+                    A.fx += b;
+                    A.fy += c;
+                    A.exs[A.eiu] = b;
+                    A.eys[A.eiu] = c;
+                    A.efs[A.eiu] = 0;
+                    A.ems[A.eiu] = 1;
+                    A.eiu++;
+                  }
+                  x = q.pts.length - 3;
+                  if (1 <= x) {
+                    D = q.pts[x];
+                    f = n = 0;
+                    t = x - 1;
+                    for (; 0 <= t; t--) {
+                      x = q.pts[t];
+                      n++;
+                      b = x.xx;
+                      c = x.yy;
+                      if (4 >= n) {
+                        f = cst * n / 4;
+                      }
+                      x.xx += (D.xx - x.xx) * f;
+                      x.yy += (D.yy - x.yy) * f;
+                      if (q.iiv) {
+                        b -= x.xx;
+                        c -= x.yy;
+                        x.fx += b;
+                        x.fy += c;
+                        x.exs[x.eiu] = b;
+                        x.eys[x.eiu] = c;
+                        x.efs[x.eiu] = 0;
+                        x.ems[x.eiu] = 2;
+                        x.eiu++;
+                      }
+                      D = x;
+                    }
+                  }
+                  q.sc = Math.min(6, 1 + (q.sct - 2) / 106);
+                  q.scang = 0.13 + 0.87 * Math.pow((7 - q.sc) / 6, 2);
+                  q.ssp = nsp1 + nsp2 * q.sc;
+                  q.fsp = q.ssp + 0.1;
+                  q.wsep = 6 * q.sc;
+                  b = nsep / gsc;
+                  if (q.wsep < b) {
+                    q.wsep = b;
+                  }
+                  if (I) {
+                    snl(q);
+                  }
+                  q.lnp = A;
+                  if (q == snake) {
+                    ovxx = snake.xx + snake.fx;
+                    ovyy = snake.yy + snake.fy;
+                  }
+                  A = etm / 8 * q.sp / 4;
+                  A *= lag_mult;
+                  t = q.chl - 1;
+                  q.chl = A / q.msl;
+                  f = q.xx;
+                  x = q.yy;
+                  q.xx = e + Math.cos(q.ang) * A;
+                  q.yy = C + Math.sin(q.ang) * A;
+                  b = q.xx - f;
+                  c = q.yy - x;
+                  e = q.chl - t;
+                  x = q.fpos;
+                  t = 0;
+                  for (; t < rfc; t++) {
+                    q.fxs[x] -= b * rfas[t];
+                    q.fys[x] -= c * rfas[t];
+                    q.fchls[x] -= e * rfas[t];
+                    x++;
+                    if (x >= rfc) {
+                      x = 0;
+                    }
+                  }
+                  q.fx = q.fxs[q.fpos];
+                  q.fy = q.fys[q.fpos];
+                  q.fchl = q.fchls[q.fpos];
+                  q.ftg = rfc;
+                  if (h) {
+                    q.ehl = 0;
+                  }
+                  if (q == snake) {
+                    view_xx = snake.xx + snake.fx;
+                    view_yy = snake.yy + snake.fy;
+                    b = view_xx - ovxx;
+                    c = view_yy - ovyy;
+                    x = fvpos;
+                    t = 0;
+                    for (; t < vfc; t++) {
+                      fvxs[x] -= b * vfas[t];
+                      fvys[x] -= c * vfas[t];
                       x++;
-                      if (x >= rfc) {
+                      if (x >= vfc) {
                         x = 0;
                       }
                     }
-                    q.fx = q.fxs[q.fpos];
-                    q.fy = q.fys[q.fpos];
-                    q.fchl = q.fchls[q.fpos];
-                    q.ftg = rfc;
-                    if (h) {
-                      q.ehl = 0;
-                    }
-                    if (q == snake) {
-                      view_xx = snake.xx + snake.fx;
-                      view_yy = snake.yy + snake.fy;
-                      b = view_xx - ovxx;
-                      c = view_yy - ovyy;
-                      x = fvpos;
-                      t = 0;
-                      for (;t < vfc;t++) {
-                        fvxs[x] -= b * vfas[t];
-                        fvys[x] -= c * vfas[t];
-                        x++;
-                        if (x >= vfc) {
-                          x = 0;
-                        }
-                      }
-                      fvtg = vfc;
-                    }
+                    fvtg = vfc;
                   }
-                } else {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                }
+                else {
                   if ("l" == f) {
                     if (playing) {
                       wumsts = true;
@@ -5175,7 +5351,7 @@ function connect() {
                         biggest_snake_count = snake_count;
                       }
                       c += 2;
-                      for (;c < h;) {
+                      for (; c < h;) {
                         var J = b[c] << 8 | b[c + 1];
                         c = c + 2;
                         I = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 16777215;
@@ -5187,7 +5363,7 @@ function connect() {
                         B++;
                         f = "";
                         t = 0;
-                        for (;t < e;t++) {
+                        for (; t < e; t++) {
                           x = b[c];
                           f += String.fromCharCode(x);
                           c++;
@@ -5199,7 +5375,7 @@ function connect() {
                         }
                         var H = "";
                         t = 0;
-                        for (;t < e;t++) {
+                        for (; t < e; t++) {
                           x = f.charCodeAt(t);
                           H = 38 == x ? H + "&amp;" : 60 == x ? H + "&lt;" : 62 == x ? H + "&gt;" : 32 == x ? H + "&nbsp;" : H + String.fromCharCode(x);
                         }
@@ -5215,25 +5391,29 @@ function connect() {
                       lbn.innerHTML = A;
                       lbp.innerHTML = D;
                     }
-                  } else {
+                  }
+                  else {
                     if ("v" == f) {
                       if (2 == b[c]) {
                         want_close_socket = true;
                         want_victory_message = false;
                         want_hide_victory = 1;
                         hvfr = 0;
-                      } else {
+                      }
+                      else {
                         dead_mtm = Date.now();
                         play_btn.setEnabled(true);
                         e = Math.floor(150 * (fpsls[snake.sct] + snake.fam / fmlts[snake.sct] - 1) - 50) / 10;
                         twt.href = "http://twitter.com/intent/tweet?status=" + encodeURIComponent("I got a length of " + e + " in http://slither.io! Can you beat that? #slitherio");
                         C = "Your final length was";
                         if ("DE" == country) {
-                          C = "Deine endg\u00fcltige L\u00e4nge war";
-                        } else {
+                          C = "Deine endgültige Länge war";
+                        }
+                        else {
                           if ("FR" == country) {
-                            C = "Votre longueur finale \u00e9tait de";
-                          } else {
+                            C = "Votre longueur finale était de";
+                          }
+                          else {
                             if ("BR" == country) {
                               C = "Seu comprimento final foi de";
                             }
@@ -5247,7 +5427,8 @@ function connect() {
                         e = "Play Again";
                         if ("FR" == country) {
                           e = "Jouer";
-                        } else {
+                        }
+                        else {
                           if ("BR" == country) {
                             e = "Joga";
                           }
@@ -5262,26 +5443,30 @@ function connect() {
                           want_victory_focus = want_victory_message = true;
                           victory.disabled = false;
                           save_btn.setEnabled(true);
-                        } else {
+                        }
+                        else {
                           want_close_socket = true;
                         }
                       }
-                    } else {
+                    }
+                    else {
                       if ("w" == f) {
                         if (h = b[c], c++, e = b[c] << 8 | b[c + 1], c += 2, C = b[c] << 8 | b[c + 1], 1 == h) {
                           q = {};
                           q.xx = e;
                           q.yy = C;
                           sectors.push(q);
-                        } else {
+                        }
+                        else {
                           A = cm1 = foods_c - 1;
-                          for (;0 <= A;A--) {
+                          for (; 0 <= A; A--) {
                             t = foods[A];
                             if (t.sx == e) {
                               if (t.sy == C) {
                                 if (A == cm1) {
                                   foods[A] = null;
-                                } else {
+                                }
+                                else {
                                   foods[A] = foods[cm1];
                                   foods[cm1] = null;
                                 }
@@ -5291,7 +5476,7 @@ function connect() {
                             }
                           }
                           A = sectors.length - 1;
-                          for (;0 <= A;A--) {
+                          for (; 0 <= A; A--) {
                             q = sectors[A];
                             if (q.xx == e) {
                               if (q.yy == C) {
@@ -5300,7 +5485,8 @@ function connect() {
                             }
                           }
                         }
-                      } else {
+                      }
+                      else {
                         if ("m" == f) {
                           J = b[c] << 16 | b[c + 1] << 8 | b[c + 2];
                           c += 3;
@@ -5311,12 +5497,12 @@ function connect() {
                           c++;
                           t = "";
                           A = 0;
-                          for (;A < e;A++) {
+                          for (; A < e; A++) {
                             t += String.fromCharCode(b[c]);
                             c++;
                           }
                           e = "";
-                          for (;c < h;) {
+                          for (; c < h;) {
                             e += String.fromCharCode(b[c]);
                             c++;
                           }
@@ -5330,37 +5516,40 @@ function connect() {
                             if (0 < t.length) {
                               b = 0 < e.length ? b + ("<i><span style='opacity: .5;'>- </span><span style='opacity: .75;'><b>" + t + "</b></span><span style='opacity: .5;'>, today's longest</span></i>") : "<i><span style='opacity: .5;'>Today's longest was </span><span style='opacity: .75;'><b>" + t + "</b></span></i>";
                               b += "<br><i><span style='opacity: .5;'>with a length of </span><span style='opacity: .65;'><b>" + C + "</b></span></i>";
-                            } else {
+                            }
+                            else {
                               b = 0 < e.length ? b + "<i><span style='opacity: .5;'>- </span><span style='opacity: .5;'>today's longest</span></i>" + ("<br><i><span style='opacity: .5;'>with a length of </span><span style='opacity: .65;'><b>" + C + "</b></span></i>") : b + ("<i><span style='opacity: .5;'>Today's longest: </span><span style='opacity: .75;'><b>" + C + "</b></span></i>");
                             }
                             vcm.innerHTML = b;
                           }
-                        } else {
+                        }
+                        else {
                           if ("p" == f) {
                             wfpr = false;
                             if (lagging) {
                               etm *= lag_mult;
                               lagging = false;
                             }
-                          } else {
+                          }
+                          else {
                             if ("u" == f) {
                               t = asmc.getContext("2d");
                               t.clearRect(0, 0, 80, 80);
                               t.fillStyle = "#FFFFFF";
                               var C = e = 0;
-                              for (;c < h && !(80 <= C);) {
+                              for (; c < h && !(80 <= C);) {
                                 if (x = b[c++], 128 <= x) {
                                   x -= 128;
                                   A = 0;
-                                  for (;A < x && !(e++, 80 <= e && (e = 0, C++, 80 <= C));A++) {
-                                  }
-                                } else {
+                                  for (; A < x && !(e++, 80 <= e && (e = 0, C++, 80 <= C)); A++) {}
+                                }
+                                else {
                                   A = 0;
-                                  for (;7 > A && !(0 < (x & u_m[A]) && t.fillRect(e, C, 1, 1), e++, 80 <= e && (e = 0, C++, 80 <= C));A++) {
-                                  }
+                                  for (; 7 > A && !(0 < (x & u_m[A]) && t.fillRect(e, C, 1, 1), e++, 80 <= e && (e = 0, C++, 80 <= C)); A++) {}
                                 }
                               }
-                            } else {
+                            }
+                            else {
                               if ("s" == f) {
                                 if (playing) {
                                   if (x = b[c] << 8 | b[c + 1], c += 2, 6 < t) {
@@ -5384,13 +5573,13 @@ function connect() {
                                     c++;
                                     f = "";
                                     t = 0;
-                                    for (;t < e;t++) {
+                                    for (; t < e; t++) {
                                       f += String.fromCharCode(b[c]);
                                       c++;
                                     }
                                     var M = t = C = e = 0;
                                     var O = false;
-                                    for (;c < h;) {
+                                    for (; c < h;) {
                                       t = e;
                                       M = C;
                                       if (O) {
@@ -5398,7 +5587,8 @@ function connect() {
                                         c++;
                                         C += (b[c] - 127) / 2;
                                         c++;
-                                      } else {
+                                      }
+                                      else {
                                         e = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 5;
                                         c += 3;
                                         C = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 5;
@@ -5409,10 +5599,10 @@ function connect() {
                                       }
                                       if (!(A = points_dp.get())) {
                                         A = {
-                                          exs : [],
-                                          eys : [],
-                                          efs : [],
-                                          ems : []
+                                          exs: [],
+                                          eys: [],
+                                          efs: [],
+                                          ems: []
                                         };
                                       }
                                       A.eiu = 0;
@@ -5431,7 +5621,8 @@ function connect() {
                                       view_yy = C;
                                       snake = q;
                                       q.nk = f;
-                                    } else {
+                                    }
+                                    else {
                                       q.nk = f;
                                       if (!gdnm(f)) {
                                         q.nk = "";
@@ -5455,17 +5646,19 @@ function connect() {
                                     }
                                     q.sep = q.wsep;
                                     snl(q);
-                                  } else {
+                                  }
+                                  else {
                                     b = 1 == b[c];
                                     A = snakes.length - 1;
-                                    for (;0 <= A;A--) {
+                                    for (; 0 <= A; A--) {
                                       if (snakes[A].id == x) {
                                         snakes[A].id = -1234;
                                         if (b) {
                                           snakes[A].dead = true;
                                           snakes[A].dead_amt = 0;
                                           snakes[A].edir = 0;
-                                        } else {
+                                        }
+                                        else {
                                           snakes.splice(A, 1);
                                         }
                                         delete os["s" + x];
@@ -5474,11 +5667,12 @@ function connect() {
                                     }
                                   }
                                 }
-                              } else {
+                              }
+                              else {
                                 if ("F" == f) {
                                   if (4 <= protocol_version) {
                                     f = false;
-                                    for (;c < h;) {
+                                    for (; c < h;) {
                                       q = b[c];
                                       c++;
                                       e = b[c] << 8 | b[c + 1];
@@ -5501,7 +5695,8 @@ function connect() {
                                     q.xx = A;
                                     q.yy = I;
                                     sectors.push(q);
-                                  } else {
+                                  }
+                                  else {
                                     A = b[c] << 8 | b[c + 1];
                                     c += 2;
                                     I = b[c] << 8 | b[c + 1];
@@ -5510,7 +5705,7 @@ function connect() {
                                     q.xx = A;
                                     q.yy = I;
                                     sectors.push(q);
-                                    for (;c < h;) {
+                                    for (; c < h;) {
                                       x = b[c] << 16 | b[c + 1] << 8 | b[c + 2];
                                       c += 3;
                                       q = b[c];
@@ -5526,7 +5721,8 @@ function connect() {
                                       t.sy = I;
                                     }
                                   }
-                                } else {
+                                }
+                                else {
                                   if ("b" == f || "f" == f) {
                                     if (4 <= protocol_version) {
                                       q = b[c];
@@ -5541,7 +5737,8 @@ function connect() {
                                         t.sx = Math.floor(e / sector_size);
                                         t.sy = Math.floor(C / sector_size);
                                       }
-                                    } else {
+                                    }
+                                    else {
                                       x = b[c] << 16 | b[c + 1] << 8 | b[c + 2];
                                       c += 3;
                                       if (4 < t) {
@@ -5561,7 +5758,8 @@ function connect() {
                                         t.sy = I;
                                       }
                                     }
-                                  } else {
+                                  }
+                                  else {
                                     if ("c" == f) {
                                       if (4 <= protocol_version) {
                                         e = b[c] << 8 | b[c + 1];
@@ -5569,22 +5767,25 @@ function connect() {
                                         C = b[c] << 8 | b[c + 1];
                                         c += 2;
                                         x = C * grd * 3 + e;
-                                      } else {
+                                      }
+                                      else {
                                         x = b[c] << 16 | b[c + 1] << 8 | b[c + 2];
                                         c += 3;
                                       }
                                       A = cm1 = foods_c - 1;
-                                      for (;0 <= A;A--) {
+                                      for (; 0 <= A; A--) {
                                         if (t = foods[A], t.id == x) {
                                           t.eaten = true;
                                           if (c + 2 <= h) {
                                             b = b[c] << 8 | b[c + 1];
                                             t.eaten_by = os["s" + b];
                                             t.eaten_fr = 0;
-                                          } else {
+                                          }
+                                          else {
                                             if (A == cm1) {
                                               foods[A] = null;
-                                            } else {
+                                            }
+                                            else {
                                               foods[A] = foods[cm1];
                                               foods[cm1] = null;
                                             }
@@ -5598,7 +5799,8 @@ function connect() {
                                       if (-1 != x) {
                                         console.log("wtf");
                                       }
-                                    } else {
+                                    }
+                                    else {
                                       if ("j" == f) {
                                         x = b[c] << 8 | b[c + 1];
                                         c += 2;
@@ -5608,7 +5810,7 @@ function connect() {
                                         c += 2;
                                         h = null;
                                         A = preys.length - 1;
-                                        for (;0 <= A;A--) {
+                                        for (; 0 <= A; A--) {
                                           if (preys[A].id == x) {
                                             h = preys[A];
                                             break;
@@ -5627,34 +5829,40 @@ function connect() {
                                             h.wang = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
                                             c += 3;
                                             h.sp = (b[c] << 8 | b[c + 1]) / 1E3;
-                                          } else {
+                                          }
+                                          else {
                                             if (11 == t) {
                                               h.ang = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
                                               c += 3;
                                               h.sp = (b[c] << 8 | b[c + 1]) / 1E3;
-                                            } else {
+                                            }
+                                            else {
                                               if (12 == t) {
                                                 h.dir = b[c] - 48;
                                                 c++;
                                                 h.wang = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
                                                 c += 3;
                                                 h.sp = (b[c] << 8 | b[c + 1]) / 1E3;
-                                              } else {
+                                              }
+                                              else {
                                                 if (13 == t) {
                                                   h.dir = b[c] - 48;
                                                   c++;
                                                   h.ang = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
                                                   c += 3;
                                                   h.wang = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
-                                                } else {
+                                                }
+                                                else {
                                                   if (9 == t) {
                                                     h.ang = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
-                                                  } else {
+                                                  }
+                                                  else {
                                                     if (10 == t) {
                                                       h.dir = b[c] - 48;
                                                       c++;
                                                       h.wang = 2 * (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) * Math.PI / 16777215;
-                                                    } else {
+                                                    }
+                                                    else {
                                                       if (8 == t) {
                                                         h.sp = (b[c] << 8 | b[c + 1]) / 1E3;
                                                       }
@@ -5670,7 +5878,7 @@ function connect() {
                                           c = h.yy - x;
                                           x = h.fpos;
                                           t = 0;
-                                          for (;t < rfc;t++) {
+                                          for (; t < rfc; t++) {
                                             h.fxs[x] -= b * rfas[t];
                                             h.fys[x] -= c * rfas[t];
                                             x++;
@@ -5682,33 +5890,37 @@ function connect() {
                                           h.fy = h.fys[h.fpos];
                                           h.ftg = rfc;
                                         }
-                                      } else {
+                                      }
+                                      else {
                                         if ("y" == f) {
                                           if (x = b[c] << 8 | b[c + 1], c += 2, 2 == t) {
                                             A = preys.length - 1;
-                                            for (;0 <= A;A--) {
+                                            for (; 0 <= A; A--) {
                                               if (h = preys[A], h.id == x) {
                                                 preys.splice(A, 1);
                                                 break;
                                               }
                                             }
-                                          } else {
+                                          }
+                                          else {
                                             if (4 == t) {
                                               b = b[c] << 8 | b[c + 1];
                                               A = preys.length - 1;
-                                              for (;0 <= A;A--) {
+                                              for (; 0 <= A; A--) {
                                                 if (h = preys[A], h.id == x) {
                                                   h.eaten = true;
                                                   h.eaten_by = os["s" + b];
                                                   if (h.eaten_by) {
                                                     h.eaten_fr = 0;
-                                                  } else {
+                                                  }
+                                                  else {
                                                     preys.splice(A, 1);
                                                   }
                                                   break;
                                                 }
                                               }
-                                            } else {
+                                            }
+                                            else {
                                               q = b[c];
                                               c++;
                                               e = (b[c] << 16 | b[c + 1] << 8 | b[c + 2]) / 5;
@@ -5746,8 +5958,7 @@ function connect() {
         }
       }
     };
-    ws.onerror = function(b) {
-    };
+    ws.onerror = function(b) {};
     ws.onclose = function(b) {
       if (ws == this) {
         playing = connected = false;
@@ -5765,14 +5976,14 @@ function connect() {
           if (e == "" + Number(e)) {
             c = Number(e);
           }
-        } catch (f) {
         }
+        catch (f) {}
         e = new Uint8Array(3 + b.length);
         e[0] = 115;
         e[1] = 5;
         e[2] = c;
         c = 0;
-        for (;c < b.length;c++) {
+        for (; c < b.length; c++) {
           e[c + 3] = b.charCodeAt(c);
         }
         ws.send(e);
@@ -5794,6 +6005,7 @@ function connect() {
     };
   }
 }
+
 function asciize(b) {
   var h;
   var c;
@@ -5801,7 +6013,7 @@ function asciize(b) {
   c = b.length;
   var w = false;
   h = 0;
-  for (;h < c;h++) {
+  for (; h < c; h++) {
     if (f = b.charCodeAt(h), 32 > f || 127 < f) {
       w = true;
       break;
@@ -5810,7 +6022,7 @@ function asciize(b) {
   if (w) {
     w = "";
     h = 0;
-    for (;h < c;h++) {
+    for (; h < c; h++) {
       f = b.charCodeAt(h);
       w = 32 > f || 127 < f ? w + " " : w + String.fromCharCode(f);
     }
@@ -5825,8 +6037,8 @@ try {
   if ("1" != localStorage.edttsg) {
     cstx.style.display = "inline";
   }
-} catch (b$$53) {
 }
+catch (b$$53) {}
 var fb = document.getElementById("fb");
 fb.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent("http://slither.io");
 fb.onclick = function() {
@@ -5850,25 +6062,27 @@ try {
   if ("0" == localStorage.qual) {
     grqi.src = "/s/lowquality.png";
     want_quality = 0;
-  } else {
+  }
+  else {
     phqi.src = "/s/lowquality.png";
     want_quality = 1;
   }
-} catch (b$$54) {
 }
+catch (b$$54) {}
 grq.onclick = function() {
   try {
     if ("0" == localStorage.qual) {
       localStorage.qual = "1";
       grqi.src = "/s/highquality.png";
       want_quality = 1;
-    } else {
+    }
+    else {
       localStorage.qual = "0";
       grqi.src = "/s/lowquality.png";
       want_quality = 0;
     }
-  } catch (b) {
   }
+  catch (b) {}
   return false;
 };
 var plq = document.getElementById("plq");
@@ -5877,8 +6091,8 @@ try {
   if ("1" == localStorage.edttsg) {
     cskh.style.display = "inline";
   }
-} catch (b$$56) {
 }
+catch (b$$56) {}
 var psk = document.getElementById("psk");
 var pskh = document.getElementById("pskh");
 var nsk = document.getElementById("nsk");
@@ -5924,21 +6138,21 @@ csk.onclick = function() {
     gsc = sgsc;
     var b$$0 = [];
     var h = 22;
-    for (;1 <= h;h--) {
+    for (; 1 <= h; h--) {
       b$$0.push({
-        xx : grd / 2 - 10 * h,
-        yy : grd / 2,
-        fx : 0,
-        fy : 0,
-        exs : [],
-        eys : [],
-        efs : [],
-        ems : [],
-        eiu : 0,
-        fpos : 0,
-        da : 0,
-        ebx : 10,
-        eby : 0
+        xx: grd / 2 - 10 * h,
+        yy: grd / 2,
+        fx: 0,
+        fy: 0,
+        exs: [],
+        eys: [],
+        efs: [],
+        ems: [],
+        eiu: 0,
+        fpos: 0,
+        da: 0,
+        ebx: 10,
+        eby: 0
       });
     }
     h = 0;
@@ -5947,8 +6161,8 @@ csk.onclick = function() {
       if (c == "" + Number(c)) {
         h = Number(c);
       }
-    } catch (f) {
     }
+    catch (f) {}
     b$$0 = newSnake(1, grd / 2, grd / 2, h, 0, b$$0);
     view_xx = grd / 2 - 105;
     view_yy = grd / 2;
@@ -5974,10 +6188,8 @@ csk.onclick = function() {
     b$$0.alive_amt = 1;
     b$$0.rex = 1.66;
     ws = {
-      send : function(b) {
-      },
-      close : function() {
-      }
+      send: function(b) {},
+      close: function() {}
     };
     high_quality = playing = connected = true;
     gla = 1;
@@ -6033,118 +6245,118 @@ lmch.appendChild(lmc2);
 logo.appendChild(lmch);
 var lts = [];
 lts.push({
-  pts : [107, 107, 80, 83, 53, 98, 31, 115, 55, 131, 98, 147, 101, 162, 101, 190, 66, 188, 49, 187, 34, 173],
-  kc : 22,
-  ws : 4,
-  wr : 0.025,
-  qm : 0.025,
-  sp : 0.06,
-  sz : 11
+  pts: [107, 107, 80, 83, 53, 98, 31, 115, 55, 131, 98, 147, 101, 162, 101, 190, 66, 188, 49, 187, 34, 173],
+  kc: 22,
+  ws: 4,
+  wr: 0.025,
+  qm: 0.025,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [150, 30, 150, 107, 150, 184],
-  kc : 66,
-  ws : 4,
-  wr : 0.05,
-  qm : 0.025,
-  sp : 0.06,
-  sz : 11
+  pts: [150, 30, 150, 107, 150, 184],
+  kc: 66,
+  ws: 4,
+  wr: 0.05,
+  qm: 0.025,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [207, 96, 207, 140, 207, 184],
-  kc : 46,
-  ws : 4,
-  wr : 0.03,
-  qm : 0.035,
-  sp : 0.06,
-  sz : 11
+  pts: [207, 96, 207, 140, 207, 184],
+  kc: 46,
+  ws: 4,
+  wr: 0.03,
+  qm: 0.035,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [207, 47, 207, 48.5, 207, 50],
-  kc : 11,
-  ws : 2,
-  wr : 0.06,
-  qm : 0.05,
-  sp : 0.06,
-  sz : 15,
-  r : 0.5
+  pts: [207, 47, 207, 48.5, 207, 50],
+  kc: 11,
+  ws: 2,
+  wr: 0.06,
+  qm: 0.05,
+  sp: 0.06,
+  sz: 15,
+  r: 0.5
 }, {
-  pts : [267, 65, 267, 114.5, 267, 164, 267, 194, 297, 186],
-  kc : 66,
-  ws : 6,
-  wr : -0.025,
-  qm : -0.0125,
-  sp : 0.06,
-  sz : 11,
-  r : 1.5
+  pts: [267, 65, 267, 114.5, 267, 164, 267, 194, 297, 186],
+  kc: 66,
+  ws: 6,
+  wr: -0.025,
+  qm: -0.0125,
+  sp: 0.06,
+  sz: 11,
+  r: 1.5
 }, {
-  pts : [243, 94, 268, 94, 293, 94],
-  kc : 66,
-  ws : 4,
-  wr : 0.015,
-  qm : 0.025,
-  sp : 0.06,
-  sz : 9,
-  r : 1.2
+  pts: [243, 94, 268, 94, 293, 94],
+  kc: 66,
+  ws: 4,
+  wr: 0.015,
+  qm: 0.025,
+  sp: 0.06,
+  sz: 9,
+  r: 1.2
 }, {
-  pts : [338, 30, 338, 68.5, 338, 107, 338, 145.5, 338, 184, 338, 164, 338, 144, 338, 104, 378, 104, 418, 104, 418, 144, 418, 164, 418, 184],
-  kc : 46,
-  ws : 4,
-  wr : 0.005,
-  qm : 0.02,
-  sp : 0.06,
-  sz : 11,
-  r : 2.1
+  pts: [338, 30, 338, 68.5, 338, 107, 338, 145.5, 338, 184, 338, 164, 338, 144, 338, 104, 378, 104, 418, 104, 418, 144, 418, 164, 418, 184],
+  kc: 46,
+  ws: 4,
+  wr: 0.005,
+  qm: 0.02,
+  sp: 0.06,
+  sz: 11,
+  r: 2.1
 }, {
-  pts : [535, 175, 500, 201, 472, 175, 442, 138, 472, 105, 502, 84, 532, 105, 546, 118, 544, 139, 504, 139, 464, 139],
-  kc : 35,
-  ws : 6,
-  wr : -0.013,
-  qm : -0.025,
-  sp : 0.06,
-  sz : 11,
-  r : 1.3
+  pts: [535, 175, 500, 201, 472, 175, 442, 138, 472, 105, 502, 84, 532, 105, 546, 118, 544, 139, 504, 139, 464, 139],
+  kc: 35,
+  ws: 6,
+  wr: -0.013,
+  qm: -0.025,
+  sp: 0.06,
+  sz: 11,
+  r: 1.3
 }, {
-  pts : [591, 96, 591, 140, 591, 184, 591, 155, 591, 126, 613, 82, 652, 109],
-  kc : 38,
-  ws : 4,
-  wr : 0.01,
-  qm : -0.035,
-  sp : 0.06,
-  sz : 11
+  pts: [591, 96, 591, 140, 591, 184, 591, 155, 591, 126, 613, 82, 652, 109],
+  kc: 38,
+  ws: 4,
+  wr: 0.01,
+  qm: -0.035,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [663, 177, 663, 178.5, 663, 180],
-  kc : 11,
-  ws : 2,
-  wr : 0.06,
-  qm : 0.05,
-  sp : 0.06,
-  sz : 15
+  pts: [663, 177, 663, 178.5, 663, 180],
+  kc: 11,
+  ws: 2,
+  wr: 0.06,
+  qm: 0.05,
+  sp: 0.06,
+  sz: 15
 }, {
-  pts : [717, 96, 717, 140, 717, 184],
-  kc : 33,
-  ws : 4,
-  wr : 0.06,
-  qm : 0.05,
-  sp : 0.06,
-  sz : 11
+  pts: [717, 96, 717, 140, 717, 184],
+  kc: 33,
+  ws: 4,
+  wr: 0.06,
+  qm: 0.05,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [717, 47, 717, 48.5, 717, 50],
-  kc : 11,
-  ws : 2,
-  wr : 0.06,
-  qm : 0.05,
-  sp : 0.06,
-  sz : 15
+  pts: [717, 47, 717, 48.5, 717, 50],
+  kc: 11,
+  ws: 2,
+  wr: 0.06,
+  qm: 0.05,
+  sp: 0.06,
+  sz: 15
 }, {
-  pts : [814, 186, 860, 188, 858, 136, 854, 96, 814, 96, 770, 96, 770, 136, 770, 186, 814, 186],
-  kc : 43,
-  ws : 4,
-  wr : 0,
-  qm : 0.0274,
-  sp : 0.073,
-  sz : 11,
-  r : 1.5
+  pts: [814, 186, 860, 188, 858, 136, 854, 96, 814, 96, 770, 96, 770, 136, 770, 186, 814, 186],
+  kc: 43,
+  ws: 4,
+  wr: 0,
+  qm: 0.0274,
+  sp: 0.073,
+  sz: 11,
+  r: 1.5
 });
 i = 0;
-for (;i < lts.length;i++) {
+for (; i < lts.length; i++) {
   lts[i].mwig = 5;
 }
 var lga = 0;
@@ -6153,6 +6365,7 @@ var ncka = 0;
 var mwig = 4;
 var lgfr = 0;
 var lgtm = Date.now();
+
 function showLogo(b) {
   var h = Date.now();
   var c = (h - lgtm) / 25;
@@ -6176,7 +6389,8 @@ function showLogo(b) {
   if (0 == lts[lts.length - 1].mwig && (1 == lga && (1 == lgss && 1 == ncka))) {
     clearInterval(showlogo_iv);
     showlogo_iv = -1;
-  } else {
+  }
+  else {
     if (b || 1 != lga) {
       lga += 0.05 * c;
       if (1 <= lga) {
@@ -6205,7 +6419,7 @@ function showLogo(b) {
     }
     lctx.clearRect(0, 0, lw, lh);
     h = 0;
-    for (;h < lts.length;h++) {
+    for (; h < lts.length; h++) {
       var J = lts[h];
       var H = J.pts;
       var C = J.kc;
@@ -6241,7 +6455,8 @@ function showLogo(b) {
         u = ctx.createLinearGradient(0, 70 * lgsc, 0, 230 * lgsc);
         u.addColorStop(0, "#80FFA0");
         u.addColorStop(1, "#008040");
-      } else {
+      }
+      else {
         u = ctx.createLinearGradient(0, 50 * lgsc, 0, 265 * lgsc);
         u.addColorStop(0, "#9850FF");
         u.addColorStop(1, "#281060");
@@ -6255,7 +6470,7 @@ function showLogo(b) {
       y = e;
       var G = lgfr * f;
       B = 2;
-      for (;B < H.length;B += 4) {
+      for (; B < H.length; B += 4) {
         f = u;
         w = e;
         cx2 = H[B];
@@ -6263,7 +6478,7 @@ function showLogo(b) {
         u = H[B + 2];
         e = H[B + 3];
         var Q = 1;
-        for (;Q <= C;Q++) {
+        for (; Q <= C; Q++) {
           A++;
           var P = Q / C;
           z = f + (cx2 - f) * P;
@@ -6276,14 +6491,16 @@ function showLogo(b) {
           if (I) {
             if (D - q > Math.PI) {
               D -= 2 * Math.PI;
-            } else {
+            }
+            else {
               if (D - q < -Math.PI) {
                 D += 2 * Math.PI;
               }
             }
             q += 0.05 * (D - q);
             q %= 2 * Math.PI;
-          } else {
+          }
+          else {
             I = true;
             q = D;
           }
@@ -6314,7 +6531,8 @@ var showlogo_iv = -1;
 if (is_safari || is_mobile) {
   ncka = lgss = lga = 1;
   showLogo(true);
-} else {
+}
+else {
   showlogo_iv = setInterval("showLogo(false)", 25);
 }
 document.onkeydown = function(b) {
@@ -6322,25 +6540,30 @@ document.onkeydown = function(b) {
   var h = b.keyCode;
   if (37 == h) {
     kd_l = true;
-  } else {
+  }
+  else {
     if (39 == h) {
       kd_r = true;
-    } else {
+    }
+    else {
       if (38 == h || 32 == h) {
         kd_u = true;
         setAcceleration(1);
-      } else {
+      }
+      else {
         if (13 == h || 10 == h) {
           if (want_victory_message) {
             if (0 < victory.value.length) {
               save_btn.elem.onclick();
             }
-          } else {
+          }
+          else {
             if (!connecting && !connected) {
               play_btn.elem.onclick();
             }
           }
-        } else {
+        }
+        else {
           if (16 == h) {
             if (testing) {
               shifty = true;
@@ -6359,14 +6582,17 @@ document.onkeyup = function(b) {
   b = b.keyCode;
   if (37 == b) {
     kd_l = false;
-  } else {
+  }
+  else {
     if (39 == b) {
       kd_r = false;
-    } else {
+    }
+    else {
       if (38 == b || 32 == b) {
         kd_u = false;
         setAcceleration(0);
-      } else {
+      }
+      else {
         if (16 == b) {
           if (testing) {
             shifty = false;
@@ -6376,6 +6602,7 @@ document.onkeyup = function(b) {
     }
   }
 };
+
 function loadSos(b$$0) {
   if (!forcing && 0 < b$$0.length) {
     sos = [];
@@ -6392,35 +6619,38 @@ function loadSos(b$$0) {
     var F = [];
     var t = [];
     var x = [];
-    for (;h < b$$0.length;) {
+    for (; h < b$$0.length;) {
       if (w = (b$$0.charCodeAt(h++) - 97 - e$$0) % 26, 0 > w && (w += 26), u *= 16, u += w, e$$0 += 7, 1 == c$$0) {
         if (0 == f) {
           z.push(u);
           if (4 == z.length) {
             f++;
           }
-        } else {
+        }
+        else {
           if (1 == f) {
             F.push(u);
             if (3 == F.length) {
               f++;
             }
-          } else {
+          }
+          else {
             if (2 == f) {
               t.push(u);
               if (3 == t.length) {
                 f++;
               }
-            } else {
+            }
+            else {
               if (3 == f && (x.push(u), 1 == x.length)) {
                 c$$0 = {};
                 f = w = 0;
-                for (;f < F.length;f++) {
+                for (; f < F.length; f++) {
                   w *= 256;
                   w += F[f];
                 }
                 f = F = 0;
-                for (;f < t.length;f++) {
+                for (; f < t.length; f++) {
                   F *= 256;
                   F += t[f];
                 }
@@ -6430,7 +6660,8 @@ function loadSos(b$$0) {
                 c$$0.clu = x[0];
                 if (clus[c$$0.clu]) {
                   z = clus[c$$0.clu];
-                } else {
+                }
+                else {
                   z = {};
                   clus[c$$0.clu] = z;
                   z.sis = [];
@@ -6448,15 +6679,16 @@ function loadSos(b$$0) {
           }
         }
         c$$0 = u = 0;
-      } else {
+      }
+      else {
         c$$0++;
       }
     }
     h = sos.length - 1;
-    for (;0 <= h;h--) {
+    for (; 0 <= h; h--) {
       if (c$$0 = 1, z = sos[h].cluo) {
         f = z.sis.length - 1;
-        for (;0 <= f;f--) {
+        for (; 0 <= f; f--) {
           if (z.sis[f].ip == sos[h].ip) {
             c$$0 = 0;
             break;
@@ -6464,31 +6696,31 @@ function loadSos(b$$0) {
         }
         if (1 == c$$0) {
           z.sis.push({
-            ip : sos[h].ip
+            ip: sos[h].ip
           });
         }
       }
     }
     h = clus.length - 1;
-    for (;0 <= h;h--) {
+    for (; 0 <= h; h--) {
       if ((z = clus[h]) && 0 < z.sis.length) {
         f = Math.floor(Math.random() * z.sis.length);
         b$$0 = z.sis[f].ip;
         e$$0 = null;
         try {
           e$$0 = new WebSocket("ws://" + b$$0 + ":80/ptc");
-        } catch (D) {
+        }
+        catch (D) {
           e$$0 = null;
         }
         if (e$$0) {
           e$$0.binaryType = "arraybuffer";
-          e$$0.onerror = function(b) {
-          };
+          e$$0.onerror = function(b) {};
           e$$0.onmessage = function(b) {
             b = new Uint8Array(b.data);
             if (1 == b.length && 112 == b[0]) {
               b = clus.length - 1;
-              for (;0 <= b;b--) {
+              for (; 0 <= b; b--) {
                 var c = clus[b];
                 if (c && c.ps == this) {
                   var e = Date.now() - c.stm;
@@ -6501,7 +6733,8 @@ function loadSos(b$$0) {
                     b = new Uint8Array(1);
                     b[0] = 112;
                     this.send(b);
-                  } else {
+                  }
+                  else {
                     if (waiting_for_sos) {
                       if (-1 == sos_ready_after_mtm) {
                         sos_ready_after_mtm = Date.now() + 2E3;
@@ -6518,7 +6751,7 @@ function loadSos(b$$0) {
           e$$0.onopen = function(b) {
             b = false;
             var c = clus.length - 1;
-            for (;0 <= c;c--) {
+            for (; 0 <= c; c--) {
               var e = clus[c];
               if (e && e.ps == this) {
                 e.stm = Date.now();
@@ -6558,7 +6791,8 @@ if (is_ios || is_android) {
   document.body.appendChild(mba);
   if (is_ios) {
     mba.href = "https://itunes.apple.com/us/app/slither.io/id1091944550?ls=1&mt=8";
-  } else {
+  }
+  else {
     if (is_android) {
       mba.href = is_amazon ? "http://www.amazon.com/Lowtech-Enterprises-slither-io/dp/B01E312TYQ/" : "https://play.google.com/store/apps/details?id=air.com.hypah.io.slither";
     }
@@ -6566,7 +6800,7 @@ if (is_ios || is_android) {
 }
 resize();
 o = {
-  f : function(b, h, c) {
+  f: function(b, h, c) {
     if ("success" == h) {
       loadSos(b);
     }
@@ -6593,17 +6827,19 @@ if (0 <= ua.indexOf("safari")) {
   }
 }
 var no_raf = false;
-var raf = function(el) {
-};
+var raf = function(el) {};
 if (window.requestAnimationFrame) {
   raf = window.requestAnimationFrame;
-} else {
+}
+else {
   if (window.mozRequestAnimationFrame) {
     raf = window.mozRequestAnimationFrame;
-  } else {
+  }
+  else {
     if (window.webkitRequestAnimationFrame) {
       raf = window.webkitRequestAnimationFrame;
-    } else {
+    }
+    else {
       no_raf = true;
     }
   }
@@ -6630,9 +6866,11 @@ var agpu = "translateZ(0)";
 var ang;
 var sang;
 var vang;
+
 function trf(el, val) {
   el.style.webkitTransform = el.style.OTransform = el.style.msTransform = el.style.MozTransform = el.style.transform = val;
 }
+
 function trfo(div, dataAndEvents) {
   div.style.webkitTransformOrigin = div.style.OTransformOrigin = div.style.msTransformOrigin = div.style.MozTransformOrigin = div.style.transformOrigin = dataAndEvents;
 }
@@ -6643,14 +6881,17 @@ var startAnimation = function() {
   if (no_raf) {
     if (is_mobile) {
       setInterval("oef()", 33);
-    } else {
+    }
+    else {
       if (is_safari) {
         setInterval("oef()", 33);
-      } else {
+      }
+      else {
         setInterval("oef()", 20);
       }
     }
-  } else {
+  }
+  else {
     raf(oef);
   }
 };
@@ -6664,7 +6905,7 @@ var ldi = function(blank) {
   img.sc = 1;
   photo.onload = function() {
     var c = ois.length - 1;
-    for (;0 <= c;c--) {
+    for (; 0 <= c; c--) {
       if (ois[c].ii == this) {
         c = ois[c];
         c.ww = this.width;
@@ -6685,13 +6926,15 @@ var ldi = function(blank) {
   ois.push(img);
   return img;
 };
+
 function addCss(css) {
   var s = document.createElement("style");
   document.getElementsByTagName("head")[0].appendChild(s);
   s.type = "text/css";
   if (s.styleSheet) {
     s.styleSheet.cssText = css;
-  } else {
+  }
+  else {
     s.appendChild(document.createTextNode(css));
   }
 }
@@ -6719,10 +6962,11 @@ map = ctx.getImageData(0, 0, rw, rh);
 imgd = map.data;
 l = imgd.length;
 p = 0;
-for (;p < l;p += 4) {
+for (; p < l; p += 4) {
   if (0.5 > Math.random()) {
     imgd[p] = imgd[p + 1] = imgd[p + 2] = 0;
-  } else {
+  }
+  else {
     imgd[p] = 44;
     imgd[p + 1] = 56;
     imgd[p + 2] = 68;
@@ -6743,11 +6987,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = (grh - 1 - yy) / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.min(255, Math.floor(54.4 + 32 * j));
     imgd[p + 1] = Math.min(255, Math.floor(108.8 + 64 * j));
     imgd[p + 2] = Math.min(255, Math.floor(81.6 + 48 * j));
@@ -6765,11 +7009,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = (grh - 1 - yy) / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.min(255, Math.floor(72 + 0.95 * 48 * j));
     imgd[p + 1] = Math.min(255, Math.floor(171 + 93.1 * j));
     imgd[p + 2] = Math.min(255, Math.floor(132 + 0.95 * 87 * j));
@@ -6787,11 +7031,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = yy / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.floor(0.1 * 48 + 36 * j);
     imgd[p + 1] = Math.floor(7 + 52.5 * j);
     imgd[p + 2] = Math.floor(6.4 + 48 * j);
@@ -6815,11 +7059,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = (grh - 1 - yy) / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.min(255, Math.floor(0.85 * 52 + 26 * j));
     imgd[p + 1] = Math.min(255, Math.floor(81.6 + 48 * j));
     imgd[p + 2] = Math.min(255, Math.floor(0.85 * 144 + 72 * j));
@@ -6837,11 +7081,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = (grh - 1 - yy) / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.min(255, Math.floor(72 + 0.95 * 48 * j));
     imgd[p + 1] = Math.min(255, Math.floor(132 + 0.95 * 87 * j));
     imgd[p + 2] = Math.min(255, Math.floor(171 + 93.1 * j));
@@ -6859,11 +7103,11 @@ map = ctx.getImageData(0, 0, grw, grh);
 imgd = map.data;
 l = imgd.length;
 yy = p = 0;
-for (;yy < grh;yy++) {
+for (; yy < grh; yy++) {
   j = yy / (grh - 1);
   j = 0.5 * (1 - Math.cos(Math.PI * j));
   xx = 0;
-  for (;xx < grw;xx++) {
+  for (; xx < grw; xx++) {
     imgd[p] = Math.floor(0.1 * 48 + 36 * j);
     imgd[p + 1] = Math.floor(5.4 + 40.5 * j);
     imgd[p + 2] = Math.floor(7 + 52.5 * j);
@@ -6883,6 +7127,7 @@ if (32 < sadg.length) {
 var mos = [];
 var m_iv = -1;
 var swmup = false;
+
 function mkBtn(node, urlPrefix, w, newHeight) {
   var div = document.createElement("div");
   if (!node.tagName) {
@@ -6893,7 +7138,7 @@ function mkBtn(node, urlPrefix, w, newHeight) {
     div.style.height = newHeight + "px";
   }
   var self = {
-    lic : 0
+    lic: 0
   };
   self.elem = node;
   self.md = false;
@@ -6934,7 +7179,8 @@ function mkBtn(node, urlPrefix, w, newHeight) {
       this.downi.style.opacity = this.mdf;
       this.elem.style.opacity = 1;
       this.elem.style.cursor = "pointer";
-    } else {
+    }
+    else {
       this.disabled = true;
       this.upi.style.opacity = 0;
       this.downi.style.opacity = 0;
@@ -6944,7 +7190,7 @@ function mkBtn(node, urlPrefix, w, newHeight) {
   };
   if (urlPrefix) {
     e = 1;
-    for (;3 >= e;e++) {
+    for (; 3 >= e; e++) {
       var img = document.createElement("img");
       img.draggable = false;
       img.style.position = "absolute";
@@ -6959,7 +7205,7 @@ function mkBtn(node, urlPrefix, w, newHeight) {
         self.normi = img;
         img.onload = function() {
           var unlock = mos.length - 1;
-          for (;0 <= unlock;unlock--) {
+          for (; 0 <= unlock; unlock--) {
             var cache = mos[unlock];
             if (cache.normi == this) {
               cache.alic();
@@ -6968,13 +7214,14 @@ function mkBtn(node, urlPrefix, w, newHeight) {
           }
         };
         img.src = urlPrefix + ".png";
-      } else {
+      }
+      else {
         if (2 == e) {
           self.upi = img;
           img.style.opacity = 0;
           img.onload = function() {
             var unlock = mos.length - 1;
-            for (;0 <= unlock;unlock--) {
+            for (; 0 <= unlock; unlock--) {
               var cache = mos[unlock];
               if (cache.upi == this) {
                 cache.alic();
@@ -6983,13 +7230,14 @@ function mkBtn(node, urlPrefix, w, newHeight) {
             }
           };
           img.src = urlPrefix + "up.png";
-        } else {
+        }
+        else {
           if (3 == e) {
             self.downi = img;
             img.style.opacity = 0;
             img.onload = function() {
               var unlock = mos.length - 1;
-              for (;0 <= unlock;unlock--) {
+              for (; 0 <= unlock; unlock--) {
                 var cache = mos[unlock];
                 if (cache.downi == this) {
                   cache.alic();
@@ -7002,12 +7250,13 @@ function mkBtn(node, urlPrefix, w, newHeight) {
         }
       }
     }
-  } else {
+  }
+  else {
     div.style.opacity = 1;
   }
   node.onmouseenter = function() {
     var unlock = mos.length - 1;
-    for (;0 <= unlock;unlock--) {
+    for (; 0 <= unlock; unlock--) {
       var cache = mos[unlock];
       if (cache.elem == this) {
         if (!cache.disabled && !cache.mo) {
@@ -7025,7 +7274,7 @@ function mkBtn(node, urlPrefix, w, newHeight) {
   };
   node.onmouseleave = function() {
     var unlock = mos.length - 1;
-    for (;0 <= unlock;unlock--) {
+    for (; 0 <= unlock; unlock--) {
       var cache = mos[unlock];
       if (cache.elem == this) {
         if (cache.mo) {
@@ -7043,7 +7292,7 @@ function mkBtn(node, urlPrefix, w, newHeight) {
   };
   node.onmousedown = function(_e) {
     var s = mos.length - 1;
-    for (;0 <= s;s--) {
+    for (; 0 <= s; s--) {
       var self = mos[s];
       if (self.elem == this) {
         if (!self.disabled && !self.md) {
@@ -7062,7 +7311,7 @@ function mkBtn(node, urlPrefix, w, newHeight) {
   };
   node.onmouseup = node.ondragend = function(e) {
     var unlock = mos.length - 1;
-    for (;0 <= unlock;unlock--) {
+    for (; 0 <= unlock; unlock--) {
       var cache = mos[unlock];
       if (cache.elem == this) {
         if (cache.md) {
@@ -7083,7 +7332,7 @@ function mkBtn(node, urlPrefix, w, newHeight) {
     swmup = true;
     window.onmouseup = window.ondragover = window.ondragend = function() {
       var unlock = mos.length - 1;
-      for (;0 <= unlock;unlock--) {
+      for (; 0 <= unlock; unlock--) {
         var cache = mos[unlock];
         if (cache.md) {
           cache.md = false;
@@ -7096,11 +7345,12 @@ function mkBtn(node, urlPrefix, w, newHeight) {
   }
   return self;
 }
+
 function hmos() {
   var b;
   var h = false;
   var id = mos.length - 1;
-  for (;0 <= id;id--) {
+  for (; 0 <= id; id--) {
     var animation = mos[id];
     b = false;
     if (animation.mo) {
@@ -7112,7 +7362,8 @@ function hmos() {
         }
         b = true;
       }
-    } else {
+    }
+    else {
       if (0 != animation.mof) {
         h = true;
         animation.mof -= 0.2;
@@ -7135,7 +7386,8 @@ function hmos() {
         }
         b = true;
       }
-    } else {
+    }
+    else {
       if (0 != animation.mdf) {
         h = true;
         animation.mdf -= 0.2;
@@ -7154,6 +7406,7 @@ function hmos() {
     m_iv = -1;
   }
 }
+
 function makeTextBtn(s, height, i, opt_attributes, c) {
   if (!height) {
     height = 56;
@@ -7265,6 +7518,7 @@ var lb_fr = 0;
 var login_fr = 0;
 var llgmtm = Date.now();
 var login_iv = -1;
+
 function loginFade() {
   var b = Date.now();
   var h = (b - llgmtm) / 25;
@@ -7310,7 +7564,8 @@ function loginFade() {
         showlogo_iv = -1;
       }
     }
-  } else {
+  }
+  else {
     lgcsc = 1 + 0.1 * Math.pow(login_fr, 2);
     b = Math.round(lgbsc * lgcsc * 1E5) / 1E5;
     trf(login, "scale(" + b + "," + b + ")");
@@ -7347,7 +7602,8 @@ var lcldtm = Date.now();
 var sstr = "Save";
 if ("FR" == country) {
   sstr = "Bien";
-} else {
+}
+else {
   if ("BR" == country) {
     sstr = "OK";
   }
@@ -7365,8 +7621,8 @@ o.elem.onclick = function() {
   if (playing) {
     try {
       localStorage.snakercv = snake.rcv;
-    } catch (b) {
     }
+    catch (b) {}
     playing = connected = false;
     dead_mtm = Date.now() - 5E3;
   }
@@ -7382,11 +7638,13 @@ var victory_holder = document.getElementById("victory_holder");
 var pstr = "Play";
 if ("DE" == country) {
   pstr = "Spielen";
-} else {
+}
+else {
   if ("FR" == country) {
     pstr = "Jouer";
     nick.placeholder = "Surnom";
-  } else {
+  }
+  else {
     if ("BR" == country) {
       pstr = "Joga";
       nick.placeholder = "Apelido";
@@ -7405,13 +7663,15 @@ playh.appendChild(pbdiv);
 var tips = document.getElementById("tips");
 var tipss = ["Eat to grow longer!", "Don't run into other snakes!", "When longer, hold the mouse for a speed boost!"];
 if ("DE" == country) {
-  tipss = ["Esse um zu wachsen!", "Klicke f\u00fcr mehr Geschwindigkeit!", "Bewege dich nicht in andere Schlangen!"];
-} else {
+  tipss = ["Esse um zu wachsen!", "Klicke für mehr Geschwindigkeit!", "Bewege dich nicht in andere Schlangen!"];
+}
+else {
   if ("FR" == country) {
-    tipss = ["Mangez de cro\u00eetre!", "Cliquez et vous courrez!", "Ne laissez pas votre t\u00eate toucher d'autres serpents!"];
-  } else {
+    tipss = ["Mangez de croître!", "Cliquez et vous courrez!", "Ne laissez pas votre tête toucher d'autres serpents!"];
+  }
+  else {
     if ("BR" == country) {
-      tipss = ["Coma para crescer!", "Clique para correr!", "N\u00e3o deixe que sua cabe\u00e7a para tocar outras cobras!"];
+      tipss = ["Coma para crescer!", "Clique para correr!", "Não deixe que sua cabeça para tocar outras cobras!"];
     }
   }
 }
@@ -7447,14 +7707,15 @@ o.elem.onclick = function() {
       buf[0] = 255;
       buf[1] = 118;
       var i = 0;
-      for (;i < a.length;i++) {
+      for (; i < a.length; i++) {
         buf[i + 2] = a.charCodeAt(i);
       }
-    } else {
+    }
+    else {
       buf = new Uint8Array(1 + a.length);
       buf[0] = 118;
       i = 0;
-      for (;i < a.length;i++) {
+      for (; i < a.length; i++) {
         buf[i + 1] = a.charCodeAt(i);
       }
     }
@@ -7503,12 +7764,14 @@ lbh.style.cursor = "default";
 var lstr = "Leaderboard";
 if ("DE" == country) {
   lstr = "Bestenliste";
-} else {
+}
+else {
   if ("FR" == country) {
     lstr = "Gagnants";
-  } else {
+  }
+  else {
     if ("BR" == country) {
-      lstr = "L\u00edderes";
+      lstr = "Líderes";
     }
   }
 }
@@ -7702,10 +7965,11 @@ ii.onload = function() {
   try {
     bufferContext.drawImage(this, 0, 0);
     bgp2 = bufferContext.createPattern(bgi2, "repeat");
-  } catch (h) {
   }
+  catch (h) {}
 };
 ii.src = "/s/bg45.jpg";
+
 function rdgbg() {
   if (ggbg) {
     if (!gbgmc) {
@@ -7716,8 +7980,8 @@ function rdgbg() {
     var imageContext = gbgmc.getContext("2d");
     try {
       imageContext.drawImage(gbgi, 0, 0, 512, 512, 0, 0, mww, mhh);
-    } catch (h) {
     }
+    catch (h) {}
   }
 }
 var ggbg = false;
@@ -7728,19 +7992,21 @@ gbgi.onload = function() {
   rdgbg();
 };
 gbgi.src = "/s/gbg.jpg";
+
 function newDeadpool() {
-  return{
-    os : [],
-    end_pos : 0,
-    add : function(node) {
+  return {
+    os: [],
+    end_pos: 0,
+    add: function(node) {
       if (this.end_pos == this.os.length) {
         this.os.push(node);
-      } else {
+      }
+      else {
         this.os[this.end_pos] = node;
       }
       this.end_pos++;
     },
-    get : function() {
+    get: function() {
       if (1 <= this.end_pos) {
         this.end_pos--;
         var entries = this.os[this.end_pos];
@@ -7752,26 +8018,28 @@ function newDeadpool() {
   };
 }
 var flt_a = "gas the;gas all;gas every;heil hit;ler did no;panis;panus;paynis;cut your;flick your".split(";");
+
 function gdnm(a) {
   var str = "";
   var c = false;
   var b;
   var i = 0;
-  for (;i < a.length;i++) {
+  for (; i < a.length; i++) {
     b = a.charCodeAt(i);
     if (32 == b) {
       if (!c) {
         c = true;
         str += " ";
       }
-    } else {
+    }
+    else {
       c = false;
       str += String.fromCharCode(b);
     }
   }
   a = str.toLowerCase();
   i = flt_a.length - 1;
-  for (;0 <= i;i--) {
+  for (; 0 <= i; i--) {
     if (0 <= a.indexOf(flt_a[i])) {
       return false;
     }
@@ -7826,23 +8094,23 @@ var cst = 0.43;
 var lfas = [];
 var lfc = 128;
 i = 0;
-for (;i < lfc;i++) {
+for (; i < lfc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (lfc - 1 - i) / (lfc - 1)));
   lfas.push(j);
 }
 var rfas = [];
 var rfc = 43;
 i = 0;
-for (;i < rfc;i++) {
+for (; i < rfc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (rfc - 1 - i) / (rfc - 1)));
   rfas.push(j);
 }
 var fao = {};
 var fc = 3;
-for (;100 >= fc;fc++) {
+for (; 100 >= fc; fc++) {
   var fas = [];
   i = 0;
-  for (;i < fc;i++) {
+  for (; i < fc; i++) {
     j = 0.5 * (1 - Math.cos(Math.PI * (fc - 1 - i) / (fc - 1)));
     fas.push(j);
   }
@@ -7851,14 +8119,14 @@ for (;100 >= fc;fc++) {
 var hfc = 92;
 var hfas = new Float32Array(hfc);
 i = 0;
-for (;i < hfc;i++) {
+for (; i < hfc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (hfc - 1 - i) / (hfc - 1)));
   hfas[i] = j;
 }
 var afas = [];
 var afc = 26;
 i = 0;
-for (;i < afc;i++) {
+for (; i < afc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (afc - 1 - i) / (afc - 1)));
   afas.push(j);
 }
@@ -7872,25 +8140,27 @@ var ovyy;
 var fvxs = [];
 var fvys = [];
 i = 0;
-for (;i < vfc;i++) {
+for (; i < vfc; i++) {
   j = 0.5 * (1 - Math.cos(Math.PI * (vfc - 1 - i) / (vfc - 1)));
   j += 0.5 * (0.5 * (1 - Math.cos(Math.PI * j)) - j);
   vfas.push(j);
   fvxs.push(0);
   fvys.push(0);
 }
+
 function pwr(item) {
   var array = new Float32Array(125);
   var index = 0;
-  for (;125 > index;index++) {
+  for (; 125 > index; index++) {
     array[index] = Math.pow(item, index);
   }
   return array;
 }
+
 function pca(opt_attributes) {
   var maxBits = new Float32Array(125);
   var bits = 0;
-  for (;125 > bits;bits++) {
+  for (; 125 > bits; bits++) {
     maxBits[bits] = 1 - Math.pow(1 - opt_attributes, bits);
   }
   return maxBits;
@@ -7900,33 +8170,37 @@ var p35a = pca(0.35);
 var pwr4 = pwr(0.4);
 var pwr35 = pwr(0.35);
 var pwr93 = pwr(0.93);
+
 function setMscps(opt_attributes) {
   if (opt_attributes != mscps) {
     mscps = opt_attributes;
     fmlts = [];
     fpsls = [];
     opt_attributes = 0;
-    for (;opt_attributes <= mscps;opt_attributes++) {
+    for (; opt_attributes <= mscps; opt_attributes++) {
       if (opt_attributes >= mscps) {
         fmlts.push(fmlts[opt_attributes - 1]);
-      } else {
+      }
+      else {
         fmlts.push(Math.pow(1 - opt_attributes / mscps, 2.25));
       }
       if (0 == opt_attributes) {
         fpsls.push(0);
-      } else {
+      }
+      else {
         fpsls.push(fpsls[opt_attributes - 1] + 1 / fmlts[opt_attributes - 1]);
       }
     }
     var copies = fmlts[fmlts.length - 1];
     var templatePromise = fpsls[fpsls.length - 1];
     opt_attributes = 0;
-    for (;2048 > opt_attributes;opt_attributes++) {
+    for (; 2048 > opt_attributes; opt_attributes++) {
       fmlts.push(copies);
       fpsls.push(templatePromise);
     }
   }
 }
+
 function startShowGame() {
   llgmtm = Date.now();
   login_iv = setInterval("loginFade()", 25);
@@ -7936,6 +8210,7 @@ function startShowGame() {
   loch.style.opacity = 0;
   lb_fr = -1;
 }
+
 function setSkin(ctx, result) {
   ctx.rcv = result;
   ctx.er = 6;
@@ -7962,7 +8237,7 @@ function setSkin(ctx, result) {
     ctx.atax = new Float32Array(m);
     ctx.atay = new Float32Array(m);
     --m;
-    for (;0 <= m;m--) {
+    for (; 0 <= m; m--) {
       ctx.atx[m] = ctx.xx;
       ctx.aty[m] = ctx.yy;
     }
@@ -7973,7 +8248,8 @@ function setSkin(ctx, result) {
     ctx.blbh = 20;
     ctx.bsc = 1;
     ctx.blba = 1;
-  } else {
+  }
+  else {
     if (24 == result) {
       ctx.antenna = true;
       ctx.atba = 0;
@@ -7990,7 +8266,7 @@ function setSkin(ctx, result) {
       ctx.atax = new Float32Array(m);
       ctx.atay = new Float32Array(m);
       --m;
-      for (;0 <= m;m--) {
+      for (; 0 <= m; m--) {
         ctx.atx[m] = ctx.xx;
         ctx.aty[m] = ctx.yy;
       }
@@ -8001,7 +8277,8 @@ function setSkin(ctx, result) {
       ctx.blbh = 20;
       ctx.bsc = 1;
       ctx.blba = 0.75;
-    } else {
+    }
+    else {
       if (25 == result) {
         ctx.ec = "#ff5609";
         ctx.eca = 1;
@@ -8019,7 +8296,7 @@ function setSkin(ctx, result) {
         ctx.atax = new Float32Array(m);
         ctx.atay = new Float32Array(m);
         --m;
-        for (;0 <= m;m--) {
+        for (; 0 <= m; m--) {
           ctx.atx[m] = ctx.xx;
           ctx.aty[m] = ctx.yy;
         }
@@ -8036,55 +8313,72 @@ function setSkin(ctx, result) {
   m = null;
   if (9 == result) {
     m = [7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 10, 10, 10, 10, 10, 10, 10, 10, 10];
-  } else {
+  }
+  else {
     if (10 == result) {
       m = [9, 9, 9, 9, 9, 1, 1, 1, 1, 1, 7, 7, 7, 7, 7];
-    } else {
+    }
+    else {
       if (11 == result) {
         m = [11, 11, 11, 11, 11, 7, 7, 7, 7, 7, 12, 12, 12, 12, 12];
-      } else {
+      }
+      else {
         if (12 == result) {
           m = [7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 13, 13, 13, 13, 13];
-        } else {
+        }
+        else {
           if (13 == result) {
             m = [14, 14, 14, 14, 14, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7];
-          } else {
+          }
+          else {
             if (14 == result) {
               m = [9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7];
-            } else {
+            }
+            else {
               if (15 == result) {
                 m = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-              } else {
+              }
+              else {
                 if (16 == result) {
                   m = [15, 15, 15, 15, 15, 15, 15, 4, 4, 4, 4, 4, 4, 4];
-                } else {
+                }
+                else {
                   if (17 == result) {
                     m = [9, 9, 9, 9, 9, 9, 9, 16, 16, 16, 16, 16, 16, 16];
-                  } else {
+                  }
+                  else {
                     if (18 == result) {
                       m = [7, 7, 7, 7, 7, 7, 7, 9, 9, 9, 9, 9, 9, 9];
-                    } else {
+                    }
+                    else {
                       if (19 == result) {
                         m = [9];
-                      } else {
+                      }
+                      else {
                         if (20 == result) {
                           m = [3, 3, 3, 3, 3, 0, 0, 0, 0, 0];
-                        } else {
+                        }
+                        else {
                           if (21 == result) {
                             m = [3, 3, 3, 3, 3, 3, 3, 18, 18, 18, 18, 18, 18, 20, 19, 20, 19, 20, 19, 20, 18, 18, 18, 18, 18, 18];
-                          } else {
+                          }
+                          else {
                             if (22 == result) {
                               m = [5, 5, 5, 5, 5, 5, 5, 9, 9, 9, 9, 9, 9, 9, 13, 13, 13, 13, 13, 13, 13];
-                            } else {
+                            }
+                            else {
                               if (23 == result) {
                                 m = [16, 16, 16, 16, 16, 16, 16, 18, 18, 18, 18, 18, 18, 18, 7, 7, 7, 7, 7, 7, 7];
-                              } else {
+                              }
+                              else {
                                 if (24 == result) {
                                   m = [23, 23, 23, 23, 23, 23, 23, 23, 23, 18, 18, 18, 18, 18, 18, 18, 18, 18];
-                                } else {
+                                }
+                                else {
                                   if (25 == result) {
                                     m = [21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 22, 22];
-                                  } else {
+                                  }
+                                  else {
                                     result %= 9;
                                   }
                                 }
@@ -8109,6 +8403,7 @@ function setSkin(ctx, result) {
   ctx.rbcs = m;
   ctx.cv = result;
 }
+
 function newSnake(id, style, attr, a, value, args) {
   var obj = {};
   obj.id = id;
@@ -8179,7 +8474,8 @@ function newSnake(id, style, attr, a, value, args) {
     if (args[0].dying) {
       obj.sct--;
     }
-  } else {
+  }
+  else {
     obj.pts = [];
     obj.sct = 0;
   }
@@ -8195,13 +8491,14 @@ function newSnake(id, style, attr, a, value, args) {
   snakes.splice(0, 0, obj);
   return os["s" + obj.id] = obj;
 }
+
 function snl(input) {
   var n = input.tl;
   input.tl = input.sct + input.fam;
   n = input.tl - n;
   var i = input.flpos;
   var unlock = 0;
-  for (;unlock < lfc;unlock++) {
+  for (; unlock < lfc; unlock++) {
     input.fls[i] -= n * lfas[unlock];
     i++;
     if (i >= lfc) {
@@ -8214,6 +8511,7 @@ function snl(input) {
     wumsts = true;
   }
 }
+
 function newFood(id, v00, version, cnt, dataAndEvents, key) {
   var obj = {};
   obj.id = id;
@@ -8284,6 +8582,7 @@ function newFood(id, v00, version, cnt, dataAndEvents, key) {
   obj.eaten_fr4 = 0;
   return foods[foods_c++] = obj;
 }
+
 function newPrey(s, name, id, cnt, value, key, text, sphere, keepData) {
   var obj = {};
   obj.id = s;
@@ -8353,7 +8652,7 @@ map = ctx.getImageData(0, 0, sz, sz);
 imgd = map.data;
 l = imgd.length;
 p = yy = xx = 0;
-for (;p < l;p += 4) {
+for (; p < l; p += 4) {
   var v = Math.abs(Math.sqrt(Math.pow(sz / 2 - xx, 2) + Math.pow(sz / 2 - yy, 2)) - 16);
   v = 4 >= v ? 1 - v / 4 : 0;
   v = 0.8 * v;
@@ -8374,7 +8673,7 @@ map = ctx.getImageData(0, 0, sz, sz);
 imgd = map.data;
 l = imgd.length;
 p = yy = xx = 0;
-for (;p < l;p += 4) {
+for (; p < l; p += 4) {
   v = Math.sqrt(Math.pow(sz / 2 - xx, 2) + Math.pow(sz / 2 + 3 - yy, 2)) - 15;
   v *= 0.1;
   if (0 > v) {
@@ -8452,23 +8751,23 @@ var ggs = [128, 153, 208, 255, 238, 160, 144, 64, 48, 255, 153, 80, 192, 136, 11
 var bbs = [255, 255, 208, 128, 112, 96, 144, 64, 224, 255, 255, 80, 80, 96, 255, 255, 255, 255, 64, 255, 255, 160, 9, 232];
 var max_skin_cv = 24;
 i = 0;
-for (;i < rrs.length;i++) {
+for (; i < rrs.length; i++) {
   o = {
-    imgs : [],
-    fws : [],
-    fhs : [],
-    fw2s : [],
-    fh2s : [],
-    gimgs : [],
-    gfws : [],
-    gfhs : [],
-    gfw2s : [],
-    gfh2s : [],
-    oimgs : [],
-    ofws : [],
-    ofhs : [],
-    ofw2s : [],
-    ofh2s : []
+    imgs: [],
+    fws: [],
+    fhs: [],
+    fw2s: [],
+    fh2s: [],
+    gimgs: [],
+    gfws: [],
+    gfhs: [],
+    gfw2s: [],
+    gfh2s: [],
+    oimgs: [],
+    ofws: [],
+    ofhs: [],
+    ofw2s: [],
+    ofh2s: []
   };
   var rs = "00" + rrs[i].toString(16);
   var gs = "00" + ggs[i].toString(16);
@@ -8485,7 +8784,7 @@ for (;i < rrs.length;i++) {
   imgd = map.data;
   l = imgd.length;
   p = yy = xx = 0;
-  for (;p < l;p += 4) {
+  for (; p < l; p += 4) {
     v = Math.abs(Math.sqrt(Math.pow(sz / 2 - xx, 2) + Math.pow(sz / 2 - yy, 2)) - 16);
     v = 15 >= v ? 1 - v / 15 : 0;
     imgd[p] = rrs[i];
@@ -8514,9 +8813,9 @@ for (;i < rrs.length;i++) {
   yy = xx = 0;
   var kmcs = [];
   j = 0;
-  for (;7 > j;j++) {
+  for (; 7 > j; j++) {
     p = xx = yy = 0;
-    for (;p < l;p += 4) {
+    for (; p < l; p += 4) {
       v = Math.pow(Math.max(0, Math.min(1, 1 - Math.abs(yy - ksz2) / ksz2)), 0.35);
       var v2 = Math.max(0, Math.min(1, 1 - Math.sqrt(Math.pow(xx - ksz2, 2) + Math.pow(yy - ksz2, 2)) / 34));
       v = v + 0.375 * (v2 - v);
@@ -8540,18 +8839,19 @@ for (;i < rrs.length;i++) {
     ctx2.drawImage(kmc, 0, 0);
     if (10 == i) {
       k = -1;
-      for (;1 >= k;k++) {
+      for (; 1 >= k; k++) {
         var tx = ksz2 + ksz2 / 16 * Math.cos(2 * Math.PI * k / 8) * 13;
         var ty = ksz2 + ksz2 / 16 * Math.sin(2 * Math.PI * k / 8) * 13;
         ctx2.fillStyle = "#FFFFFF";
         ctx2.beginPath();
         m = 0;
-        for (;5 >= m;m++) {
+        for (; 5 >= m; m++) {
           xx = tx + ksz / 32 * Math.cos(2 * Math.PI * m / 5) * 0.05 * 24;
           yy = ty + ksz / 32 * Math.sin(2 * Math.PI * m / 5) * 0.05 * 24;
           if (0 == m) {
             ctx2.moveTo(xx, yy);
-          } else {
+          }
+          else {
             ctx2.lineTo(xx, yy);
           }
           xx = tx + ksz / 32 * Math.cos(2 * Math.PI * (m + 0.5) / 5) * 3.1;
@@ -8560,10 +8860,11 @@ for (;i < rrs.length;i++) {
         }
         ctx2.fill();
       }
-    } else {
+    }
+    else {
       if (19 == i) {
         k = -2;
-        for (;2 >= k;k++) {
+        for (; 2 >= k; k++) {
           tx = ksz2 + ksz2 / 16 * Math.cos(2 * Math.PI * k / 15) * 13;
           ty = ksz2 + ksz2 / 16 * Math.sin(2 * Math.PI * k / 15) * 13;
           ctx2.save();
@@ -8571,12 +8872,13 @@ for (;i < rrs.length;i++) {
           ctx2.fillStyle = "#FFFFFF";
           ctx2.beginPath();
           m = 0;
-          for (;5 >= m;m++) {
+          for (; 5 >= m; m++) {
             xx = tx + ksz / 32 * Math.cos(2 * Math.PI * m / 5) * 0.05 * 12;
             yy = ty + ksz / 32 * Math.sin(2 * Math.PI * m / 5) * 0.05 * 12;
             if (0 == m) {
               ctx2.moveTo(xx, yy);
-            } else {
+            }
+            else {
               ctx2.lineTo(xx, yy);
             }
             xx = tx + ksz / 32 * Math.cos(2 * Math.PI * (m + 0.5) / 5) * 1.55;
@@ -8586,10 +8888,11 @@ for (;i < rrs.length;i++) {
           ctx2.fill();
           ctx2.restore();
         }
-      } else {
+      }
+      else {
         if (20 == i) {
           k = -1.5;
-          for (;1.5 >= k;k++) {
+          for (; 1.5 >= k; k++) {
             tx = ksz2 + ksz2 / 16 * Math.cos(2 * Math.PI * k / 15) * 13;
             ty = ksz2 + ksz2 / 16 * Math.sin(2 * Math.PI * k / 15) * 13;
             ctx2.save();
@@ -8597,12 +8900,13 @@ for (;i < rrs.length;i++) {
             ctx2.fillStyle = "#FFFFFF";
             ctx2.beginPath();
             m = 0;
-            for (;5 >= m;m++) {
+            for (; 5 >= m; m++) {
               xx = tx + ksz2 / 16 * Math.cos(2 * Math.PI * m / 5) * 0.05 * 14;
               yy = ty + ksz2 / 16 * Math.sin(2 * Math.PI * m / 5) * 0.05 * 14;
               if (0 == m) {
                 ctx2.moveTo(xx, yy);
-              } else {
+              }
+              else {
                 ctx2.lineTo(xx, yy);
               }
               xx = tx + ksz2 / 16 * Math.cos(2 * Math.PI * (m + 0.5) / 5) * 1.8;
@@ -8620,7 +8924,7 @@ for (;i < rrs.length;i++) {
   o.kmcs = kmcs;
   per_color_imgs.push(o);
   j = 2.8;
-  for (;18.8 >= j;j += 1) {
+  for (; 18.8 >= j; j += 1) {
     var cc = document.createElement("canvas");
     sz = Math.ceil(2.5 * j + 28);
     cc.width = cc.height = sz;
@@ -8682,7 +8986,7 @@ for (;i < rrs.length;i++) {
   o.pr_fw2s = [];
   o.pr_fh2s = [];
   j = 3;
-  for (;24 >= j;j += 1) {
+  for (; 24 >= j; j += 1) {
     cc = document.createElement("canvas");
     sz = Math.ceil(2 * j + 38);
     cc.width = cc.height = sz;
@@ -8710,7 +9014,7 @@ if (testing) {
   ctx.textBaseline = "top";
   ctx.textAlign = "center";
   i = yy = xx = 0;
-  for (;i < rrs.length;i++) {
+  for (; i < rrs.length; i++) {
     var pci = per_color_imgs[i];
     kmc = pci.kmcs[0];
     ctx.drawImage(kmc, 0, 0, kmc.width, kmc.height, xx, yy, 16, 16);
@@ -8771,9 +9075,9 @@ var hvfr = 0;
 var dead_mtm = -1;
 var at2lt = new Float32Array(65536);
 yy = 0;
-for (;256 > yy;yy++) {
+for (; 256 > yy; yy++) {
   xx = 0;
-  for (;256 > xx;xx++) {
+  for (; 256 > xx; xx++) {
     at2lt[yy << 8 | xx] = Math.atan2(yy - 128, xx - 128);
   }
 }
@@ -8786,8 +9090,8 @@ var lkstm = 0;
 var social = document.createElement("iframe");
 try {
   social.frameBorder = 0;
-} catch (b$$35) {
 }
+catch (b$$35) {}
 social.style.position = "fixed";
 social.style.left = "6px";
 social.style.top = "6px";
@@ -8814,7 +9118,8 @@ var oef = function() {
       if (0.01 > lag_mult) {
         lag_mult = 0.01;
       }
-    } else {
+    }
+    else {
       if (1 > lag_mult) {
         lag_mult += 0.05;
         if (1 <= lag_mult) {
@@ -8847,17 +9152,18 @@ var oef = function() {
     var c;
     var x;
     var p = 1;
-    for (;2 >= p;p++) {
+    for (; 2 >= p; p++) {
       ctx.beginPath();
       if (1 == p) {
         ctx.fillStyle = "#60FF70";
         x = 0;
-      } else {
+      }
+      else {
         ctx.fillStyle = "#9850FF";
         x = Math.PI;
       }
       var i = 0;
-      for (;256 >= i;i++) {
+      for (; 256 >= i; i++) {
         c = 32 + 5 * Math.cos(x + lsfr / 6 + 8 * i / 256) + 8 * i / 256;
         if (256 == i) {
           c += 10;
@@ -8866,7 +9172,8 @@ var oef = function() {
         yy = 64 + Math.sin(x + lsfr / 44 + 0.8 * Math.PI * i / 256) * c;
         if (0 == i) {
           ctx.moveTo(xx, yy);
-        } else {
+        }
+        else {
           ctx.lineTo(xx, yy);
         }
       }
@@ -8875,7 +9182,7 @@ var oef = function() {
       yy = 64 + Math.sin(x + lsfr / 44 + 0.8 * Math.PI * (i + 47) / 256) * c;
       ctx.lineTo(xx, yy);
       i = 256;
-      for (;0 <= i;i--) {
+      for (; 0 <= i; i--) {
         c = 32 + 5 * Math.cos(x + lsfr / 6 + 8 * i / 256) - 8 * i / 256;
         if (256 == i) {
           c -= 10;
@@ -8895,7 +9202,8 @@ var oef = function() {
       if (1 <= ss_sh) {
         ss_sh = 1;
       }
-    } else {
+    }
+    else {
       ss_a -= avfr / 86;
       if (0 >= ss_a) {
         ss_sh = ss_a = 0;
@@ -8942,10 +9250,10 @@ var oef = function() {
   }
   if (choosing_skin) {
     i = snakes.length - 1;
-    for (;0 <= i;i--) {
+    for (; 0 <= i; i--) {
       self = snakes[i];
       p = self.pts.length - 1;
-      for (;0 <= p;p--) {
+      for (; 0 <= p; p--) {
         self.pts[p].yy = grd / 2 + 15 * Math.cos(p / 4 + fr / 19) * (1 - p / self.pts.length);
       }
     }
@@ -8965,7 +9273,8 @@ var oef = function() {
           qsm = 1;
         }
       }
-    } else {
+    }
+    else {
       if (0 < gla) {
         gla -= 0.0075 * vfr;
         if (0 > gla) {
@@ -8996,11 +9305,13 @@ var oef = function() {
         nick_holder.style.display = "inline-block";
         playh.style.display = "block";
         smh.style.display = "block";
-      } else {
+      }
+      else {
         victory_holder.style.opacity = 1 - hvfr;
         saveh.style.opacity = 1 - hvfr;
       }
-    } else {
+    }
+    else {
       if (2 == want_hide_victory) {
         hvfr += 0.02 * vfr;
         if (1 <= hvfr) {
@@ -9039,7 +9350,8 @@ var oef = function() {
         lbs.style.opacity = lbn.style.opacity = lbp.style.opacity = lbf.style.opacity = vcm.style.opacity = lb_fr;
       }
     }
-  } else {
+  }
+  else {
     if (1600 < options - dead_mtm) {
       if (-1 == login_iv) {
         login_iv = -2;
@@ -9047,11 +9359,12 @@ var oef = function() {
         try {
           if ("1" != localStorage.edttsg) {
             cstx.style.display = "inline";
-          } else {
+          }
+          else {
             cskh.style.display = "inline";
           }
-        } catch (z) {
         }
+        catch (z) {}
         fbh.style.display = "inline";
         twth.style.display = "inline";
         plq.style.display = "inline";
@@ -9089,7 +9402,8 @@ var oef = function() {
         i = Math.round(lgbsc * lgcsc * 1E5) / 1E5;
         if (1 == i) {
           trf(login, "");
-        } else {
+        }
+        else {
           trf(login, "scale(" + i + "," + i + ")");
         }
         login.style.opacity = 1 - login_fr;
@@ -9150,14 +9464,16 @@ var oef = function() {
           if (5 <= protocol_version) {
             i = new Uint8Array(2);
             i[0] = 252;
-          } else {
+          }
+          else {
             i = new Uint8Array(2);
             i[0] = 108;
           }
           i[1] = v;
           ws.send(i);
           snake.eang -= mamu * v * snake.scang * snake.spang;
-        } else {
+        }
+        else {
           if (0 < kd_r_frb) {
             v = kd_r_frb;
             if (127 < v) {
@@ -9168,7 +9484,8 @@ var oef = function() {
               v += 128;
               i = new Uint8Array(2);
               i[0] = 252;
-            } else {
+            }
+            else {
               i = new Uint8Array(2);
               i[0] = 114;
             }
@@ -9214,13 +9531,13 @@ var oef = function() {
       x.push("bytes/sec avg: " + Math.round(trdps / tcsecs));
       x.push("");
       i = self = 0;
-      for (;i < rdpspc.length;i++) {
+      for (; i < rdpspc.length; i++) {
         if (0 <= rdpspc[i]) {
           self += rdpspc[i];
         }
       }
       i = 0;
-      for (;i < rdpspc.length;i++) {
+      for (; i < rdpspc.length; i++) {
         if (0 <= rdpspc[i]) {
           x.push(String.fromCharCode(i) + ": " + rdpspc[i] + " (" + Math.round(rdpspc[i] / self * 1E3) / 10 + "%)");
         }
@@ -9229,7 +9546,7 @@ var oef = function() {
       maxp = pf_ep = pf_nap = pf_remove = pf_new_add = pf_add = 0;
       x.push("");
       i = 1;
-      for (;i < pfs.length;i++) {
+      for (; i < pfs.length; i++) {
         if (0 != pfs[i]) {
           x.push(i + ": " + Math.round(1E3 * pfs[i]) / 1E3);
           pfs[i] = 0;
@@ -9247,7 +9564,8 @@ var oef = function() {
               high_quality = false;
             }
           }
-        } else {
+        }
+        else {
           if (high_quality || 48 <= fps) {
             if (0 < wdfg) {
               wdfg--;
@@ -9277,7 +9595,8 @@ var oef = function() {
         if (256 < d2) {
           ang = Math.atan2(ym, xm);
           snake.eang = ang;
-        } else {
+        }
+        else {
           ang = snake.wang;
         }
         ang %= pi2;
@@ -9293,7 +9612,8 @@ var oef = function() {
             lpstm = options;
             ws.send(i.buffer);
           }
-        } else {
+        }
+        else {
           sang = Math.floor(16777215 * ang / pi2);
           if (sang != lsang) {
             lsang = sang;
@@ -9311,7 +9631,7 @@ var oef = function() {
   }
   if (!choosing_skin) {
     i = snakes.length - 1;
-    for (;0 <= i;i--) {
+    for (; 0 <= i; i--) {
       self = snakes[i];
       ctx = mamu * vfr * self.scang * self.spang;
       options = self.sp * vfr / 4;
@@ -9325,7 +9645,8 @@ var oef = function() {
             if (self.tsp > self.sp) {
               self.tsp = self.sp;
             }
-          } else {
+          }
+          else {
             self.tsp -= 0.3 * vfr;
             if (self.tsp < self.sp) {
               self.tsp = self.sp;
@@ -9342,7 +9663,7 @@ var oef = function() {
           }
           self.fltg -= x;
           qq = 0;
-          for (;qq < x;qq++) {
+          for (; qq < x; qq++) {
             self.fl = self.fls[self.flpos];
             self.fls[self.flpos] = 0;
             self.flpos++;
@@ -9350,7 +9671,8 @@ var oef = function() {
               self.flpos = 0;
             }
           }
-        } else {
+        }
+        else {
           if (0 == self.fltg) {
             self.fltg = -1;
             self.fl = 0;
@@ -9377,7 +9699,8 @@ var oef = function() {
           self.ang = self.wang;
           self.dir = 0;
         }
-      } else {
+      }
+      else {
         if (2 == self.dir) {
           self.ang += ctx;
           if (0 > self.ang || self.ang >= pi2) {
@@ -9397,7 +9720,8 @@ var oef = function() {
             self.ang = self.wang;
             self.dir = 0;
           }
-        } else {
+        }
+        else {
           self.ang = self.wang;
         }
       }
@@ -9420,7 +9744,8 @@ var oef = function() {
           }
           if (0 > x) {
             self.edir = 1;
-          } else {
+          }
+          else {
             if (0 < x) {
               self.edir = 2;
             }
@@ -9446,7 +9771,8 @@ var oef = function() {
           self.ehang = self.wehang;
           self.edir = 0;
         }
-      } else {
+      }
+      else {
         if (2 == self.edir) {
           self.ehang += 0.1 * vfr;
           if (0 > self.ehang || self.ehang >= pi2) {
@@ -9475,7 +9801,7 @@ var oef = function() {
       }
       if (0 < vfrb) {
         p = self.pts.length - 1;
-        for (;0 <= p;p--) {
+        for (; 0 <= p; p--) {
           ctx = self.pts[p];
           if (ctx.dying) {
             ctx.da += 0.0015 * vfrb;
@@ -9487,11 +9813,11 @@ var oef = function() {
           }
         }
         p = self.pts.length - 1;
-        for (;0 <= p;p--) {
+        for (; 0 <= p; p--) {
           if (ctx = self.pts[p], 0 < ctx.eiu) {
             fy = fx = 0;
             qq = cm1 = ctx.eiu - 1;
-            for (;0 <= qq;qq--) {
+            for (; 0 <= qq; qq--) {
               ctx.efs[qq] = 2 == ctx.ems[qq] ? ctx.efs[qq] + vfrb2 : ctx.efs[qq] + vfrb;
               x = ctx.efs[qq];
               if (x >= hfc) {
@@ -9503,7 +9829,8 @@ var oef = function() {
                 }
                 ctx.eiu--;
                 cm1--;
-              } else {
+              }
+              else {
                 fx += ctx.exs[qq] * hfas[x];
                 fy += ctx.eys[qq] * hfas[x];
               }
@@ -9547,7 +9874,7 @@ var oef = function() {
           }
           self.ftg -= x;
           qq = 0;
-          for (;qq < x;qq++) {
+          for (; qq < x; qq++) {
             self.fx = self.fxs[self.fpos];
             self.fy = self.fys[self.fpos];
             self.fchl = self.fchls[self.fpos];
@@ -9559,7 +9886,8 @@ var oef = function() {
               self.fpos = 0;
             }
           }
-        } else {
+        }
+        else {
           if (0 == self.ftg) {
             self.ftg = -1;
             self.fx = 0;
@@ -9574,7 +9902,7 @@ var oef = function() {
           }
           self.fatg -= x;
           qq = 0;
-          for (;qq < x;qq++) {
+          for (; qq < x; qq++) {
             self.fa = self.fas[self.fapos];
             self.fas[self.fapos] = 0;
             self.fapos++;
@@ -9582,7 +9910,8 @@ var oef = function() {
               self.fapos = 0;
             }
           }
-        } else {
+        }
+        else {
           if (0 == self.fatg) {
             self.fatg = -1;
             self.fa = 0;
@@ -9594,7 +9923,8 @@ var oef = function() {
         if (1 <= self.dead_amt) {
           snakes.splice(i, 1);
         }
-      } else {
+      }
+      else {
         if (1 != self.alive_amt) {
           self.alive_amt += 0.015 * vfr;
           if (1 <= self.alive_amt) {
@@ -9605,7 +9935,7 @@ var oef = function() {
     }
   }
   i = preys.length - 1;
-  for (;0 <= i;i--) {
+  for (; 0 <= i; i--) {
     p = preys[i];
     ctx = mamu2 * vfr;
     options = p.sp * vfr / 4;
@@ -9617,7 +9947,7 @@ var oef = function() {
         }
         p.ftg -= x;
         qq = 1;
-        for (;qq <= x;qq++) {
+        for (; qq <= x; qq++) {
           if (qq == x) {
             p.fx = p.fxs[p.fpos];
             p.fy = p.fys[p.fpos];
@@ -9629,7 +9959,8 @@ var oef = function() {
             p.fpos = 0;
           }
         }
-      } else {
+      }
+      else {
         if (0 == p.ftg) {
           p.fx = 0;
           p.fy = 0;
@@ -9656,7 +9987,8 @@ var oef = function() {
         p.ang = p.wang;
         p.dir = 0;
       }
-    } else {
+    }
+    else {
       if (2 == p.dir) {
         p.ang += ctx;
         if (0 > p.ang || p.ang >= pi2) {
@@ -9676,7 +10008,8 @@ var oef = function() {
           p.ang = p.wang;
           p.dir = 0;
         }
-      } else {
+      }
+      else {
         p.ang = p.wang;
       }
     }
@@ -9695,17 +10028,20 @@ var oef = function() {
       self = p.eaten_by;
       if (1 <= p.eaten_fr || !self) {
         preys.splice(i, 1);
-      } else {
+      }
+      else {
         p.eaten_fr4 = Math.pow(p.eaten_fr, 4);
         p.rad = 1 - Math.pow(p.eaten_fr, 3);
       }
-    } else {
+    }
+    else {
       if (1 != p.fr) {
         p.fr += vfr / 150;
         if (1 <= p.fr) {
           p.fr = 1;
           p.rad = 1;
-        } else {
+        }
+        else {
           p.rad = 0.5 * (1 - Math.cos(Math.PI * p.fr));
           p.rad += 0.66 * (0.5 * (1 - Math.cos(Math.PI * p.rad)) - p.rad);
         }
@@ -9713,7 +10049,7 @@ var oef = function() {
     }
   }
   i = cm1 = foods_c - 1;
-  for (;0 <= i;i--) {
+  for (; 0 <= i; i--) {
     options = foods[i];
     options.gfr += vfr * options.gr;
     if (options.eaten) {
@@ -9729,13 +10065,15 @@ var oef = function() {
       if (1 <= options.eaten_fr || !self) {
         if (i == cm1) {
           foods[i] = null;
-        } else {
+        }
+        else {
           foods[i] = foods[cm1];
           foods[cm1] = null;
         }
         foods_c--;
         cm1--;
-      } else {
+      }
+      else {
         self = options.eaten_by;
         x = options.eaten_fr * options.eaten_fr;
         options.eaten_fr4 = x * x;
@@ -9745,13 +10083,15 @@ var oef = function() {
         options.rx += 6 * Math.cos(options.wsp * options.gfr) * (1 - options.eaten_fr);
         options.ry += 6 * Math.sin(options.wsp * options.gfr) * (1 - options.eaten_fr);
       }
-    } else {
+    }
+    else {
       if (1 != options.fr) {
         options.fr += options.rsp * vfr / 150;
         if (1 <= options.fr) {
           options.fr = 1;
           options.rad = 1;
-        } else {
+        }
+        else {
           options.rad = 0.5 * (1 - Math.cos(Math.PI * options.fr));
           options.rad += 0.66 * (0.5 * (1 - Math.cos(Math.PI * options.rad)) - options.rad);
         }
@@ -9800,7 +10140,8 @@ var redraw = function() {
           if (gsc >= i) {
             gsc = i;
           }
-        } else {
+        }
+        else {
           gsc -= 2E-4;
           if (gsc <= i) {
             gsc = i;
@@ -9856,7 +10197,8 @@ var redraw = function() {
       ctx.globalAlpha = 0.3 * gla;
       ctx.drawImage(gbgmc, 0, 0);
       ctx.restore();
-    } else {
+    }
+    else {
       ctx.fillStyle = "#000000";
       ctx.fillRect(0, 0, mww, mhh);
     }
@@ -9877,7 +10219,7 @@ var redraw = function() {
     }
     if (testing) {
       i = sectors.length - 1;
-      for (;0 <= i;i--) {
+      for (; 0 <= i; i--) {
         self = sectors[i];
         ctx.fillStyle = "rgba(0, 255, 0, .1)";
         ctx.fillRect(mww2 + (self.xx * sector_size - view_xx) * gsc, mhh2 + (self.yy * sector_size - view_yy) * gsc, sector_size * gsc - 4, sector_size * gsc - 4);
@@ -9890,7 +10232,7 @@ var redraw = function() {
       }
       ctx.save();
       i = foods_c - 1;
-      for (;0 <= i;i--) {
+      for (; 0 <= i; i--) {
         self = foods[i];
         if (self.rx >= fpx1) {
           if (self.ry >= fpy1) {
@@ -9909,7 +10251,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   dx = mww2 + gsc * (self.rx - view_xx) - self.ofw2 * self.rad;
                   top = mhh2 + gsc * (self.ry - view_yy) - self.ofh2 * self.rad;
                   if (-50 <= dx) {
@@ -9942,7 +10285,7 @@ var redraw = function() {
         mouseY = 1 - 0.25 * gla;
       }
       i = foods_c - 1;
-      for (;0 <= i;i--) {
+      for (; 0 <= i; i--) {
         self = foods[i];
         if (self.rx >= fpx1) {
           if (self.ry >= fpy1) {
@@ -9963,7 +10306,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   dx = mww2 + gsc * (self.rx - view_xx) - self.fw2 * self.rad;
                   top = mhh2 + gsc * (self.ry - view_yy) - self.fh2 * self.rad;
                   if (-50 <= dx) {
@@ -9984,9 +10328,10 @@ var redraw = function() {
           }
         }
       }
-    } else {
+    }
+    else {
       i = foods_c - 1;
-      for (;0 <= i;i--) {
+      for (; 0 <= i; i--) {
         self = foods[i];
         if (self.rx >= fpx1) {
           if (self.ry >= fpy1) {
@@ -10005,7 +10350,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   dx = mww2 + gsc * (self.rx - view_xx) - self.fw2 * self.rad;
                   top = mhh2 + gsc * (self.ry - view_yy) - self.fh2 * self.rad;
                   if (-50 <= dx) {
@@ -10029,7 +10375,7 @@ var redraw = function() {
     ctx.save();
     ctx.globalCompositeOperation = "lighter";
     i = preys.length - 1;
-    for (;0 <= i;i--) {
+    for (; 0 <= i; i--) {
       if (opts = preys[i], d = opts.xx + opts.fx, y = opts.yy + opts.fy, px = mww2 + gsc * (d - view_xx), py = mhh2 + gsc * (y - view_yy), -50 <= px && (-50 <= py && (px <= mwwp50 && py <= mhhp50))) {
         if (opts.eaten) {
           self = opts.eaten_by;
@@ -10046,7 +10392,8 @@ var redraw = function() {
           ctx.drawImage(opts.fi, dx, top);
           ctx.globalAlpha = 0.75 * (0.5 + 0.5 * Math.cos(opts.gfr / 13)) * opts.fr;
           ctx.drawImage(opts.fi, dx, top);
-        } else {
+        }
+        else {
           dx = px - opts.fw2 * opts.rad;
           top = py - opts.fh2 * opts.rad;
           ctx.globalAlpha = 0.75 * opts.fr;
@@ -10061,7 +10408,7 @@ var redraw = function() {
     ctx.strokeStyle = "#90C098";
     var angle;
     i = snakes.length - 1;
-    for (;0 <= i;i--) {
+    for (; 0 <= i; i--) {
       self = snakes[i];
       d = self.xx + self.fx;
       y = self.yy + self.fy + 40;
@@ -10098,11 +10445,11 @@ var redraw = function() {
       }
     }
     i = snakes.length - 1;
-    for (;0 <= i;i--) {
+    for (; 0 <= i; i--) {
       self = snakes[i];
       self.iiv = false;
       a = self.pts.length - 1;
-      for (;0 <= a;a--) {
+      for (; 0 <= a; a--) {
         if (d = self.pts[a], px = d.xx + d.fx, py = d.yy + d.fy, px >= bpx1 && (py >= bpy1 && (px <= bpx2 && py <= bpy2))) {
           self.iiv = true;
           break;
@@ -10110,7 +10457,7 @@ var redraw = function() {
       }
     }
     i = snakes.length - 1;
-    for (;0 <= i;i--) {
+    for (; 0 <= i; i--) {
       if (self = snakes[i], self.iiv) {
         opts = self.xx + self.fx;
         mouseY = self.yy + self.fy;
@@ -10127,7 +10474,7 @@ var redraw = function() {
           ctx.moveTo(mww2 + (px - view_xx) * gsc, mhh2 + (py - view_yy) * gsc);
           y = false;
           var a = self.pts.length - 1;
-          for (;0 <= a;a--) {
+          for (; 0 <= a; a--) {
             d = self.pts[a];
             lpx = px;
             lpy = py;
@@ -10155,12 +10502,14 @@ var redraw = function() {
               }
               if (y) {
                 alpha--;
-              } else {
+              }
+              else {
                 alpha -= self.chl + self.fchl;
               }
               if (y) {
                 ctx.quadraticCurveTo(mww2 + (lpx - view_xx) * gsc, mhh2 + (lpy - view_yy) * gsc, mww2 + (ax - view_xx) * gsc, mhh2 + (ay - view_yy) * gsc);
-              } else {
+              }
+              else {
                 ctx.lineTo(mww2 + (ax - view_xx) * gsc, mhh2 + (ay - view_yy) * gsc);
                 y = true;
               }
@@ -10186,7 +10535,8 @@ var redraw = function() {
             ctx.globalAlpha = 1 * self.alive_amt * (1 - self.dead_amt);
             ctx.strokeStyle = "#000000";
             ctx.lineWidth = (size + 5) * gsc;
-          } else {
+          }
+          else {
             if (self.sp > self.fsp) {
               a = self.alive_amt * (1 - self.dead_amt) * Math.max(0, Math.min(1, (self.sp - self.ssp) / (self.msp - self.ssp)));
               ctx.save();
@@ -10247,7 +10597,8 @@ var redraw = function() {
             pby[0] = x;
             pba[0] = Math.atan2(mouseY - (d.yy + d.fy), opts - (d.xx + d.fx)) + Math.PI;
             pbu[0] = 1;
-          } else {
+          }
+          else {
             pbu[0] = 0;
           }
           dx = 1;
@@ -10265,7 +10616,8 @@ var redraw = function() {
               if (self.sep >= self.wsep) {
                 self.sep = self.wsep;
               }
-            } else {
+            }
+            else {
               if (self.sep > self.wsep) {
                 self.sep -= 0.01;
                 if (self.sep <= self.wsep) {
@@ -10280,7 +10632,7 @@ var redraw = function() {
           var scale;
           var tileWidth;
           a = self.pts.length - 1;
-          for (;0 <= a;a--) {
+          for (; 0 <= a; a--) {
             if (d = self.pts[a], lpx = px, lpy = py, px = d.xx + d.fx, py = d.yy + d.fy, -0.25 < alpha) {
               prevData = oY;
               origin = x;
@@ -10289,7 +10641,7 @@ var redraw = function() {
               offset = lpx;
               min = lpy;
               c = 0;
-              for (;1 > c;c += 0.25) {
+              for (; 1 > c; c += 0.25) {
                 scale = n + c;
                 d = prevData + (offset - prevData) * scale;
                 y = origin + (min - origin) * scale;
@@ -10306,10 +10658,11 @@ var redraw = function() {
                 b = Math.sqrt(Math.pow(ax - lax, 2) + Math.pow(ay - lay, 2));
                 if (r + b < width) {
                   r += b;
-                } else {
+                }
+                else {
                   r = -r;
                   scale = (b - r) / width;
-                  for (;1 <= scale;scale--) {
+                  for (; 1 <= scale; scale--) {
                     r += width;
                     pax = lax + (ax - lax) * r / b;
                     pay = lay + (ay - lay) * r / b;
@@ -10320,7 +10673,8 @@ var redraw = function() {
                       d = ax - lax;
                       y = ay - lay;
                       pba[dx] = -15 <= d && (-15 <= y && (15 > d && 15 > y)) ? at2lt[8 * y + 128 << 8 | 8 * d + 128] : -127 <= d && (-127 <= y && (127 > d && 127 > y)) ? at2lt[y + 128 << 8 | d + 128] : Math.atan2(y, d);
-                    } else {
+                    }
+                    else {
                       pbu[dx] = 0;
                     }
                     dx++;
@@ -10341,7 +10695,8 @@ var redraw = function() {
             pbx[dx] = ax;
             pby[dx] = ay;
             pba[dx] = Math.atan2(ay - lay, ax - lax);
-          } else {
+          }
+          else {
             pbu[dx] = 0;
           }
           dx++;
@@ -10364,7 +10719,7 @@ var redraw = function() {
               x = self.rbcs;
               width = x.length;
               a = dx - 1;
-              for (;0 <= a;a--) {
+              for (; 0 <= a; a--) {
                 if (1 == pbu[a]) {
                   px = pbx[a];
                   py = pby[a];
@@ -10377,9 +10732,10 @@ var redraw = function() {
                   ctx.restore();
                 }
               }
-            } else {
+            }
+            else {
               a = dx - 1;
-              for (;0 <= a;a--) {
+              for (; 0 <= a; a--) {
                 if (1 == pbu[a]) {
                   px = pbx[a];
                   py = pby[a];
@@ -10402,7 +10758,7 @@ var redraw = function() {
             }
             ctx.globalAlpha = d;
             a = dx - 1;
-            for (;0 <= a;a--) {
+            for (; 0 <= a; a--) {
               if (1 == pbu[a]) {
                 px = pbx[a];
                 py = pby[a];
@@ -10423,7 +10779,7 @@ var redraw = function() {
             x = self.rbcs;
             width = x.length;
             a = dx - 1;
-            for (;0 <= a;a--) {
+            for (; 0 <= a; a--) {
               if (1 == pbu[a]) {
                 px = pbx[a];
                 py = pby[a];
@@ -10456,7 +10812,7 @@ var redraw = function() {
               ctx.save();
               ctx.globalCompositeOperation = "lighter";
               a = dx - 1;
-              for (;0 <= a;a--) {
+              for (; 0 <= a; a--) {
                 if (1 == pbu[a]) {
                   px = pbx[a];
                   py = pby[a];
@@ -10474,9 +10830,10 @@ var redraw = function() {
               }
               ctx.restore();
             }
-          } else {
+          }
+          else {
             a = dx - 1;
-            for (;0 <= a;a--) {
+            for (; 0 <= a; a--) {
               if (1 == pbu[a]) {
                 px = pbx[a];
                 py = pby[a];
@@ -10508,7 +10865,7 @@ var redraw = function() {
               ctx.save();
               ctx.globalCompositeOperation = "lighter";
               a = dx - 1;
-              for (;0 <= a;a--) {
+              for (; 0 <= a; a--) {
                 if (1 == pbu[a]) {
                   px = pbx[a];
                   py = pby[a];
@@ -10534,13 +10891,13 @@ var redraw = function() {
             fj = self.atx.length - 1;
             if (choosing_skin) {
               a = 1;
-              for (;a <= fj;a++) {
+              for (; a <= fj; a++) {
                 self.atvx[a] -= 0.3;
                 self.atvy[a] += 0.14 * Math.cos(fr / 23 - 7 * a / fj);
               }
             }
             a = 1;
-            for (;a <= fj;a++) {
+            for (; a <= fj; a++) {
               xx = self.atx[a - 1];
               yy = self.aty[a - 1];
               xx += 2 * Math.random() - 1;
@@ -10576,7 +10933,7 @@ var redraw = function() {
             y = (self.aty[fj] - view_yy) * gsc;
             ctx.moveTo(d, y);
             a = fj - 1;
-            for (;1 <= a;a--) {
+            for (; 1 <= a; a--) {
               xx = (self.atx[a] - view_xx) * gsc;
               yy = (self.aty[a] - view_yy) * gsc;
               if (1 <= Math.abs(xx - d) + Math.abs(yy - y)) {
@@ -10602,7 +10959,7 @@ var redraw = function() {
             y = (self.aty[fj] - view_yy) * gsc;
             ctx.moveTo(d, y);
             a = fj - 1;
-            for (;0 <= a;a--) {
+            for (; 0 <= a; a--) {
               xx = (self.atx[a] - view_xx) * gsc;
               yy = (self.aty[a] - view_yy) * gsc;
               if (1 <= Math.abs(xx - d) + Math.abs(yy - y)) {
@@ -10628,7 +10985,8 @@ var redraw = function() {
               }
               if (vang < -Math.PI) {
                 vang += pi2;
-              } else {
+              }
+              else {
                 if (vang > Math.PI) {
                   vang -= pi2;
                 }
@@ -10637,7 +10995,8 @@ var redraw = function() {
               ctx.rotate(self.atba);
               ctx.drawImage(self.bulb, self.blbx * self.bsc * scale, self.blby * self.bsc * scale, self.blbw * self.bsc * scale, self.blbh * self.bsc * scale);
               ctx.restore();
-            } else {
+            }
+            else {
               ctx.drawImage(self.bulb, (self.atx[fj] - view_xx + self.blbx * self.bsc * self.sc) * gsc, (self.aty[fj] - view_yy + self.blby * self.bsc * self.sc) * gsc, self.blbw * self.bsc * scale, self.blbh * self.bsc * scale);
             }
             if (self.apbs) {
@@ -10654,7 +11013,7 @@ var redraw = function() {
             top = (0.15 + 0.15 * Math.abs(Math.sin(5 * Math.PI * self.dead_amt))) * Math.sin(Math.PI * self.dead_amt);
             size *= gsc;
             a = dx - 1;
-            for (;0 <= a;a--) {
+            for (; 0 <= a; a--) {
               if (1 == pbu[a]) {
                 px = pbx[a];
                 py = pby[a];
@@ -10710,7 +11069,7 @@ var redraw = function() {
       ctx.save();
       ctx.globalCompositeOperation = "lighter";
       i = foods_c - 1;
-      for (;0 <= i;i--) {
+      for (; 0 <= i; i--) {
         self = foods[i];
         if (self.rx >= fpx1) {
           if (self.ry >= fpy1) {
@@ -10746,7 +11105,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   if (-150 <= dx) {
                     if (-150 <= top) {
                       if (dx <= mwwp150) {
@@ -10789,7 +11149,8 @@ var redraw = function() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   if (-150 <= dx) {
                     if (-150 <= top) {
                       if (dx <= mwwp150) {
@@ -10815,7 +11176,7 @@ var redraw = function() {
     ctx.save();
     ctx.globalCompositeOperation = "lighter";
     i = preys.length - 1;
-    for (;0 <= i;i--) {
+    for (; 0 <= i; i--) {
       opts = preys[i];
       d = opts.xx + opts.fx;
       y = opts.yy + opts.fy;
@@ -10852,7 +11213,8 @@ var redraw = function() {
             }
           }
         }
-      } else {
+      }
+      else {
         if (-150 <= px) {
           if (-150 <= py) {
             if (px <= mwwp150) {
@@ -10904,7 +11266,7 @@ var redraw = function() {
       yy = grd + Math.sin(view_ang - 2E3 / grd) * grd * 0.98;
       ctx.moveTo(mww2 + (xx - view_xx) * gsc, mhh2 + (yy - view_yy) * gsc);
       a = -2E3;
-      for (;2E3 >= a;a += 100) {
+      for (; 2E3 >= a; a += 100) {
         xx = grd + Math.cos(view_ang + a / grd) * grd * 0.98;
         yy = grd + Math.sin(view_ang + a / grd) * grd * 0.98;
         ctx.lineTo(mww2 + (xx - view_xx) * gsc, mhh2 + (yy - view_yy) * gsc);
@@ -10929,19 +11291,21 @@ var redraw = function() {
             i = "of";
             tileWidth = "Your rank";
             if ("DE" == country) {
-              self = "Deine L\u00e4nge";
+              self = "Deine Länge";
               i = "von";
               tileWidth = "Dein rang";
-            } else {
+            }
+            else {
               if ("FR" == country) {
                 self = "Votre longueur";
                 i = "de";
                 tileWidth = "Ton rang";
-              } else {
+              }
+              else {
                 if ("BR" == country) {
                   self = "Seu comprimento";
                   i = "do";
-                  tileWidth = "Seu classifica\u00e7\u00e3o";
+                  tileWidth = "Seu classificação";
                 }
               }
             }
@@ -10961,6 +11325,7 @@ var lww = 0;
 var lhh = 0;
 var csc;
 var grd = 16384;
+
 function resize() {
   ww = Math.ceil(window.innerWidth);
   hh = Math.ceil(window.innerHeight);
@@ -11014,7 +11379,8 @@ function resize() {
     if (1 == devicePixelRatio) {
       trf(login, "");
       login.style.top = "0px";
-    } else {
+    }
+    else {
       login.style.top = -(Math.round(hh * (1 - lgbsc) * 1E5) / 1E5) + "px";
       trf(login, "scale(" + devicePixelRatio + "," + devicePixelRatio + ")");
     }
@@ -11044,7 +11410,7 @@ window.onresize = function() {
   resize();
 };
 i = ois.length - 1;
-for (;0 <= i;i--) {
+for (; 0 <= i; i--) {
   ois[i].ii.src = ois[i].src;
 }
 if (0 == wic) {
@@ -11058,13 +11424,15 @@ window.onmousemove = function(e) {
     }
   }
 };
+
 function setAcceleration(recurring) {
   if (null != snake) {
     snake.md = 1 == recurring;
     if (5 <= protocol_version) {
       var buf = new Uint8Array(1);
       buf[0] = 1 == recurring ? 253 : 254;
-    } else {
+    }
+    else {
       buf = new Uint8Array(2);
       buf[0] = 109;
       buf[1] = recurring;
@@ -11085,7 +11453,8 @@ window.ontouchmove = function(e) {
       if ("undefined" != typeof e.clientX) {
         xm = e.clientX - ww / 2;
         ym = e.clientY - hh / 2;
-      } else {
+      }
+      else {
         xm = e.pageX - ww / 2;
         ym = e.pageY - hh / 2;
       }
@@ -11106,7 +11475,8 @@ window.ontouchstart = function(e) {
       if ("undefined" != typeof t1.clientX) {
         val1 = t1.clientX - ww / 2;
         t1 = t1.clientY - hh / 2;
-      } else {
+      }
+      else {
         val1 = t1.pageX - ww / 2;
         t1 = t1.pageY - hh / 2;
       }
@@ -11140,6 +11510,7 @@ window.onmousedown = function(_e) {
 window.ontouchend = function() {
   setAcceleration(0);
 };
+
 function omu(dataAndEvents) {
   setAcceleration(0);
 }
@@ -11164,7 +11535,7 @@ var lrd_mtm = Date.now();
 var locu_mtm = 0;
 if (testing) {
   i = 0;
-  for (;256 > i;i++) {
+  for (; 256 > i; i++) {
     rdpspc[i] = -1;
   }
 }
@@ -11179,7 +11550,7 @@ var pf_ep = 0;
 var rpft = 0;
 var pf;
 i = 0;
-for (;100 > i;i++) {
+for (; 100 > i; i++) {
   pfs.push(0);
 }
 var pf_add = 0;
@@ -11187,7 +11558,7 @@ var pf_new_add = 0;
 var pf_remove = 0;
 var tpfa = new Float32Array(4E4);
 i = 0;
-for (;i < tpfa.length;i++) {
+for (; i < tpfa.length; i++) {
   tpfa[i] = 32 * Math.random();
 }
 var pfd;
@@ -11208,6 +11579,7 @@ if (testing) {
   pfd.textContent = "ayy lmao";
   document.body.appendChild(pfd);
 }
+
 function resetGame() {
   if (ws) {
     ws.close();
@@ -11226,7 +11598,7 @@ function resetGame() {
   biggest_snake_count = snake_count = 0;
   lagging = wfpr = playing = connected = false;
   j = vfc - 1;
-  for (;0 <= j;j--) {
+  for (; 0 <= j; j--) {
     fvxs[j] = 0;
     fvys[j] = 0;
   }
@@ -11241,13 +11613,15 @@ var start_connect_mtm;
 var play_btn_click_mtm = -1;
 var waiting_for_sos = false;
 var sos_ready_after_mtm = -1;
+
 function connect() {
   if (0 == sos.length) {
     if (!waiting_for_sos) {
       waiting_for_sos = true;
       sos_ready_after_mtm = -1;
     }
-  } else {
+  }
+  else {
     waiting_for_sos = false;
     sos_ready_after_mtm = -1;
     resetGame();
@@ -11255,21 +11629,21 @@ function connect() {
     start_connect_mtm = Date.now();
     if (!forcing) {
       var axis = 0;
-      for (;axis < sos.length;axis++) {
+      for (; axis < sos.length; axis++) {
         sos[axis].ptm = 9999999;
       }
       axis = 0;
-      for (;axis < sis.length;axis++) {
+      for (; axis < sis.length; axis++) {
         var target = sis[axis];
         if (0 < target.ptms.length) {
           var mid = 0;
           var i = target.ptms.length - 1;
-          for (;0 <= i;i--) {
+          for (; 0 <= i; i--) {
             mid += target.ptms[i];
           }
           mid /= target.ptms.length;
           i = sos.length - 1;
-          for (;0 <= i;i--) {
+          for (; 0 <= i; i--) {
             if (sos[i].ip == target.ip) {
               sos[i].ptm = mid;
             }
@@ -11278,11 +11652,11 @@ function connect() {
       }
       if ("undefined" != typeof rmsos) {
         axis = 0;
-        for (;axis < rmsos.length;axis++) {
+        for (; axis < rmsos.length; axis++) {
           target = "." + rmsos[axis].a[0] + "." + rmsos[axis].a[1] + "." + rmsos[axis].a[2];
           mid = rmsos[axis].a[3];
           i = sos.length - 1;
-          for (;0 <= i;i--) {
+          for (; 0 <= i; i--) {
             if (0 <= sos[i].ip.indexOf(target)) {
               if (sos[i].po == mid) {
                 sos.splice(i, 1);
@@ -11296,7 +11670,7 @@ function connect() {
       });
       bso = sos[Math.floor(Math.random() * sos.length)];
       axis = sos.length - 1;
-      for (;0 <= axis;axis--) {
+      for (; 0 <= axis; axis--) {
         if (!sos[axis].tainted) {
           if (sos[axis].ptm <= bso.ptm) {
             if (30 < sos[axis].ac) {
@@ -11366,7 +11740,8 @@ function connect() {
           vcm.style.display = "inline";
           loch.style.display = "inline";
           startShowGame();
-        } else {
+        }
+        else {
           if ("e" == v || ("E" == v || ("3" == v || ("4" == v || "5" == v)))) {
             var d = a[j] << 8 | a[j + 1];
             j = j + 2;
@@ -11381,31 +11756,36 @@ function connect() {
                 tagName = 2 * a[j] * Math.PI / 256;
                 j++;
                 type = a[j] / 18;
-              } else {
+              }
+              else {
                 if (5 == x) {
                   if ("e" == v) {
                     min = 2 * a[j] * Math.PI / 256;
                     j++;
                     type = a[j] / 18;
-                  } else {
+                  }
+                  else {
                     if ("E" == v) {
                       data = 1;
                       tagName = 2 * a[j] * Math.PI / 256;
                       j++;
                       type = a[j] / 18;
-                    } else {
+                    }
+                    else {
                       if ("4" == v) {
                         data = 2;
                         tagName = 2 * a[j] * Math.PI / 256;
                         j++;
                         type = a[j] / 18;
-                      } else {
+                      }
+                      else {
                         if ("3" == v) {
                           data = 1;
                           min = 2 * a[j] * Math.PI / 256;
                           j++;
                           tagName = 2 * a[j] * Math.PI / 256;
-                        } else {
+                        }
+                        else {
                           if ("5" == v) {
                             data = 2;
                             min = 2 * a[j] * Math.PI / 256;
@@ -11416,19 +11796,23 @@ function connect() {
                       }
                     }
                   }
-                } else {
+                }
+                else {
                   if (4 == x) {
                     if ("e" == v) {
                       min = 2 * a[j] * Math.PI / 256;
-                    } else {
+                    }
+                    else {
                       if ("E" == v) {
                         data = 1;
                         tagName = 2 * a[j] * Math.PI / 256;
-                      } else {
+                      }
+                      else {
                         if ("4" == v) {
                           data = 2;
                           tagName = 2 * a[j] * Math.PI / 256;
-                        } else {
+                        }
+                        else {
                           if ("3" == v) {
                             type = a[j] / 18;
                           }
@@ -11438,7 +11822,8 @@ function connect() {
                   }
                 }
               }
-            } else {
+            }
+            else {
               if (3 <= protocol_version) {
                 if ("3" != v) {
                   if (8 == x || (7 == x || (6 == x && "3" != v || 5 == x && "3" != v))) {
@@ -11456,7 +11841,8 @@ function connect() {
                 if (8 == x || (6 == x || 4 == x)) {
                   type = a[j] / 18;
                 }
-              } else {
+              }
+              else {
                 if (11 == s || (8 == s || (9 == s || 6 == s))) {
                   data = a[j] - 48;
                   j++;
@@ -11493,7 +11879,7 @@ function connect() {
                 }
                 d = node.fapos;
                 s = 0;
-                for (;s < afc;s++) {
+                for (; s < afc; s++) {
                   node.fas[d] -= a * afas[s];
                   d++;
                   if (d >= afc) {
@@ -11520,7 +11906,8 @@ function connect() {
                 }
               }
             }
-          } else {
+          }
+          else {
             if ("h" == v) {
               d = a[j] << 8 | a[j + 1];
               j = j + 2;
@@ -11529,14 +11916,15 @@ function connect() {
                 node.fam = y;
                 snl(node);
               }
-            } else {
+            }
+            else {
               if ("r" == v) {
                 if (d = a[j] << 8 | a[j + 1], j += 2, node = os["s" + d]) {
                   if (4 <= s) {
                     node.fam = (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) / 16777215;
                   }
                   s = 0;
-                  for (;s < node.pts.length;s++) {
+                  for (; s < node.pts.length; s++) {
                     if (!node.pts[s].dying) {
                       node.pts[s].dying = true;
                       node.sct--;
@@ -11554,14 +11942,16 @@ function connect() {
                   }
                   snl(node);
                 }
-              } else {
+              }
+              else {
                 if ("g" == v || ("n" == v || ("G" == v || "N" == v))) {
                   if (playing && (y = "n" == v || "N" == v, d = a[j] << 8 | a[j + 1], j += 2, node = os["s" + d])) {
                     if (y) {
                       node.sct++;
-                    } else {
+                    }
+                    else {
                       s = 0;
-                      for (;s < node.pts.length;s++) {
+                      for (; s < node.pts.length; s++) {
                         if (!node.pts[s].dying) {
                           node.pts[s].dying = true;
                           break;
@@ -11577,13 +11967,15 @@ function connect() {
                         j += 2;
                         id = a[j] << 8 | a[j + 1];
                         j += 2;
-                      } else {
+                      }
+                      else {
                         x = s.xx + a[j] - 128;
                         j++;
                         id = s.yy + a[j] - 128;
                         j++;
                       }
-                    } else {
+                    }
+                    else {
                       x = (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) / 5;
                       j += 3;
                       id = (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) / 5;
@@ -11594,10 +11986,10 @@ function connect() {
                     }
                     if (!(i = points_dp.get())) {
                       i = {
-                        exs : [],
-                        eys : [],
-                        efs : [],
-                        ems : []
+                        exs: [],
+                        eys: [],
+                        efs: [],
+                        ems: []
                       };
                     }
                     i.eiu = 0;
@@ -11626,7 +12018,7 @@ function connect() {
                       min = node.pts[d];
                       v = n = 0;
                       s = d - 1;
-                      for (;0 <= s;s--) {
+                      for (; 0 <= s; s--) {
                         d = node.pts[s];
                         n++;
                         a = d.xx;
@@ -11680,7 +12072,7 @@ function connect() {
                     x = node.chl - s;
                     d = node.fpos;
                     s = 0;
-                    for (;s < rfc;s++) {
+                    for (; s < rfc; s++) {
                       node.fxs[d] -= a * rfas[s];
                       node.fys[d] -= j * rfas[s];
                       node.fchls[d] -= x * rfas[s];
@@ -11703,7 +12095,7 @@ function connect() {
                       j = view_yy - ovyy;
                       d = fvpos;
                       s = 0;
-                      for (;s < vfc;s++) {
+                      for (; s < vfc; s++) {
                         fvxs[d] -= a * vfas[s];
                         fvys[d] -= j * vfas[s];
                         d++;
@@ -11714,7 +12106,8 @@ function connect() {
                       fvtg = vfc;
                     }
                   }
-                } else {
+                }
+                else {
                   if ("l" == v) {
                     if (playing) {
                       wumsts = true;
@@ -11737,7 +12130,7 @@ function connect() {
                         biggest_snake_count = snake_count;
                       }
                       j += 2;
-                      for (;j < data;) {
+                      for (; j < data;) {
                         var tag = a[j] << 8 | a[j + 1];
                         j = j + 2;
                         y = (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) / 16777215;
@@ -11749,7 +12142,7 @@ function connect() {
                         type++;
                         v = "";
                         s = 0;
-                        for (;s < x;s++) {
+                        for (; s < x; s++) {
                           d = a[j];
                           v += String.fromCharCode(d);
                           j++;
@@ -11761,7 +12154,7 @@ function connect() {
                         }
                         var index = "";
                         s = 0;
-                        for (;s < x;s++) {
+                        for (; s < x; s++) {
                           d = v.charCodeAt(s);
                           index = 38 == d ? index + "&amp;" : 60 == d ? index + "&lt;" : 62 == d ? index + "&gt;" : 32 == d ? index + "&nbsp;" : index + String.fromCharCode(d);
                         }
@@ -11777,25 +12170,29 @@ function connect() {
                       lbn.innerHTML = i;
                       lbp.innerHTML = min;
                     }
-                  } else {
+                  }
+                  else {
                     if ("v" == v) {
                       if (2 == a[j]) {
                         want_close_socket = true;
                         want_victory_message = false;
                         want_hide_victory = 1;
                         hvfr = 0;
-                      } else {
+                      }
+                      else {
                         dead_mtm = Date.now();
                         play_btn.setEnabled(true);
                         x = Math.floor(150 * (fpsls[snake.sct] + snake.fam / fmlts[snake.sct] - 1) - 50) / 10;
                         twt.href = "http://twitter.com/intent/tweet?status=" + encodeURIComponent("I got a length of " + x + " in http://slither.io! Can you beat that? #slitherio");
                         id = "Your final length was";
                         if ("DE" == country) {
-                          id = "Deine endg\u00fcltige L\u00e4nge war";
-                        } else {
+                          id = "Deine endgültige Länge war";
+                        }
+                        else {
                           if ("FR" == country) {
-                            id = "Votre longueur finale \u00e9tait de";
-                          } else {
+                            id = "Votre longueur finale était de";
+                          }
+                          else {
                             if ("BR" == country) {
                               id = "Seu comprimento final foi de";
                             }
@@ -11809,7 +12206,8 @@ function connect() {
                         x = "Play Again";
                         if ("FR" == country) {
                           x = "Jouer";
-                        } else {
+                        }
+                        else {
                           if ("BR" == country) {
                             x = "Joga";
                           }
@@ -11824,26 +12222,30 @@ function connect() {
                           want_victory_focus = want_victory_message = true;
                           victory.disabled = false;
                           save_btn.setEnabled(true);
-                        } else {
+                        }
+                        else {
                           want_close_socket = true;
                         }
                       }
-                    } else {
+                    }
+                    else {
                       if ("w" == v) {
                         if (data = a[j], j++, x = a[j] << 8 | a[j + 1], j += 2, id = a[j] << 8 | a[j + 1], 1 == data) {
                           node = {};
                           node.xx = x;
                           node.yy = id;
                           sectors.push(node);
-                        } else {
+                        }
+                        else {
                           i = cm1 = foods_c - 1;
-                          for (;0 <= i;i--) {
+                          for (; 0 <= i; i--) {
                             s = foods[i];
                             if (s.sx == x) {
                               if (s.sy == id) {
                                 if (i == cm1) {
                                   foods[i] = null;
-                                } else {
+                                }
+                                else {
                                   foods[i] = foods[cm1];
                                   foods[cm1] = null;
                                 }
@@ -11853,7 +12255,7 @@ function connect() {
                             }
                           }
                           i = sectors.length - 1;
-                          for (;0 <= i;i--) {
+                          for (; 0 <= i; i--) {
                             node = sectors[i];
                             if (node.xx == x) {
                               if (node.yy == id) {
@@ -11862,7 +12264,8 @@ function connect() {
                             }
                           }
                         }
-                      } else {
+                      }
+                      else {
                         if ("m" == v) {
                           tag = a[j] << 16 | a[j + 1] << 8 | a[j + 2];
                           j += 3;
@@ -11873,12 +12276,12 @@ function connect() {
                           j++;
                           s = "";
                           i = 0;
-                          for (;i < x;i++) {
+                          for (; i < x; i++) {
                             s += String.fromCharCode(a[j]);
                             j++;
                           }
                           x = "";
-                          for (;j < data;) {
+                          for (; j < data;) {
                             x += String.fromCharCode(a[j]);
                             j++;
                           }
@@ -11892,37 +12295,40 @@ function connect() {
                             if (0 < s.length) {
                               a = 0 < x.length ? a + ("<i><span style='opacity: .5;'>- </span><span style='opacity: .75;'><b>" + s + "</b></span><span style='opacity: .5;'>, today's longest</span></i>") : "<i><span style='opacity: .5;'>Today's longest was </span><span style='opacity: .75;'><b>" + s + "</b></span></i>";
                               a += "<br><i><span style='opacity: .5;'>with a length of </span><span style='opacity: .65;'><b>" + id + "</b></span></i>";
-                            } else {
+                            }
+                            else {
                               a = 0 < x.length ? a + "<i><span style='opacity: .5;'>- </span><span style='opacity: .5;'>today's longest</span></i>" + ("<br><i><span style='opacity: .5;'>with a length of </span><span style='opacity: .65;'><b>" + id + "</b></span></i>") : a + ("<i><span style='opacity: .5;'>Today's longest: </span><span style='opacity: .75;'><b>" + id + "</b></span></i>");
                             }
                             vcm.innerHTML = a;
                           }
-                        } else {
+                        }
+                        else {
                           if ("p" == v) {
                             wfpr = false;
                             if (lagging) {
                               etm *= lag_mult;
                               lagging = false;
                             }
-                          } else {
+                          }
+                          else {
                             if ("u" == v) {
                               s = asmc.getContext("2d");
                               s.clearRect(0, 0, 80, 80);
                               s.fillStyle = "#FFFFFF";
                               var id = x = 0;
-                              for (;j < data && !(80 <= id);) {
+                              for (; j < data && !(80 <= id);) {
                                 if (d = a[j++], 128 <= d) {
                                   d -= 128;
                                   i = 0;
-                                  for (;i < d && !(x++, 80 <= x && (x = 0, id++, 80 <= id));i++) {
-                                  }
-                                } else {
+                                  for (; i < d && !(x++, 80 <= x && (x = 0, id++, 80 <= id)); i++) {}
+                                }
+                                else {
                                   i = 0;
-                                  for (;7 > i && !(0 < (d & u_m[i]) && s.fillRect(x, id, 1, 1), x++, 80 <= x && (x = 0, id++, 80 <= id));i++) {
-                                  }
+                                  for (; 7 > i && !(0 < (d & u_m[i]) && s.fillRect(x, id, 1, 1), x++, 80 <= x && (x = 0, id++, 80 <= id)); i++) {}
                                 }
                               }
-                            } else {
+                            }
+                            else {
                               if ("s" == v) {
                                 if (playing) {
                                   if (d = a[j] << 8 | a[j + 1], j += 2, 6 < s) {
@@ -11946,13 +12352,13 @@ function connect() {
                                     j++;
                                     v = "";
                                     s = 0;
-                                    for (;s < x;s++) {
+                                    for (; s < x; s++) {
                                       v += String.fromCharCode(a[j]);
                                       j++;
                                     }
                                     var ret = s = id = x = 0;
                                     var O = false;
-                                    for (;j < data;) {
+                                    for (; j < data;) {
                                       s = x;
                                       ret = id;
                                       if (O) {
@@ -11960,7 +12366,8 @@ function connect() {
                                         j++;
                                         id += (a[j] - 127) / 2;
                                         j++;
-                                      } else {
+                                      }
+                                      else {
                                         x = (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) / 5;
                                         j += 3;
                                         id = (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) / 5;
@@ -11971,10 +12378,10 @@ function connect() {
                                       }
                                       if (!(i = points_dp.get())) {
                                         i = {
-                                          exs : [],
-                                          eys : [],
-                                          efs : [],
-                                          ems : []
+                                          exs: [],
+                                          eys: [],
+                                          efs: [],
+                                          ems: []
                                         };
                                       }
                                       i.eiu = 0;
@@ -11993,7 +12400,8 @@ function connect() {
                                       view_yy = id;
                                       snake = node;
                                       node.nk = v;
-                                    } else {
+                                    }
+                                    else {
                                       node.nk = v;
                                       if (!gdnm(v)) {
                                         node.nk = "";
@@ -12017,17 +12425,19 @@ function connect() {
                                     }
                                     node.sep = node.wsep;
                                     snl(node);
-                                  } else {
+                                  }
+                                  else {
                                     a = 1 == a[j];
                                     i = snakes.length - 1;
-                                    for (;0 <= i;i--) {
+                                    for (; 0 <= i; i--) {
                                       if (snakes[i].id == d) {
                                         snakes[i].id = -1234;
                                         if (a) {
                                           snakes[i].dead = true;
                                           snakes[i].dead_amt = 0;
                                           snakes[i].edir = 0;
-                                        } else {
+                                        }
+                                        else {
                                           snakes.splice(i, 1);
                                         }
                                         delete os["s" + d];
@@ -12036,11 +12446,12 @@ function connect() {
                                     }
                                   }
                                 }
-                              } else {
+                              }
+                              else {
                                 if ("F" == v) {
                                   if (4 <= protocol_version) {
                                     v = false;
-                                    for (;j < data;) {
+                                    for (; j < data;) {
                                       node = a[j];
                                       j++;
                                       x = a[j] << 8 | a[j + 1];
@@ -12063,7 +12474,8 @@ function connect() {
                                     node.xx = i;
                                     node.yy = y;
                                     sectors.push(node);
-                                  } else {
+                                  }
+                                  else {
                                     i = a[j] << 8 | a[j + 1];
                                     j += 2;
                                     y = a[j] << 8 | a[j + 1];
@@ -12072,7 +12484,7 @@ function connect() {
                                     node.xx = i;
                                     node.yy = y;
                                     sectors.push(node);
-                                    for (;j < data;) {
+                                    for (; j < data;) {
                                       d = a[j] << 16 | a[j + 1] << 8 | a[j + 2];
                                       j += 3;
                                       node = a[j];
@@ -12088,7 +12500,8 @@ function connect() {
                                       s.sy = y;
                                     }
                                   }
-                                } else {
+                                }
+                                else {
                                   if ("b" == v || "f" == v) {
                                     if (4 <= protocol_version) {
                                       node = a[j];
@@ -12103,7 +12516,8 @@ function connect() {
                                         s.sx = Math.floor(x / sector_size);
                                         s.sy = Math.floor(id / sector_size);
                                       }
-                                    } else {
+                                    }
+                                    else {
                                       d = a[j] << 16 | a[j + 1] << 8 | a[j + 2];
                                       j += 3;
                                       if (4 < s) {
@@ -12123,7 +12537,8 @@ function connect() {
                                         s.sy = y;
                                       }
                                     }
-                                  } else {
+                                  }
+                                  else {
                                     if ("c" == v) {
                                       if (4 <= protocol_version) {
                                         x = a[j] << 8 | a[j + 1];
@@ -12131,22 +12546,25 @@ function connect() {
                                         id = a[j] << 8 | a[j + 1];
                                         j += 2;
                                         d = id * grd * 3 + x;
-                                      } else {
+                                      }
+                                      else {
                                         d = a[j] << 16 | a[j + 1] << 8 | a[j + 2];
                                         j += 3;
                                       }
                                       i = cm1 = foods_c - 1;
-                                      for (;0 <= i;i--) {
+                                      for (; 0 <= i; i--) {
                                         if (s = foods[i], s.id == d) {
                                           s.eaten = true;
                                           if (j + 2 <= data) {
                                             a = a[j] << 8 | a[j + 1];
                                             s.eaten_by = os["s" + a];
                                             s.eaten_fr = 0;
-                                          } else {
+                                          }
+                                          else {
                                             if (i == cm1) {
                                               foods[i] = null;
-                                            } else {
+                                            }
+                                            else {
                                               foods[i] = foods[cm1];
                                               foods[cm1] = null;
                                             }
@@ -12160,7 +12578,8 @@ function connect() {
                                       if (-1 != d) {
                                         console.log("wtf");
                                       }
-                                    } else {
+                                    }
+                                    else {
                                       if ("j" == v) {
                                         d = a[j] << 8 | a[j + 1];
                                         j += 2;
@@ -12170,7 +12589,7 @@ function connect() {
                                         j += 2;
                                         data = null;
                                         i = preys.length - 1;
-                                        for (;0 <= i;i--) {
+                                        for (; 0 <= i; i--) {
                                           if (preys[i].id == d) {
                                             data = preys[i];
                                             break;
@@ -12189,34 +12608,40 @@ function connect() {
                                             data.wang = 2 * (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) * Math.PI / 16777215;
                                             j += 3;
                                             data.sp = (a[j] << 8 | a[j + 1]) / 1E3;
-                                          } else {
+                                          }
+                                          else {
                                             if (11 == s) {
                                               data.ang = 2 * (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) * Math.PI / 16777215;
                                               j += 3;
                                               data.sp = (a[j] << 8 | a[j + 1]) / 1E3;
-                                            } else {
+                                            }
+                                            else {
                                               if (12 == s) {
                                                 data.dir = a[j] - 48;
                                                 j++;
                                                 data.wang = 2 * (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) * Math.PI / 16777215;
                                                 j += 3;
                                                 data.sp = (a[j] << 8 | a[j + 1]) / 1E3;
-                                              } else {
+                                              }
+                                              else {
                                                 if (13 == s) {
                                                   data.dir = a[j] - 48;
                                                   j++;
                                                   data.ang = 2 * (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) * Math.PI / 16777215;
                                                   j += 3;
                                                   data.wang = 2 * (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) * Math.PI / 16777215;
-                                                } else {
+                                                }
+                                                else {
                                                   if (9 == s) {
                                                     data.ang = 2 * (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) * Math.PI / 16777215;
-                                                  } else {
+                                                  }
+                                                  else {
                                                     if (10 == s) {
                                                       data.dir = a[j] - 48;
                                                       j++;
                                                       data.wang = 2 * (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) * Math.PI / 16777215;
-                                                    } else {
+                                                    }
+                                                    else {
                                                       if (8 == s) {
                                                         data.sp = (a[j] << 8 | a[j + 1]) / 1E3;
                                                       }
@@ -12232,7 +12657,7 @@ function connect() {
                                           j = data.yy - d;
                                           d = data.fpos;
                                           s = 0;
-                                          for (;s < rfc;s++) {
+                                          for (; s < rfc; s++) {
                                             data.fxs[d] -= a * rfas[s];
                                             data.fys[d] -= j * rfas[s];
                                             d++;
@@ -12244,33 +12669,37 @@ function connect() {
                                           data.fy = data.fys[data.fpos];
                                           data.ftg = rfc;
                                         }
-                                      } else {
+                                      }
+                                      else {
                                         if ("y" == v) {
                                           if (d = a[j] << 8 | a[j + 1], j += 2, 2 == s) {
                                             i = preys.length - 1;
-                                            for (;0 <= i;i--) {
+                                            for (; 0 <= i; i--) {
                                               if (data = preys[i], data.id == d) {
                                                 preys.splice(i, 1);
                                                 break;
                                               }
                                             }
-                                          } else {
+                                          }
+                                          else {
                                             if (4 == s) {
                                               a = a[j] << 8 | a[j + 1];
                                               i = preys.length - 1;
-                                              for (;0 <= i;i--) {
+                                              for (; 0 <= i; i--) {
                                                 if (data = preys[i], data.id == d) {
                                                   data.eaten = true;
                                                   data.eaten_by = os["s" + a];
                                                   if (data.eaten_by) {
                                                     data.eaten_fr = 0;
-                                                  } else {
+                                                  }
+                                                  else {
                                                     preys.splice(i, 1);
                                                   }
                                                   break;
                                                 }
                                               }
-                                            } else {
+                                            }
+                                            else {
                                               node = a[j];
                                               j++;
                                               x = (a[j] << 16 | a[j + 1] << 8 | a[j + 2]) / 5;
@@ -12308,8 +12737,7 @@ function connect() {
         }
       }
     };
-    ws.onerror = function(er) {
-    };
+    ws.onerror = function(er) {};
     ws.onclose = function(data) {
       if (ws == this) {
         playing = connected = false;
@@ -12327,14 +12755,14 @@ function connect() {
           if (v == "" + Number(v)) {
             i = Number(v);
           }
-        } catch (f) {
         }
+        catch (f) {}
         v = new Uint8Array(3 + a.length);
         v[0] = 115;
         v[1] = 5;
         v[2] = i;
         i = 0;
-        for (;i < a.length;i++) {
+        for (; i < a.length; i++) {
           v[i + 3] = a.charCodeAt(i);
         }
         ws.send(v);
@@ -12356,6 +12784,7 @@ function connect() {
     };
   }
 }
+
 function asciize(a) {
   var i;
   var ln;
@@ -12363,7 +12792,7 @@ function asciize(a) {
   ln = a.length;
   var output = false;
   i = 0;
-  for (;i < ln;i++) {
+  for (; i < ln; i++) {
     if (chr1 = a.charCodeAt(i), 32 > chr1 || 127 < chr1) {
       output = true;
       break;
@@ -12372,7 +12801,7 @@ function asciize(a) {
   if (output) {
     output = "";
     i = 0;
-    for (;i < ln;i++) {
+    for (; i < ln; i++) {
       chr1 = a.charCodeAt(i);
       output = 32 > chr1 || 127 < chr1 ? output + " " : output + String.fromCharCode(chr1);
     }
@@ -12387,8 +12816,8 @@ try {
   if ("1" != localStorage.edttsg) {
     cstx.style.display = "inline";
   }
-} catch (b$$53) {
 }
+catch (b$$53) {}
 var fb = document.getElementById("fb");
 fb.href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent("http://slither.io");
 fb.onclick = function() {
@@ -12412,25 +12841,27 @@ try {
   if ("0" == localStorage.qual) {
     grqi.src = "/s/lowquality.png";
     want_quality = 0;
-  } else {
+  }
+  else {
     phqi.src = "/s/lowquality.png";
     want_quality = 1;
   }
-} catch (b$$54) {
 }
+catch (b$$54) {}
 grq.onclick = function() {
   try {
     if ("0" == localStorage.qual) {
       localStorage.qual = "1";
       grqi.src = "/s/highquality.png";
       want_quality = 1;
-    } else {
+    }
+    else {
       localStorage.qual = "0";
       grqi.src = "/s/lowquality.png";
       want_quality = 0;
     }
-  } catch (b) {
   }
+  catch (b) {}
   return false;
 };
 var plq = document.getElementById("plq");
@@ -12439,8 +12870,8 @@ try {
   if ("1" == localStorage.edttsg) {
     cskh.style.display = "inline";
   }
-} catch (b$$56) {
 }
+catch (b$$56) {}
 var psk = document.getElementById("psk");
 var pskh = document.getElementById("pskh");
 var nsk = document.getElementById("nsk");
@@ -12486,21 +12917,21 @@ csk.onclick = function() {
     gsc = sgsc;
     var data = [];
     var h = 22;
-    for (;1 <= h;h--) {
+    for (; 1 <= h; h--) {
       data.push({
-        xx : grd / 2 - 10 * h,
-        yy : grd / 2,
-        fx : 0,
-        fy : 0,
-        exs : [],
-        eys : [],
-        efs : [],
-        ems : [],
-        eiu : 0,
-        fpos : 0,
-        da : 0,
-        ebx : 10,
-        eby : 0
+        xx: grd / 2 - 10 * h,
+        yy: grd / 2,
+        fx: 0,
+        fy: 0,
+        exs: [],
+        eys: [],
+        efs: [],
+        ems: [],
+        eiu: 0,
+        fpos: 0,
+        da: 0,
+        ebx: 10,
+        eby: 0
       });
     }
     h = 0;
@@ -12509,8 +12940,8 @@ csk.onclick = function() {
       if (r == "" + Number(r)) {
         h = Number(r);
       }
-    } catch (f) {
     }
+    catch (f) {}
     data = newSnake(1, grd / 2, grd / 2, h, 0, data);
     view_xx = grd / 2 - 105;
     view_yy = grd / 2;
@@ -12536,10 +12967,8 @@ csk.onclick = function() {
     data.alive_amt = 1;
     data.rex = 1.66;
     ws = {
-      send : function(s) {
-      },
-      close : function() {
-      }
+      send: function(s) {},
+      close: function() {}
     };
     high_quality = playing = connected = true;
     gla = 1;
@@ -12595,118 +13024,118 @@ lmch.appendChild(lmc2);
 logo.appendChild(lmch);
 var lts = [];
 lts.push({
-  pts : [107, 107, 80, 83, 53, 98, 31, 115, 55, 131, 98, 147, 101, 162, 101, 190, 66, 188, 49, 187, 34, 173],
-  kc : 22,
-  ws : 4,
-  wr : 0.025,
-  qm : 0.025,
-  sp : 0.06,
-  sz : 11
+  pts: [107, 107, 80, 83, 53, 98, 31, 115, 55, 131, 98, 147, 101, 162, 101, 190, 66, 188, 49, 187, 34, 173],
+  kc: 22,
+  ws: 4,
+  wr: 0.025,
+  qm: 0.025,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [150, 30, 150, 107, 150, 184],
-  kc : 66,
-  ws : 4,
-  wr : 0.05,
-  qm : 0.025,
-  sp : 0.06,
-  sz : 11
+  pts: [150, 30, 150, 107, 150, 184],
+  kc: 66,
+  ws: 4,
+  wr: 0.05,
+  qm: 0.025,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [207, 96, 207, 140, 207, 184],
-  kc : 46,
-  ws : 4,
-  wr : 0.03,
-  qm : 0.035,
-  sp : 0.06,
-  sz : 11
+  pts: [207, 96, 207, 140, 207, 184],
+  kc: 46,
+  ws: 4,
+  wr: 0.03,
+  qm: 0.035,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [207, 47, 207, 48.5, 207, 50],
-  kc : 11,
-  ws : 2,
-  wr : 0.06,
-  qm : 0.05,
-  sp : 0.06,
-  sz : 15,
-  r : 0.5
+  pts: [207, 47, 207, 48.5, 207, 50],
+  kc: 11,
+  ws: 2,
+  wr: 0.06,
+  qm: 0.05,
+  sp: 0.06,
+  sz: 15,
+  r: 0.5
 }, {
-  pts : [267, 65, 267, 114.5, 267, 164, 267, 194, 297, 186],
-  kc : 66,
-  ws : 6,
-  wr : -0.025,
-  qm : -0.0125,
-  sp : 0.06,
-  sz : 11,
-  r : 1.5
+  pts: [267, 65, 267, 114.5, 267, 164, 267, 194, 297, 186],
+  kc: 66,
+  ws: 6,
+  wr: -0.025,
+  qm: -0.0125,
+  sp: 0.06,
+  sz: 11,
+  r: 1.5
 }, {
-  pts : [243, 94, 268, 94, 293, 94],
-  kc : 66,
-  ws : 4,
-  wr : 0.015,
-  qm : 0.025,
-  sp : 0.06,
-  sz : 9,
-  r : 1.2
+  pts: [243, 94, 268, 94, 293, 94],
+  kc: 66,
+  ws: 4,
+  wr: 0.015,
+  qm: 0.025,
+  sp: 0.06,
+  sz: 9,
+  r: 1.2
 }, {
-  pts : [338, 30, 338, 68.5, 338, 107, 338, 145.5, 338, 184, 338, 164, 338, 144, 338, 104, 378, 104, 418, 104, 418, 144, 418, 164, 418, 184],
-  kc : 46,
-  ws : 4,
-  wr : 0.005,
-  qm : 0.02,
-  sp : 0.06,
-  sz : 11,
-  r : 2.1
+  pts: [338, 30, 338, 68.5, 338, 107, 338, 145.5, 338, 184, 338, 164, 338, 144, 338, 104, 378, 104, 418, 104, 418, 144, 418, 164, 418, 184],
+  kc: 46,
+  ws: 4,
+  wr: 0.005,
+  qm: 0.02,
+  sp: 0.06,
+  sz: 11,
+  r: 2.1
 }, {
-  pts : [535, 175, 500, 201, 472, 175, 442, 138, 472, 105, 502, 84, 532, 105, 546, 118, 544, 139, 504, 139, 464, 139],
-  kc : 35,
-  ws : 6,
-  wr : -0.013,
-  qm : -0.025,
-  sp : 0.06,
-  sz : 11,
-  r : 1.3
+  pts: [535, 175, 500, 201, 472, 175, 442, 138, 472, 105, 502, 84, 532, 105, 546, 118, 544, 139, 504, 139, 464, 139],
+  kc: 35,
+  ws: 6,
+  wr: -0.013,
+  qm: -0.025,
+  sp: 0.06,
+  sz: 11,
+  r: 1.3
 }, {
-  pts : [591, 96, 591, 140, 591, 184, 591, 155, 591, 126, 613, 82, 652, 109],
-  kc : 38,
-  ws : 4,
-  wr : 0.01,
-  qm : -0.035,
-  sp : 0.06,
-  sz : 11
+  pts: [591, 96, 591, 140, 591, 184, 591, 155, 591, 126, 613, 82, 652, 109],
+  kc: 38,
+  ws: 4,
+  wr: 0.01,
+  qm: -0.035,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [663, 177, 663, 178.5, 663, 180],
-  kc : 11,
-  ws : 2,
-  wr : 0.06,
-  qm : 0.05,
-  sp : 0.06,
-  sz : 15
+  pts: [663, 177, 663, 178.5, 663, 180],
+  kc: 11,
+  ws: 2,
+  wr: 0.06,
+  qm: 0.05,
+  sp: 0.06,
+  sz: 15
 }, {
-  pts : [717, 96, 717, 140, 717, 184],
-  kc : 33,
-  ws : 4,
-  wr : 0.06,
-  qm : 0.05,
-  sp : 0.06,
-  sz : 11
+  pts: [717, 96, 717, 140, 717, 184],
+  kc: 33,
+  ws: 4,
+  wr: 0.06,
+  qm: 0.05,
+  sp: 0.06,
+  sz: 11
 }, {
-  pts : [717, 47, 717, 48.5, 717, 50],
-  kc : 11,
-  ws : 2,
-  wr : 0.06,
-  qm : 0.05,
-  sp : 0.06,
-  sz : 15
+  pts: [717, 47, 717, 48.5, 717, 50],
+  kc: 11,
+  ws: 2,
+  wr: 0.06,
+  qm: 0.05,
+  sp: 0.06,
+  sz: 15
 }, {
-  pts : [814, 186, 860, 188, 858, 136, 854, 96, 814, 96, 770, 96, 770, 136, 770, 186, 814, 186],
-  kc : 43,
-  ws : 4,
-  wr : 0,
-  qm : 0.0274,
-  sp : 0.073,
-  sz : 11,
-  r : 1.5
+  pts: [814, 186, 860, 188, 858, 136, 854, 96, 814, 96, 770, 96, 770, 136, 770, 186, 814, 186],
+  kc: 43,
+  ws: 4,
+  wr: 0,
+  qm: 0.0274,
+  sp: 0.073,
+  sz: 11,
+  r: 1.5
 });
 i = 0;
-for (;i < lts.length;i++) {
+for (; i < lts.length; i++) {
   lts[i].mwig = 5;
 }
 var lga = 0;
@@ -12715,6 +13144,7 @@ var ncka = 0;
 var mwig = 4;
 var lgfr = 0;
 var lgtm = Date.now();
+
 function showLogo(dataAndEvents) {
   var i = Date.now();
   var imgWidth = (i - lgtm) / 25;
@@ -12738,7 +13168,8 @@ function showLogo(dataAndEvents) {
   if (0 == lts[lts.length - 1].mwig && (1 == lga && (1 == lgss && 1 == ncka))) {
     clearInterval(showlogo_iv);
     showlogo_iv = -1;
-  } else {
+  }
+  else {
     if (dataAndEvents || 1 != lga) {
       lga += 0.05 * imgWidth;
       if (1 <= lga) {
@@ -12767,7 +13198,7 @@ function showLogo(dataAndEvents) {
     }
     lctx.clearRect(0, 0, lw, lh);
     i = 0;
-    for (;i < lts.length;i++) {
+    for (; i < lts.length; i++) {
       var stack = lts[i];
       var data = stack.pts;
       var length = stack.kc;
@@ -12803,7 +13234,8 @@ function showLogo(dataAndEvents) {
         tmp = ctx.createLinearGradient(0, 70 * lgsc, 0, 230 * lgsc);
         tmp.addColorStop(0, "#80FFA0");
         tmp.addColorStop(1, "#008040");
-      } else {
+      }
+      else {
         tmp = ctx.createLinearGradient(0, 50 * lgsc, 0, 265 * lgsc);
         tmp.addColorStop(0, "#9850FF");
         tmp.addColorStop(1, "#281060");
@@ -12817,7 +13249,7 @@ function showLogo(dataAndEvents) {
       y1 = y;
       var theta2 = lgfr * a;
       offset = 2;
-      for (;offset < data.length;offset += 4) {
+      for (; offset < data.length; offset += 4) {
         a = tmp;
         low = y;
         cx2 = data[offset];
@@ -12825,7 +13257,7 @@ function showLogo(dataAndEvents) {
         tmp = data[offset + 2];
         y = data[offset + 3];
         var l = 1;
-        for (;l <= length;l++) {
+        for (; l <= length; l++) {
           width++;
           var percent = l / length;
           x = a + (cx2 - a) * percent;
@@ -12838,14 +13270,16 @@ function showLogo(dataAndEvents) {
           if (I) {
             if (r - sa > Math.PI) {
               r -= 2 * Math.PI;
-            } else {
+            }
+            else {
               if (r - sa < -Math.PI) {
                 r += 2 * Math.PI;
               }
             }
             sa += 0.05 * (r - sa);
             sa %= 2 * Math.PI;
-          } else {
+          }
+          else {
             I = true;
             sa = r;
           }
@@ -12876,7 +13310,8 @@ var showlogo_iv = -1;
 if (is_safari || is_mobile) {
   ncka = lgss = lga = 1;
   showLogo(true);
-} else {
+}
+else {
   showlogo_iv = setInterval("showLogo(false)", 25);
 }
 document.onkeydown = function(e) {
@@ -12884,25 +13319,30 @@ document.onkeydown = function(e) {
   var key = e.keyCode;
   if (37 == key) {
     kd_l = true;
-  } else {
+  }
+  else {
     if (39 == key) {
       kd_r = true;
-    } else {
+    }
+    else {
       if (38 == key || 32 == key) {
         kd_u = true;
         setAcceleration(1);
-      } else {
+      }
+      else {
         if (13 == key || 10 == key) {
           if (want_victory_message) {
             if (0 < victory.value.length) {
               save_btn.elem.onclick();
             }
-          } else {
+          }
+          else {
             if (!connecting && !connected) {
               play_btn.elem.onclick();
             }
           }
-        } else {
+        }
+        else {
           if (16 == key) {
             if (testing) {
               shifty = true;
@@ -12921,14 +13361,17 @@ document.onkeyup = function(e) {
   e = e.keyCode;
   if (37 == e) {
     kd_l = false;
-  } else {
+  }
+  else {
     if (39 == e) {
       kd_r = false;
-    } else {
+    }
+    else {
       if (38 == e || 32 == e) {
         kd_u = false;
         setAcceleration(0);
-      } else {
+      }
+      else {
         if (16 == e) {
           if (testing) {
             shifty = false;
@@ -12938,6 +13381,7 @@ document.onkeyup = function(e) {
     }
   }
 };
+
 function loadSos(d) {
   if (!forcing && 0 < d.length) {
     sos = [];
@@ -12953,29 +13397,31 @@ function loadSos(d) {
     var arr = [];
     var data = [];
     var codeSegments = [];
-    for (;handle < d.length;) {
+    for (; handle < d.length;) {
       if (c = (d.charCodeAt(handle++) - 97 - a) % 26, 0 > c && (c += 26), chunk *= 16, chunk += c, a += 7, 1 == self) {
         if (0 == i) {
           arr.push(chunk);
           if (4 == arr.length) {
             i++;
           }
-        } else {
+        }
+        else {
           if (1 == i) {
             data.push(chunk);
             if (3 == data.length) {
               i++;
             }
-          } else {
+          }
+          else {
             if (2 == i && (codeSegments.push(chunk), 3 == codeSegments.length)) {
               self = {};
               i = c = 0;
-              for (;i < data.length;i++) {
+              for (; i < data.length; i++) {
                 c *= 256;
                 c += data[i];
               }
               i = data = 0;
-              for (;i < codeSegments.length;i++) {
+              for (; i < codeSegments.length; i++) {
                 data *= 256;
                 data += codeSegments[i];
               }
@@ -12991,15 +13437,16 @@ function loadSos(d) {
           }
         }
         self = chunk = 0;
-      } else {
+      }
+      else {
         self++;
       }
     }
     handle = sos.length - 1;
-    for (;0 <= handle;handle--) {
+    for (; 0 <= handle; handle--) {
       self = 1;
       i = sis.length - 1;
-      for (;0 <= i;i--) {
+      for (; 0 <= i; i--) {
         if (sis[i].ip == sos[handle].ip) {
           self = 0;
           break;
@@ -13009,7 +13456,7 @@ function loadSos(d) {
         a = d = -1;
         arr = [];
         i = sos.length - 1;
-        for (;0 <= i;i--) {
+        for (; 0 <= i; i--) {
           if (sos[i].ip == sos[handle].ip) {
             arr.push(sos[handle].po);
             if (sos[i].ac > a) {
@@ -13019,29 +13466,29 @@ function loadSos(d) {
           }
         }
         sis.push({
-          ip : sos[d].ip,
-          po : arr[Math.floor(Math.random() * arr.length)],
-          ptms : []
+          ip: sos[d].ip,
+          po: arr[Math.floor(Math.random() * arr.length)],
+          ptms: []
         });
       }
     }
     i = sis.length - 1;
-    for (;0 <= i;i--) {
+    for (; 0 <= i; i--) {
       if (self = sis[i], handle = null, !(0.4 > Math.random())) {
         try {
           handle = new WebSocket("ws://" + self.ip + ":" + self.po + "/ptc");
-        } catch (x) {
+        }
+        catch (x) {
           handle = null;
         }
         if (handle) {
           handle.binaryType = "arraybuffer";
-          handle.onerror = function(er) {
-          };
+          handle.onerror = function(er) {};
           handle.onmessage = function(msg) {
             msg = new Uint8Array(msg.data);
             if (1 == msg.length && 112 == msg[0]) {
               var key = sis.length - 1;
-              for (;0 <= key;key--) {
+              for (; 0 <= key; key--) {
                 if (msg = sis[key], msg.ps == this) {
                   key = Date.now() - msg.stm;
                   msg.ptms.push(key);
@@ -13050,7 +13497,8 @@ function loadSos(d) {
                     msg = new Uint8Array(1);
                     msg[0] = 112;
                     this.send(msg);
-                  } else {
+                  }
+                  else {
                     if (waiting_for_sos) {
                       if (-1 == sos_ready_after_mtm) {
                         sos_ready_after_mtm = Date.now() + 2E3;
@@ -13067,7 +13515,7 @@ function loadSos(d) {
           handle.onopen = function(body) {
             body = false;
             var unlock = sis.length - 1;
-            for (;0 <= unlock;unlock--) {
+            for (; 0 <= unlock; unlock--) {
               var cache = sis[unlock];
               if (cache.ps == this) {
                 cache.stm = Date.now();
@@ -13107,7 +13555,8 @@ if (is_ios || is_android) {
   document.body.appendChild(mba);
   if (is_ios) {
     mba.href = "https://itunes.apple.com/us/app/slither.io/id1091944550?ls=1&mt=8";
-  } else {
+  }
+  else {
     if (is_android) {
       mba.href = is_amazon ? "http://www.amazon.com/Lowtech-Enterprises-slither-io/dp/B01E312TYQ/" : "https://play.google.com/store/apps/details?id=air.com.hypah.io.slither";
     }
@@ -13115,7 +13564,7 @@ if (is_ios || is_android) {
 }
 resize();
 o = {
-  f : function(n, success, ctx) {
+  f: function(n, success, ctx) {
     if ("success" == success) {
       loadSos(n);
     }

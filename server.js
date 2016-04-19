@@ -2,7 +2,7 @@
  * Class:         SlitherServer
  * Description:   This is the base class for the slither server. All incoming and outgoing packets will be handled here.
  * Created:       13.04.2016
- * Last change:   13´4.04.2016
+ * Last change:   19.04.2016
  * Collaborators: circa94, Kogs
  */
 
@@ -10,6 +10,7 @@
 
 var WebsocketServer = require("ws").Server;
 var async = require("async");
+var fs = require('fs');
 var msgUtil = require('./utils/message_util');
 var mathUtils = require("./utils/mathUtils");
 var consts = require("./utils/constants");
@@ -21,7 +22,7 @@ var settings = require("./utils/settings");
 
 
 function SlitherServer() {
-                                                              
+
   console.log("    __ _____ _ _ _   _              _____                     ");
   console.log(" __|  |   __| |_| |_| |_ ___ ___   |   __|___ ___ _ _ ___ ___ ");
   console.log("|  |  |__   | | |  _|   | -_|  _|  |__   | -_|  _| | | -_|  _|");
@@ -31,12 +32,15 @@ function SlitherServer() {
   console.log("");
 
 
-  log.setDebug(settings.readSetting("debug",false));
+  log.setDebug(settings.readSetting("debug", false));
   log.debug("starting in Debug mode");
 
+  // 12:43 PM Good night. I finish tomorrow
+  //var webProxy = (settings.readSetting("protocol","ws") == 'wss' ? require("https") : require("http") );
+
   this.wss = new WebsocketServer({
-    host: settings.readSetting("host","0.0.0.0"),
-    port: settings.readSetting("port",8080),
+    host: settings.readSetting("host", "0.0.0.0"),
+    port: settings.readSetting("port", 8080),
     path: '/slither'
   });
 
@@ -75,15 +79,30 @@ function SlitherServer() {
         var value = msgUtil.readInt8(0, data);
 
         if (value <= 250) {
+
           //0-250 == direction where snake is going
+
           log.debug("Snake with id:" + ws.clientId + " goes to direction: " + value);
           var degrees = value * 1.44;
-         //degrees -= 360;
+
+          var radians = degrees * (Math.PI / 180);
+          degrees = 0;
+          //degrees = 0;
+          //degrees -= 360;
+          var speed = 1;
+
+          var xMove = Math.cos(radians) + 1 * speed;
+          var yMove = Math.sin(radians) + 1 * speed;
+          //console.log(xMove+ " " + yMove);
+          ws.snake.direction.x = xMove * 125;
+          ws.snake.direction.y = yMove * 125;
           
-          log.info("Degrees: " + degrees);
-          ws.snake.direction.x = Math.cos(degrees) /5;
-          ws.snake.direction.y = Math.sin(degrees) /5;
           ws.snake.direction.angle = degrees;
+        }
+        else if (value == 252) {
+
+          console.log("WTF: " + value);
+
         }
         else if (value == 253) {
           //snake is in speed mode
@@ -98,7 +117,7 @@ function SlitherServer() {
           self.updateClient(ws);
 
         }
-       
+
       }
       else {
         var firstByte = msgUtil.readInt8(0, data);
@@ -133,9 +152,6 @@ function SlitherServer() {
           //  }
           //});
 
-        }
-        else if (firstByte == 109) {
-          log.info("setAcceleration " + secondByte);
         }
         else {
           log.error("msg from Client " + ws.clientId + " eror parsing:");
@@ -198,12 +214,19 @@ function SlitherServer() {
         client.snake.yPos += client.snake.direction.y;
       }
 
+
+
+
+
+
       //send other snake positions
       self.clients.forEach(function(otherClient) {
-        if(otherClient.snake != null){
-          this.sendToClient(new Packets.UpdatePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);
+        if (otherClient.snake != null) {
+          //this.sendToClient(new Packets.UpdatePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);
+          this.sendToClient(new Packets.MovePacket(otherClient.clientId, otherClient.snake.direction.x, otherClient.snake.direction.y), client.clientId);
+
           //this.sendToClient(new Packets.UpdateRemotePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);
-          this.sendToClient(new Packets.UpdateDirectionPacket(otherClient), client.clientId);
+          // this.sendToClient(new Packets.UpdateDirectionPacket(otherClient), client.clientId);
         }
       });
     }
@@ -215,14 +238,14 @@ function SlitherServer() {
   this.updateLeaderboard = function(snake) {
     var rankSorted = [];
     this.clients.forEach(function(client) {
-      if(client.snake != null){
+      if (client.snake != null) {
         rankSorted.push({
           snake: client.snake,
           length: client.snake.length
         });
       }
     });
-    
+
     rankSorted.sort(function(a, b) {
       return a[1] - b[1];
     });

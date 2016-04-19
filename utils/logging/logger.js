@@ -49,6 +49,10 @@ module.exports = {
     },
     setDebug : function(debug){
         isDebug = debug;
+    },
+    
+    toJSON : function(object){
+        return JSON.stringify(object);
     }
 
 }

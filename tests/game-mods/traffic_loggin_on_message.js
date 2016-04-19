@@ -56,6 +56,7 @@ function connect() {
                   , e = b.length - 2
                   , t = b.length - 3;
                   
+                  /*
                   var snakeId = b[c] << 8 | b[c + 1];
                     
                   
@@ -100,7 +101,7 @@ function connect() {
                   }else if(f == "b"){
                       console.log(new Date().getTime()+ " id " +snakeId +" sId " +(snake != null ? snake.id : "")  + "   Unkown;  Type: " + f +  "  Data:  " + b);
                   }else if(f == "f"){
-                      console.log(new Date().getTime()+ " id " +snakeId +" sId " +(snake != null ? snake.id : "")  + "   Unkown;  Type: " + f +  "  Data:  " + b);
+                      //console.log(new Date().getTime()+ " id " +snakeId +" sId " +(snake != null ? snake.id : "")  + "   Unkown;  Type: " + f +  "  Data:  " + b);
                   }else if(f == "c"){
                       console.log(new Date().getTime() + " id " +snakeId +" sId " +(snake != null ? snake.id : "") + "   Unkown;  Type: " + f +  "  Data:  " + b);
                   }else if(f == "j"){
@@ -110,7 +111,7 @@ function connect() {
                   }else if(f == "s"){
                        console.log(new Date().getTime()+ " id " +snakeId +" sId " + (snake != null ? snake.id  : "" )  + "   newSnakePacket;  Type: " + f +  "  Data:  " + b);
                   }
-                  
+                  */
                   
                 if ("a" == f)
                     connecting = !1,
@@ -152,6 +153,7 @@ function connect() {
                     startShowGame();
                 else if ("e" == f || "E" == f || 
                 "3" == f || "4" == f || "5" == f) {
+                    return;
                     var x = b[c] << 8 | b[c + 1]
                       , c = c + 2
                       , D = h = -1
