@@ -51,6 +51,13 @@ function SlitherServer() {
   this.clientCounter = 0;
   var self = this;
 
+
+this.wss.on("error",function(e){
+  log.error("Failed to run WebsocketServer (Make sure your port is not used)");
+  log.error(e);
+});
+
+
   //create some food for testing
   //in future, this should make some kind of task, which is generating new food
   //currently all foods are sending. later we should only send the food in players range

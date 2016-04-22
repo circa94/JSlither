@@ -2,8 +2,7 @@
 echo [BATCH] Starting JSlither
 :loop
    cls
-   set PORT=443
-   node ./server.js
+   npm start
    echo -------------------------------------------------------
    echo [BATCH] JSlither Shutdown, waiting 15 seconds before a restart.
    timeout /t 15 > nul
