@@ -13,6 +13,7 @@ const INT16MAX = 65535;
 const INT8MAX = 255;
 const MAXFOODCOLORS = 24;
 const MAPSIZE = 216000;
+const SECTORSIZE = 300;
 
 module.exports = {
     INT24MAX: INT24MAX,
@@ -20,6 +21,7 @@ module.exports = {
     INT8MAX: INT8MAX,
     MAXFOODCOLORS: MAXFOODCOLORS,
     MAPSIZE: MAPSIZE,
+    SECTORSIZE : SECTORSIZE,
     packetTypes: {
         a: 97, //initialPacket
         s: 115, //newSnakePacket

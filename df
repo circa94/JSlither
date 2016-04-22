@@ -1,0 +1,175 @@
+[1mdiff --git a/entities/snake.js b/entities/snake.js[m
+[1mindex c9530fb..e1d7119 100755[m
+[1m--- a/entities/snake.js[m
+[1m+++ b/entities/snake.js[m
+[36m@@ -14,7 +14,7 @@[m [mfunction Snake(id, username, skin) {[m
+     this.id = id;[m
+     this.username = username;[m
+     this.skin = skin;[m
+[31m-    this.speed = 5.76 * 1E3;[m
+[32m+[m[32m    this.speed = 5.76 * 1E3/* consts.INT16MAX*/;[m
+ [m
+     var pos = gameUtils.getRandomSpawnPoint();[m
+ [m
+[36m@@ -24,10 +24,17 @@[m [mfunction Snake(id, username, skin) {[m
+     this.yPosHead = pos.y;[m
+     this.D = 3.1415926535 / Math.PI * consts.INT24MAX // smth for direction[m
+     this.x = this.D;[m
+[31m-    this.parts = [{[m
+[31m-        x: 138,[m
+[31m-        y: 43[m
+[31m-    }];[m
+[32m+[m[32m    this.parts = [];[m
+[32m+[m[41m    [m
+[32m+[m[32m    for(var i = 0 ;i < 500;i++){[m
+[32m+[m[32m        this.parts.push({[m
+[32m+[m[32m        x: 1,[m
+[32m+[m[32m        y: 2[m
+[32m+[m[32m    });[m
+[32m+[m[41m [m
+[32m+[m[32m    }[m
+[32m+[m[41m    [m
+[32m+[m[41m    [m
+     this.length = 11.7 + id;[m
+     this.J = 306;[m
+     this.I = 0.7810754645511785 * consts.INT24MAX;[m
+[1mdiff --git a/packets/serverbound/updateSnakePartsPacket.js b/packets/serverbound/updateSnakePartsPacket.js[m
+[1mdeleted file mode 100644[m
+[1mindex 233c30c..0000000[m
+[1m--- a/packets/serverbound/updateSnakePartsPacket.js[m
+[1m+++ /dev/null[m
+[36m@@ -1,26 +0,0 @@[m
+[31m-/*  [m
+[31m- * Class:         UpdateSnakePartspacket[m
+[31m- * Description:   Class for updating snake parts. Let the client know how many parts have to draw.[m
+[31m- * Created:       16.04.2016[m
+[31m- * Last change:   16.04.2016[m
+[31m- * Collaborators: circa94, Kogs[m
+[31m-*/[m
+[31m-'use strict';[m
+[31m-[m
+[31m-var msgUtil = require('../../utils/message_util');[m
+[31m-var consts = require("../../utils/constants");[m
+[31m-var exports = module.exports = {};[m
+[31m-[m
+[31m-function UpdateSnakePartspacket(){[m
+[31m-  this.packetType = consts.packetTypes.G;[m
+[31m-}[m
+[31m-[m
+[31m-UpdateSnakePartspacket.prototype.toBuffer = function(){[m
+[31m-  var arr = new Uint8Array(11);[m
+[31m-  var b = 0;[m
+[31m-  b += msgUtil.writeInt8(b, arr, 0);[m
+[31m-  b += msgUtil.writeInt8(b, arr, 0);[m
+[31m-  b += msgUtil.writeInt8(b, arr, this.packetType);[m
+[31m-}[m
+[31m-[m
+[31m-module.exports = UpdateSnakePartspacket;[m
+\ No newline at end of file[m
+[1mdiff --git a/server.js b/server.js[m
+[1mindex 0441a7c..7203465 100755[m
+[1m--- a/server.js[m
+[1m+++ b/server.js[m
+[36m@@ -84,20 +84,21 @@[m [mfunction SlitherServer() {[m
+ [m
+           log.debug("Snake with id:" + ws.clientId + " goes to direction: " + value);[m
+           var degrees = value * 1.44;[m
+[32m+[m[32m          //var oldDegrees = ws.snake.direction.angle;[m
+[32m+[m[32m          //var degreesDistance =  mathUtils.getDegreesDistance(oldDegrees,degrees);[m
+[32m+[m[41m      [m
+ [m
+           var radians = degrees * (Math.PI / 180);[m
+[31m-          degrees = 0;[m
+[31m-          //degrees = 0;[m
+[31m-          //degrees -= 360;[m
+[32m+[m
+           var speed = 1;[m
+ [m
+[31m-          var xMove = Math.cos(radians) + 1 * speed;[m
+[31m-          var yMove = Math.sin(radians) + 1 * speed;[m
+[31m-          //console.log(xMove+ " " + yMove);[m
+[31m-          ws.snake.direction.x = xMove * 125;[m
+[31m-          ws.snake.direction.y = yMove * 125;[m
+[31m-          [m
+[32m+[m[32m          var xMove = Math.cos(radians) + 1;[m
+[32m+[m[32m          var yMove = Math.sin(radians) + 1;[m
+[32m+[m
+[32m+[m[32m          ws.snake.direction.x = xMove * 127 * speed;[m
+[32m+[m[32m          ws.snake.direction.y = yMove * 127 * speed;[m
+           ws.snake.direction.angle = degrees;[m
+[32m+[m
+         }[m
+         else if (value == 252) {[m
+ [m
+[36m@@ -139,18 +140,20 @@[m [mfunction SlitherServer() {[m
+ [m
+           self.sendToAll(new Packets.NewSnakePacket(ws.snake));[m
+           self.sendToClient(new Packets.GlobalHighscorePacket(), ws.clientId);[m
+[31m-          //self.sendToClient(new Packets.gPacket(ws.clientId, 28907, 21136), ws.clientId);[m
+ [m
+[31m-          //TODO send food here[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+           self.sendToClient(new Packets.SpawnFoodPacket(self.foods), ws.clientId);[m
+ [m
+[31m-          //todo test this..[m
+[31m-          //self.clients.forEach(function(client) {[m
+[31m-          //later only send close snakes [m
+[31m-          //  if (client.clientId != ws.clientId) {[m
+[31m-          //    self.sendToClient(new Packets.NewSnakePacket(client), ws.clientId);[m
+[31m-          //  }[m
+[31m-          //});[m
+[32m+[m
+[32m+[m[32m          self.clients.forEach(function(client) {[m
+[32m+[m[32m            //later only send close snakes[m[41m [m
+[32m+[m[32m            if (client.clientId != ws.clientId) {[m
+[32m+[m[32m              self.sendToClient(new Packets.NewSnakePacket(client.snake), ws.clientId);[m
+[32m+[m[32m            }[m
+[32m+[m[32m          });[m
+ [m
+         }[m
+         else {[m
+[36m@@ -215,18 +218,14 @@[m [mfunction SlitherServer() {[m
+       }[m
+ [m
+ [m
+[31m-[m
+[31m-[m
+[31m-[m
+[31m-[m
+       //send other snake positions[m
+       self.clients.forEach(function(otherClient) {[m
+         if (otherClient.snake != null) {[m
+[31m-          //this.sendToClient(new Packets.UpdatePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);[m
+[32m+[m
+           this.sendToClient(new Packets.MovePacket(otherClient.clientId, otherClient.snake.direction.x, otherClient.snake.direction.y), client.clientId);[m
+[32m+[m[32m          //this.sendToClient(new Packets.UpdatePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);[m
+ [m
+[31m-          //this.sendToClient(new Packets.UpdateRemotePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);[m
+[31m-          // this.sendToClient(new Packets.UpdateDirectionPacket(otherClient), client.clientId);[m
+[32m+[m[32m          //this.sendToClient(new Packets.UpdateDirectionPacket(otherClient), client.clientId);[m
+         }[m
+       });[m
+     }[m
+[1mdiff --git a/utils/mathUtils.js b/utils/mathUtils.js[m
+[1mindex 0bdc3a3..b81eef9 100755[m
+[1m--- a/utils/mathUtils.js[m
+[1m+++ b/utils/mathUtils.js[m
+[36m@@ -11,5 +11,14 @@[m
+ module.exports = {[m
+     getRandomInt : function(min,max){[m
+         return Math.floor(Math.random() * (max - min + 1)) + min;[m
+[32m+[m[32m    },[m
+[32m+[m[41m    [m
+[32m+[m[41m [m
+[32m+[m[32m    getDegreesDistance :function(alpha, beta)[m[41m [m
+[32m+[m[32m    {[m
+[32m+[m[32m        var phi = Math.abs(beta - alpha) % 360;       // This is either the distance or 360 - distance[m
+[32m+[m[32m        var distance = phi > 180 ? 360 - phi : phi;[m
+[32m+[m[32m        return distance;[m
+     }[m
+[32m+[m[41m    [m
+ }[m
+\ No newline at end of file[m

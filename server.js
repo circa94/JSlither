@@ -26,7 +26,7 @@ function SlitherServer() {
   console.log("    __ _____ _ _ _   _              _____                     ");
   console.log(" __|  |   __| |_| |_| |_ ___ ___   |   __|___ ___ _ _ ___ ___ ");
   console.log("|  |  |__   | | |  _|   | -_|  _|  |__   | -_|  _| | | -_|  _|");
-  console.log("|_____|_____|_|_|_| |_|_|___|_|    |_____|___|_|  \_/|___|_|  ");
+  console.log("|_____|_____|_|_|_| |_|_|___|_|    |_____|___|_|  \\_/|___|_|  ");
   console.log("");
   console.log("www.TheHardCoders.de");
   console.log("");
@@ -84,20 +84,21 @@ function SlitherServer() {
 
           log.debug("Snake with id:" + ws.clientId + " goes to direction: " + value);
           var degrees = value * 1.44;
+          //var oldDegrees = ws.snake.direction.angle;
+          //var degreesDistance =  mathUtils.getDegreesDistance(oldDegrees,degrees);
+      
 
           var radians = degrees * (Math.PI / 180);
-          degrees = 0;
-          //degrees = 0;
-          //degrees -= 360;
+
           var speed = 1;
 
-          var xMove = Math.cos(radians) + 1 * speed;
-          var yMove = Math.sin(radians) + 1 * speed;
-          //console.log(xMove+ " " + yMove);
-          ws.snake.direction.x = xMove * 125;
-          ws.snake.direction.y = yMove * 125;
-          
+          var xMove = Math.cos(radians) + 1;
+          var yMove = Math.sin(radians) + 1;
+
+          ws.snake.direction.x = xMove * 127 * speed;
+          ws.snake.direction.y = yMove * 127 * speed;
           ws.snake.direction.angle = degrees;
+
         }
         else if (value == 252) {
 
@@ -129,8 +130,9 @@ function SlitherServer() {
 
         if (firstByte == 115 && secondByte == 5) { //start a new game. set username
           var username = msgUtil.readString(3, data, data.byteLength);
+          var skin = msgUtil.readInt8(2, data);// Set Skin
 
-          ws.snake = new Entities.Snake(ws.clientId, username, mathUtils.getRandomInt(0, 26));
+          ws.snake = new Entities.Snake(ws.clientId, username, skin);
 
 
           log.info("Client sends username " + ws.clientId + " " + username);
@@ -139,18 +141,20 @@ function SlitherServer() {
 
           self.sendToAll(new Packets.NewSnakePacket(ws.snake));
           self.sendToClient(new Packets.GlobalHighscorePacket(), ws.clientId);
-          //self.sendToClient(new Packets.gPacket(ws.clientId, 28907, 21136), ws.clientId);
 
-          //TODO send food here
+
+
+
+
           self.sendToClient(new Packets.SpawnFoodPacket(self.foods), ws.clientId);
 
-          //todo test this..
-          //self.clients.forEach(function(client) {
-          //later only send close snakes 
-          //  if (client.clientId != ws.clientId) {
-          //    self.sendToClient(new Packets.NewSnakePacket(client), ws.clientId);
-          //  }
-          //});
+
+          // self.clients.forEach(function(client) {
+          //   //later only send close snakes 
+          //   if (client.clientId != ws.clientId) {
+          //     self.sendToClient(new Packets.NewSnakePacket(client.snake), ws.clientId);
+          //   }
+          // });
 
         }
         else {
@@ -215,18 +219,14 @@ function SlitherServer() {
       }
 
 
-
-
-
-
       //send other snake positions
       self.clients.forEach(function(otherClient) {
         if (otherClient.snake != null) {
-          //this.sendToClient(new Packets.UpdatePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);
-          this.sendToClient(new Packets.MovePacket(otherClient.clientId, otherClient.snake.direction.x, otherClient.snake.direction.y), client.clientId);
 
-          //this.sendToClient(new Packets.UpdateRemotePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);
-          // this.sendToClient(new Packets.UpdateDirectionPacket(otherClient), client.clientId);
+          this.sendToClient(new Packets.MovePacket(otherClient.clientId, otherClient.snake.direction.x, otherClient.snake.direction.y), client.clientId);
+          //this.sendToClient(new Packets.UpdatePositionPacket(otherClient.clientId, otherClient.snake.xPos, otherClient.snake.yPos), client.clientId);
+
+          //this.sendToClient(new Packets.UpdateDirectionPacket(otherClient), client.clientId);
         }
       });
     }

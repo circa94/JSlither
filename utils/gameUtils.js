@@ -26,8 +26,8 @@ module.exports = {
 
     getRandomSpawnPoint: function() {
         return {
-            x: mathUtils.getRandomInt(5000 * 5, 30000 * 5),
-            y: mathUtils.getRandomInt(5000 * 5, 30000 * 5)
+            x: mathUtils.getRandomInt(25000 * 5, 30000 * 5),
+            y: mathUtils.getRandomInt(25000 * 5, 30000 * 5)
         };
     }
 }

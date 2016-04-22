@@ -19,7 +19,7 @@ function InitialPacket() {
     this.packetType = consts.packetTypes.a;
     this.gameRadius = consts.MAPSIZE;
     this.c = 411;
-    this.sector_size = 480;
+    this.sector_size = 300;
     this.sector_count_along_edge = 130;
     this.spangdv = 4.8 * 10;
     //nsp is propably the nood speed
